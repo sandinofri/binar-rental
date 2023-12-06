@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.testimonial {
+    content: '';
+}
+
+.testi-p1 {
+    font-family: "Arial-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 24px;
+    margin-top: 100px;
+    text-align: center; 
+}
+
+.testi-p2 {
+    font-family: "Arial-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.testi-wrap {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.list-testi {
+    display: flex;
+    justify-content: center;
+}
+
+.testi-card {
+    width: 619px;
+    height: 270px;
+    background-color: #f1f3ff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.30);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.testi-card .testi-img {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    left: 50px;
+}
+
+.testi-card .testi-text {
+    position: relative;
+    right: 30px;
+    gap: 8px;
+}
+
+.testi-card .testi-desc {
+    width: 415px;
+    font-family: "Arial-Bold", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 14px;
+}
+
+.testi-card .testi-name {
+    font-family: "Arial-Regular", Helvetica;
+    font-weight: 400;
+    color: #000000;
+    font-size: 14px;
+}
+
+.testi-card .testi-star {
+    color: #f9cc00;
+    font-size: 16px;
+    align-self: center;
+}
+
+.carousel-testi {
+    border: 1px solid black;
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+    border-radius: 100%;
+    position: relative;
+}
+
+.carousel-testi:hover {
+    background-color: #5CB85F;
+}
+
+.testi-prev,
+.testi-next {
+    filter: invert(100%);
+}
+
+.testi-prev:hover,
+.testi-next:hover {
+    filter: invert(0%);
+}
+
+@media (max-width:576px) {
+    .testimonial .testi-card {
+        width: 300px;
+        height: 390px;
+    }
+
+    .testimonial .testi-desc {
+        width: 230px;
+    }
+
+    .testimonial .testi-text {
+        position: relative;
+        right: 60px;
+        top: 60px;
+    }
+
+    .testimonial .testi-star { 
+        position: relative;
+        left: 90px;
+        bottom: 10px;
+    }
+
+    .testimonial .testi-img {
+        position: relative;
+        bottom: 120px;
+        left: 130px;
+    }
+
+}
