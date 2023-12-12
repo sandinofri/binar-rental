@@ -39,16 +39,14 @@
 }
 
 .services .frame-2 {
-  flex-direction: column;
   display: inline-flex;
+  flex-direction: column;
   gap: 16px;
 }
 
 .services .frame-3 {
   display: flex;
   gap: 16px;
-  position: relative;
-  margin-top: -15px;
 }
 
 .services .icons {
