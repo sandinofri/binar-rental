@@ -28,10 +28,10 @@ h2 {
   padding: 0 !important;
 }
 
-.register .sign-page .login-area .btn button {
+.register .sign-page .login-area .btn img {
   margin: 0;
   width: 100px;
-  height: 34px;
+  height: auto;
   background: var(--primary-dark-blue-01, #cfd4ed);
 }
 

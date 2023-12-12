@@ -3,7 +3,7 @@ import "./style.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
-import { Link } from "react-router-dom";
+import Logo from "../../assets/image/logo.png";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -71,7 +71,7 @@ const SignIn = (props) => {
             <div className="login-area col " xs={12}>
               <div className="btn">
                 <a href={"/"}>
-                  <button></button>
+                  <img src={Logo} alt="" />
                 </a>
               </div>
               <h1> Welcome Back</h1>

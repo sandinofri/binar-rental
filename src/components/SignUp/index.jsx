@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Logo from "../../assets/image/logo.png";
 const SignUp = (props) => {
   const [form, setForm] = useState({
     name: "",
@@ -61,7 +62,7 @@ const SignUp = (props) => {
             <div className="login-area col-xl-6 ">
               <div className="btn">
                 <a href={"/"}>
-                  <button></button>
+                  <img src={Logo} alt="" />
                 </a>
               </div>
               <h1>Sign Up</h1>
