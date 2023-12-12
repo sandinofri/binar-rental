@@ -3,27 +3,38 @@
   padding: 0;
 }
 
-.footer {
-  display: flex;
-  justify-content: space-between;
-}
-
 .footer .footer-header {
   display: flex;
+  justify-content: space-between;
+  padding: 100px 0 !important;
+  margin: 0 100px;
 }
 
 .footer .footer-address {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-content: space-between;
+  gap: 16px;
 }
 
 .footer .footer-nav {
-  padding-left: 80px;
+  /* padding-left: 80px; */
+  display: flex;
+  flex-grow: 1;
+
+  flex-direction: column;
+  justify-content: space-between;
+  width: auto;
+}
+
+.footer .list-item {
+  display: flex;
+  gap: 16px;
 }
 
 .footer .footer-logo {
-  width: 100px;
+  /* width: 100px; */
   height: 30px;
 }
 
@@ -34,6 +45,15 @@
   color: white;
   border-radius: 100%;
   background-color: #0d28a6;
+}
+
+.footer-coonect,
+.copyright {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex-grow: 1;
 }
 
 .footer .footer-text-wrapper {
@@ -49,19 +69,11 @@
   font-weight: 400;
 }
 
+/* FIX BOOTSTRAP UI  */
+p,
+.p {
+  margin-bottom: 0;
+}
+
 @media (max-width: 576px) {
-  .footer {
-    position: relative;
-    width: 200px;
-  }
-
-  .footer .footer-header {
-    width: 200px;
-  }
-
-  .footer .footer-text-wrapper-2 {
-    position: relative;
-    left: -70px;
-    font-size: 13px;
-  }
 }

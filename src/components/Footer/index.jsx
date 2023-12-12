@@ -50,7 +50,9 @@ const Footer = () => {
         </div>
         <div className="col-md-6 col-sm-12 col-xl-3 copyright">
           <p className="footer-text-wrapper">Copyright Binar 2022</p>
-          <img src={logo} className="footer-logo" alt="binar-logo" />
+          <div>
+            <img src={logo} className="footer-logo" alt="binar-logo" />
+          </div>
         </div>
       </div>
     </div>
