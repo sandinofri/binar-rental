@@ -1,86 +1,86 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .services {
-    margin-top: 100px;
-    display: flex;
-    justify-content: center;
+  padding-top: 100px !important;
+  display: flex;
+  justify-content: center;
 }
 
 .services-wrapper {
-    width: 1000px;
+  width: 1000px;
 }
 
 .image-service {
-    width: 420px;
+  width: 420px;
 }
 
 .services .frame {
-    flex-direction: column; 
-    display: inline-flex;
-    gap: 16px;
-    margin-top: 40px;
+  flex-direction: column;
+  display: inline-flex;
+  gap: 16px;
+  margin-top: 40px;
 }
 
 .services .text-services {
-    font-family: "Arial-Bold", Helvetica;
-    font-weight: 700;
-    color: #000000;
-    font-size: 24px;
+  font-family: "Arial-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
 }
 
 .services .sewa {
-    font-family: "Arial-Bold", Helvetica;
-    font-weight: 700;
-    color: #000000;
-    font-size: 14px;
+  font-family: "Arial-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
 }
 
 .services .frame-2 {
-    flex-direction: column;
-    display: inline-flex;
-    gap: 16px;
+  flex-direction: column;
+  display: inline-flex;
+  gap: 16px;
 }
 
 .services .frame-3 {
-    display: flex;
-    gap: 16px;
-    position: relative;
-    margin-top: -15px;
+  display: flex;
+  gap: 16px;
+  position: relative;
+  margin-top: -15px;
 }
 
 .services .icons {
-    position: relative;
-    width: 20px;
-    height: 20px;
-    background-color: #cfd4ed;
-    border-radius: 100%;
-    font-size: 20px;
-    color: #0D28A6;
-    display: flex;
-    font-weight: 700;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #cfd4ed;
+  border-radius: 100%;
+  font-size: 20px;
+  color: #0d28a6;
+  display: flex;
+  font-weight: 700;
 }
 
 .services .p {
-    position: relative;
-    font-family: "Arial-Bold", Helvetica;
-    font-weight: 700;
-    color: #000000;
-    font-size: 14px;
+  position: relative;
+  font-family: "Arial-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
 }
 
 @media (max-width: 576px) {
-    .image-service {
-        width: 80%;
-    }
-    
-    .frame {
-        width: 80%;
-    }
+  .image-service {
+    width: 80%;
+  }
 
-    .text-services {
-        font-size: 20px !important;
-    }
+  .frame {
+    width: 80%;
+  }
+
+  .text-services {
+    font-size: 20px !important;
+  }
 }
