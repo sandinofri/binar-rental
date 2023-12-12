@@ -8,6 +8,13 @@
   background-color: #f1f3ff;
 }
 
+.register {
+  background-color: #5cb85f;
+  color: white !important;
+  padding: 8px 12px !important;
+  border-radius: 2px;
+}
+
 .navbar .navbar-toggler,
 .navbar .navbar-toggler-icon {
   font-size: 15px;

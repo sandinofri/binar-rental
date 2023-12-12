@@ -3,6 +3,13 @@ import "./style.css";
 import logo from "../../assets/image/logo.png";
 
 const Navigation = () => {
+  const token = localStorage.getItem("Acces Token");
+  //   console.log(token);
+
+  const handleLogout = () => {
+    localStorage.removeItem("Acces Token");
+  };
+
   return (
     <nav className="navbar sticky-top navbar-expand-sm">
       <div className="container">
@@ -34,12 +41,20 @@ const Navigation = () => {
               aria-label="Close"></button>
           </div>
           <div className="offcanvas-body">
-            <div className="navbar-nav ms-auto nav-link">
+            <div className="navbar-nav ms-auto nav-link align-items-center">
               <a href="/#Services">Our Services</a>
               <a href="/#WhyUs">Why Us</a>
               <a href="/#Testimonial">Testimonial</a>
               <a href="/#FAQ">FAQ</a>
-              <a href="/register">Register</a>
+              {!token ? (
+                <a href="/register" className="register">
+                  Register
+                </a>
+              ) : (
+                <a onClick={handleLogout} className="register" href="/register">
+                  Logout
+                </a>
+              )}
             </div>
           </div>
         </div>
