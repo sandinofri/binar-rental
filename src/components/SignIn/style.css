@@ -24,6 +24,10 @@ h2 {
   padding: 274px 175px 222px !important;
 }
 
+.register .sign-page .login-area .btn {
+  padding: 0 !important;
+}
+
 .register .sign-page .login-area .btn button {
   margin: 0;
   width: 100px;
@@ -49,7 +53,7 @@ h2 {
   font-size: 12px;
   font-weight: 400;
   line-height: 18px; /* 150% */
-  padding: 10px 0 10.25px 15px !important;
+  /* padding: 10px 0 10.25px 15px !important; */
   box-sizing: border-box;
 }
 
