@@ -37,7 +37,7 @@
   font-family: "Arial-Bold", Helvetica;
   position: relative;
   left: 85px;
-  font-weight: 700;
+  font-weight: 400;
   margin-top: 10px;
   margin-bottom: 15px;
   width: 560px;
@@ -85,7 +85,7 @@
   .hero {
     height: 700px;
     margin-top: -120px;
-    margin-bottom: 200px;
+    margin-bottom: 70px;
   }
 
   .hero-text {
@@ -114,7 +114,7 @@
 
   .hero-car {
     height: 230px;
-    margin-top: 50px;
+    margin-top: 65px;
     width: 100%;
   }
 }

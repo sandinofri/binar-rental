@@ -8,6 +8,15 @@
   background-color: #f1f3ff;
 }
 
+.navbar-nav {
+  align-items: center;
+}
+
+.offcanvas {
+  max-width: 50% !important;
+  padding-right: 0 !important;
+}
+
 .offcanvas-body .register {
   background-color: #5cb85f;
   color: white !important;
@@ -45,4 +54,10 @@
   letter-spacing: 0;
   font-weight: 400;
   line-height: 20px;
+}
+
+@media (max-width: 576px) {
+  .navbar-nav {
+    align-items: flex-start !important;
+  }
 }

@@ -41,7 +41,7 @@ const Navigation = () => {
               aria-label="Close"></button>
           </div>
           <div className="offcanvas-body">
-            <div className="navbar-nav ms-auto nav-link align-items-center">
+            <div className="navbar-nav ms-auto nav-link ">
               <a href="/#Services">Our Services</a>
               <a href="/#WhyUs">Why Us</a>
               <a href="/#Testimonial">Testimonial</a>

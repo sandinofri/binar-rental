@@ -61,10 +61,11 @@
   font-weight: 700;
 }
 
-.services .p {
+.services .p,
+.frame .sewa {
   position: relative;
   font-family: "Arial-Bold", Helvetica;
-  font-weight: 700;
+  font-weight: 400;
   color: #000000;
   font-size: 14px;
 }
@@ -76,6 +77,10 @@
 
   .frame {
     width: 80%;
+  }
+
+  .services .services-wrapper img {
+    margin-left: 20px;
   }
 
   .text-services {

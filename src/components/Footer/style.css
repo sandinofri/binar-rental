@@ -76,4 +76,14 @@ p,
 }
 
 @media (max-width: 576px) {
+  .footer-header {
+    margin: auto !important;
+  }
+
+  .footer-address,
+  .footer-coonect,
+  .footer-nav,
+  .copyright {
+    margin: 8px 8px !important;
+  }
 }

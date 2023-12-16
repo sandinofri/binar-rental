@@ -2,6 +2,7 @@ import React from "react";
 import "./style.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../../assets/image/logo.png";
+import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -15,18 +16,18 @@ const Footer = () => {
           <p className="footer-text-wrapper">081-233-334-808</p>
         </div>
         <div className="col-md-6 col-sm-12 col-xl-3 footer-nav">
-          <a className="footer-text-wrapper-2" href="/#Services">
-            Our services
-          </a>
+          <HashLink to="/#Services" className="footer-text-wrapper-2">
+            <p>Our services</p>
+          </HashLink>
           <a className="footer-text-wrapper-2" href="/#WhyUs">
             Why Us
           </a>
           <a className="footer-text-wrapper-2" href="/#Testimonial">
             Testimonial
           </a>
-          <a className="footer-text-wrapper-2" href="/#FAQ">
-            FAQ
-          </a>
+          <HashLink to="/#FAQ" className="footer-text-wrapper-2">
+            <p>FAQ</p>
+          </HashLink>
         </div>
         <div className="col-md-6 col-sm-12 col-xl-3 footer-coonect">
           <p className="text-wrapper">Connect with us</p>
