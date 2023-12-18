@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.services {
+  padding-top: 100px !important;
+  display: flex;
+  justify-content: center;
+}
+
+.services-wrapper {
+  width: 1000px;
+}
+
+.image-service {
+  width: 420px;
+}
+
+.services .frame {
+  flex-direction: column;
+  display: inline-flex;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.services .text-services {
+  font-family: "Arial-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 24px;
+}
+
+.services .sewa {
+  font-family: "Arial-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 14px;
+}
+
+.services .frame-2 {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.services .frame-3 {
+  display: flex;
+  gap: 16px;
+}
+
+.services .icons {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  background-color: #cfd4ed;
+  border-radius: 100%;
+  font-size: 20px;
+  color: #0d28a6;
+  display: flex;
+  font-weight: 700;
+}
+
+.services .p,
+.frame .sewa {
+  position: relative;
+  font-family: "Arial-Bold", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+}
+
+@media (max-width: 576px) {
+  .image-service {
+    width: 80%;
+  }
+
+  .frame {
+    width: 80%;
+  }
+
+  .services .services-wrapper img {
+    margin-left: 20px;
+  }
+
+  .text-services {
+    font-size: 20px !important;
+  }
+}
