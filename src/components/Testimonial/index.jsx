@@ -24,7 +24,7 @@ function Testimonial(props) {
           slidesPerView={"auto"}
           centeredSlides={true}
           spaceBetween={30}
-          className="myswiper">
+          className="mySwiper">
           {props.data.map((Testi, index) => (
             <div key={index}>
               <SwiperSlide className="testi-card">

@@ -38,6 +38,8 @@
 
 .swiper {
   height: 350px;
+  padding-top: 2px !important;
+  overflow: visible;
 }
 
 .swiper-button-prev,
@@ -132,7 +134,8 @@
 
 @media (max-width: 576px) {
   .swiper {
-    border-radius: 8px;
+    position: relative;
+    /* border-radius: 8px; */
     width: 90% !important;
     /* border: 1px solid black; */
     height: 460px;
@@ -140,19 +143,31 @@
     /* overflow: visible !important; */
   }
 
+  /* .swiper-wrapper {
+    width: 350px !important;
+  } */
+
   .list-testy {
-    display: block;
+    display: block !important;
     width: 340px;
     height: auto;
     margin: auto;
   }
 
+  .mySwiper .testi-card img {
+    margin: 0 0 10px 80px;
+  }
+
   .swiper-slide {
+    display: block !important;
+    width: 98% !important;
     height: 370px !important;
     padding: 40px 32px !important;
     display: flex;
     flex-direction: column;
     gap: 24px !important;
+    /* border: 1px solid black; */
+    border-radius: 8px;
   }
 
   .testi-card .testi-img {
@@ -194,10 +209,10 @@
   }
 
   .swiper-button-next {
-    left: 170px !important;
+    left: 165px !important;
   }
   .swiper-button-prev {
-    left: 110px !important;
+    left: 105px !important;
   }
 
   .swiper-button-prev:after,
