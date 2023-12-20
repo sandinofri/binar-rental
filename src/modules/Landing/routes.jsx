@@ -1,4 +1,3 @@
-import Login from "../admin/pages/loginpage/Login";
 import DetailCarPage from "./pages/DetailCarPage";
 import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
@@ -27,12 +26,6 @@ export const routes = [
     path: "*",
     element: (
       <NotFound />
-    ),
-  },
-  {
-    path: "/admin/login",
-    element: (
-      <Login />
     ),
   },
 ]
