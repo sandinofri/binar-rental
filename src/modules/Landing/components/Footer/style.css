@@ -10,6 +10,10 @@
   margin: 0 100px;
 }
 
+.footer .row p {
+  margin-bottom: 0;
+}
+
 .footer .footer-address {
   display: flex;
   flex-grow: 1;

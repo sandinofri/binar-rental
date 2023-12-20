@@ -1,6 +1,7 @@
 import React from "react";
 import "./style.css";
 import logo from "../../assets/image/logo.png";
+import { HashLink } from "react-router-hash-link";
 
 const Navigation = () => {
   const token = localStorage.getItem("Acces Token");
@@ -42,10 +43,10 @@ const Navigation = () => {
           </div>
           <div className="offcanvas-body">
             <div className="navbar-nav ms-auto nav-link ">
-              <a href="/#Services">Our Services</a>
-              <a href="/#WhyUs">Why Us</a>
-              <a href="/#Testimonial">Testimonial</a>
-              <a href="/#FAQ">FAQ</a>
+              <HashLink to="/#Services">Our Services</HashLink>
+              <HashLink to="/#WhyUs">Why Us</HashLink>
+              <HashLink to="/#Testimonial">Testimonial</HashLink>
+              <HashLink to="/#FAQ">FAQ</HashLink>
               {!token ? (
                 <a href="/register" className="register">
                   Register

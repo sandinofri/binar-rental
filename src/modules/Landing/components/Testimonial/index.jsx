@@ -26,7 +26,7 @@ function Testimonial(props) {
           spaceBetween={30}
           className="mySwiper">
           {props.data.map((Testi, index) => (
-            <div key={index}>
+            <div key={index.id}>
               <SwiperSlide className="testi-card">
                 <img className="testi-img" src={Testi.image} alt="" />
                 <div className="testi-text">
