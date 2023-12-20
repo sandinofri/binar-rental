@@ -11,6 +11,7 @@ const SearchSection = () => {
   const [category, setCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
+
   const [status, setStatus] = useState();
   const [isSubmit, setSubmit] = useState(false);
   const [slicey, setSlicey] = useState({
@@ -18,11 +19,11 @@ const SearchSection = () => {
     b: 3,
   });
   const listcarnew = list.slice(slicey.a, slicey.b);
-  console.log(listcarnew);
+  // console.log(listcarnew);
 
   useEffect(() => {
     handleGetList();
-  }, []);
+  }, [isSubmit]);
 
   const handlePrev = (a, b) => {
     setSlicey({
@@ -88,11 +89,11 @@ const SearchSection = () => {
   const handleSubmit = () => {
     handleGetList();
     setSubmit(true);
-    setName("");
-    setCategory("");
-    setMinPrice("");
-    setMaxPrice("");
-    setStatus("");
+    setName(name);
+    setCategory(category);
+    setMinPrice(minPrice);
+    setMaxPrice(maxPrice);
+    setStatus(status);
   };
 
   const handleEdit = () => {
