@@ -4,8 +4,13 @@
   scroll-behavior: smooth;
 }
 
+/* body {
+  overflow-x: hidden;
+} */
+
 .navbar {
   background-color: #f1f3ff;
+  width: 100%;
 }
 
 .navbar-nav {
@@ -59,5 +64,9 @@
 @media (max-width: 576px) {
   .navbar-nav {
     align-items: flex-start !important;
+  }
+
+  .body {
+    padding-right: 0px !important;
   }
 }
