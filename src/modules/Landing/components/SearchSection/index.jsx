@@ -193,7 +193,7 @@ const SearchSection = () => {
           <div>
             {isSubmit ? (
               <button className="rectangle-btn" onClick={handleChangeSubmit}>
-                Reset
+                Edit
               </button>
             ) : (
               <button className="rectangle-btn" onClick={handleChangeSubmit}>

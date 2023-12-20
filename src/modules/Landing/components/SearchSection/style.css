@@ -26,6 +26,8 @@
 }
 
 .header-rectangle {
+  max-width: 1200px !important;
+  margin-bottom: 20px;
   z-index: 2000;
   background-color: white;
   padding: 15px 20px 30px 20px;
@@ -36,7 +38,8 @@
 .rectangle .rectangle-wrapper {
   display: flex;
   margin: auto;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 16px;
 }
 
 .rectangle .rectangle-text-box {
@@ -175,7 +178,7 @@
   gap: 20px;
   position: absolute;
   left: 190px;
-  bottom: -80px;
+  bottom: -90px;
 }
 
 .rectangle .pagination button {
