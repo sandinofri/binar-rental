@@ -11,7 +11,6 @@ const SearchSection = () => {
   const [category, setCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-
   const [status, setStatus] = useState();
   const [isSubmit, setSubmit] = useState(false);
   const [slicey, setSlicey] = useState({

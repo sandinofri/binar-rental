@@ -26,7 +26,7 @@
 }
 
 .header-rectangle {
-  z-index: 2;
+  z-index: 2000;
   background-color: white;
   padding: 15px 20px 30px 20px;
   border-radius: 8px;
