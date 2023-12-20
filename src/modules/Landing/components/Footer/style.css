@@ -80,8 +80,13 @@ p,
 }
 
 @media (max-width: 576px) {
-  .footer-header {
+  .footer {
+    margin: 76px 0 46px;
+  }
+
+  .footer .footer-header {
     margin: auto !important;
+    padding: 0 16px !important;
   }
 
   .footer-address,

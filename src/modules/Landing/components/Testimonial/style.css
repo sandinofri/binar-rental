@@ -5,7 +5,7 @@
 
 .testimonial {
   content: "";
-  padding-top: 100px !important;
+  padding: 100px 16px 0px !important;
 }
 
 .testi-p1 {
@@ -135,21 +135,12 @@
 @media (max-width: 576px) {
   .swiper {
     position: relative;
-    /* border-radius: 8px; */
-    width: 90% !important;
-    /* border: 1px solid black; */
     height: 460px;
-
-    /* overflow: visible !important; */
   }
-
-  /* .swiper-wrapper {
-    width: 350px !important;
-  } */
 
   .list-testy {
     display: block !important;
-    width: 340px;
+    width: 100%;
     height: auto;
     margin: auto;
   }
@@ -166,7 +157,6 @@
     display: flex;
     flex-direction: column;
     gap: 24px !important;
-    /* border: 1px solid black; */
     border-radius: 8px;
   }
 
@@ -209,10 +199,10 @@
   }
 
   .swiper-button-next {
-    left: 165px !important;
+    left: 180px !important;
   }
   .swiper-button-prev {
-    left: 105px !important;
+    left: 120px !important;
   }
 
   .swiper-button-prev:after,

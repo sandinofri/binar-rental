@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 let Hero = ({ showButton }) => {
   return (
     <div className="hero">
-      <div className="container-fluid">
+      <div className="container">
         <div className="row">
           <div className="col-sm-12 col-md-6 col-lg-6 hero-left">
             <p className="hero-text">
