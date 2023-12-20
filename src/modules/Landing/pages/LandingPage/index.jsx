@@ -117,15 +117,15 @@ const LandingPage = () => {
 
   return (
     <div>
-      {/* <Navigation /> */}
+      <Navigation />
 
-      {/* <Hero showButton={true} /> */}
+      <Hero showButton={true} />
 
-      {/* <OurServices data={Our} /> */}
+      <OurServices data={Our} />
 
-      {/* <WhyUsCard data={WhyUs} /> */}
+      <WhyUsCard data={WhyUs} />
 
-      {/* <Testimonial data={Testi} /> */}
+      <Testimonial data={Testi} />
 
       <Banner />
 
