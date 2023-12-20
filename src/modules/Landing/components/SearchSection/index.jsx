@@ -13,11 +13,30 @@ const SearchSection = () => {
   const [maxPrice, setMaxPrice] = useState("");
   const [status, setStatus] = useState();
   const [isSubmit, setSubmit] = useState(false);
-  console.log(list);
+  const [slicey, setSlicey] = useState({
+    a: 0,
+    b: 3,
+  });
+  const listcarnew = list.slice(slicey.a, slicey.b);
+  console.log(listcarnew);
 
   useEffect(() => {
     handleGetList();
   }, []);
+
+  const handlePrev = (a, b) => {
+    setSlicey({
+      a: (a -= 3),
+      b: (b -= 3),
+    });
+  };
+
+  const handleNext = (a, b) => {
+    setSlicey({
+      a: (a += 3),
+      b: (b += 3),
+    });
+  };
 
   const handleGetList = async () => {
     try {
@@ -186,8 +205,8 @@ const SearchSection = () => {
       </div>
       <div className="listcar-wrapper">
         <div className="listcar">
-          {list.length ? (
-            list.map((car) => (
+          {listcarnew.length ? (
+            listcarnew.map((car) => (
               <div key={car.id}>
                 <div className="listcar-card">
                   <img className="listcar-img" src={car.image} />
@@ -210,6 +229,18 @@ const SearchSection = () => {
             <h4>Maaf, Mobil tidak tersedia. Silahkan cari mobil yang lain.</h4>
           )}
         </div>
+      </div>
+      <div className="pagination" id="pagination">
+        <button
+          disabled={!slicey.a ? true : false}
+          onClick={() => handlePrev(slicey.a, slicey.b)}>
+          &lt;
+        </button>
+        <button
+          disabled={listcarnew.length < 3 ? true : false}
+          onClick={() => handleNext(slicey.a, slicey.b)}>
+          &gt;
+        </button>
       </div>
       <div id="myModal" className="modal"></div>
     </div>
