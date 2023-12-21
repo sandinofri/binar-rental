@@ -67,14 +67,14 @@ const SearchSection = () => {
     // console.log(selectedValue);
 
     if (selectedValue === "option1") {
-      setMinPrice(200000);
-      setMaxPrice(300000);
-    } else if (selectedValue === "option2") {
-      setMinPrice(300000);
+      setMinPrice(0);
       setMaxPrice(400000);
-    } else if (selectedValue === "option3") {
+    } else if (selectedValue === "option2") {
       setMinPrice(400000);
-      setMaxPrice(500000);
+      setMaxPrice(600000);
+    } else if (selectedValue === "option3") {
+      setMinPrice(600000);
+      setMaxPrice(999999);
     } else {
       setMinPrice("");
       setMaxPrice("");
@@ -171,9 +171,9 @@ const SearchSection = () => {
               id=""
               onChange={handlePrice}>
               <option value="">Masukan Harga Sewa per Hari</option>
-              <option value="option1">Rp.200.000 - Rp.300.000</option>
-              <option value="option2">Rp.300.000 - Rp.400.000</option>
-              <option value="option3">Rp.400.000 - Rp.500.000</option>
+              <option value="option1">&lt; Rp. 400.000</option>
+              <option value="option2">Rp.400.000 - Rp.600.000</option>
+              <option value="option3">&gt; Rp. 600.000</option>
             </select>
           </div>
           <div>

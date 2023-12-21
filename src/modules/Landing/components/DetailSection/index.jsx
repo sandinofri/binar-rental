@@ -23,8 +23,6 @@ const DetailSection = () => {
       console.log(error);
     }
   };
-  const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
 
   return (
     <div className="container detail-wrapper">
