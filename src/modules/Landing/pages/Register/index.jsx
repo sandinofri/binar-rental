@@ -6,6 +6,7 @@ const Register = () => {
   const [isLogged, setIsLogged] = useState(false);
   const pull_data = (data) => {
     setIsLogged(data);
+    // console.log(data);
   };
 
   console.log(isLogged);

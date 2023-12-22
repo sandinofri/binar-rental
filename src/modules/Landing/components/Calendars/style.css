@@ -1,3 +1,25 @@
 .calendar {
   margin: 4px 0 24px;
+  position: relative;
+}
+
+.calendar input {
+  width: 315px;
+  height: 36px;
+  border-radius: 2px;
+  border: 1px solid var(--Primary-Hover, #009c96);
+  background: var(--Neutral-01, #fff);
+  padding: 9px 12px !important;
+}
+
+.calendar .img {
+  position: absolute;
+  top: 9px;
+  right: 85px;
+}
+
+.calendar .react-datepicker__close-icon {
+  position: absolute;
+  top: 0;
+  right: 30px;
 }

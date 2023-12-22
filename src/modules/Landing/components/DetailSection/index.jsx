@@ -9,6 +9,12 @@ import Calendars from "../Calendars";
 const DetailSection = () => {
   const [car, setCar] = useState({});
   const { id } = useParams();
+  const [dayRange, setDayRange] = useState(null);
+  const getDay = (dayValue) => {
+    setDayRange(dayValue);
+    // console.log(dayValue);
+  };
+  // console.log(dayRange);
 
   useEffect(() => {
     handleGetList();
@@ -117,7 +123,7 @@ const DetailSection = () => {
         <p className="ms-3 detail-category">{car.category}</p>
         <div className="ms-3 rentDuration">
           <p>Tentukan lama sewa mobil (max. 7 hari) </p>
-          <Calendars />
+          <Calendars func={getDay} />
         </div>
         <div className="detail-price">
           <p>Total</p>
