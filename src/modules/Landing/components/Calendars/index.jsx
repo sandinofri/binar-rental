@@ -7,7 +7,7 @@ import calendar from "../../assets/icon/fi_calendar.png";
 
 const Calendars = (props) => {
   const [dateRange, setDateRange] = useState([null, null]);
-  const [startDate, endDate] = dateRange;
+  let [startDate, endDate] = dateRange;
   const [dayDiff, setDayDiff] = useState();
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const Calendars = (props) => {
       if (dayDiff > 7) {
         alert("Maksimal 7 hari");
         setDateRange([null, null]);
+        setDayDiff(null);
       }
     }
   });
