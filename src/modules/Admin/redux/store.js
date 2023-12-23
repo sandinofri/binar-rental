@@ -1,10 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import menuReducer from "./features/menuCar/menuSlicer"
-import loginReducer from "./features/login/loginSlice";
+import menusliceReducer from "./features/menuCar/menuSlicer"
 export const store = configureStore({
     reducer: {
-        menu: menuReducer,
-        login: loginReducer
+        menuCar: menusliceReducer,
+      
 
 
     }
