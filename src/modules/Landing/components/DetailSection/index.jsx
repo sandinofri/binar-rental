@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 import { useState, useEffect } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { Link, useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
@@ -10,11 +10,27 @@ const DetailSection = () => {
   const [car, setCar] = useState({});
   const { id } = useParams();
   const [dayRange, setDayRange] = useState(null);
-  const getDay = (dayValue) => {
-    setDayRange(dayValue);
-    // console.log(dayValue);
+
+  const [rent, setRent] = useState({
+    start_rent_at: "",
+    finish_rent_at: "",
+    start_date: "",
+    end_date: "",
+  });
+  const getDay = (dayDiff, startDate, endDate) => {
+    setDayRange(dayDiff);
+    setRent({
+      ...rent,
+      start_rent_at: startDate.toLocaleDateString("en-ZA", options2),
+      finish_rent_at: endDate.toLocaleDateString("en-ZA", options2),
+      start_date: startDate.toLocaleDateString("en-UK", options),
+      end_date: endDate.toLocaleDateString("en-UK", options),
+    });
+    // console.log(dayDiff);
   };
   // console.log(dayRange);
+  const options = { year: "numeric", month: "short", day: "numeric" };
+  const options2 = { year: "numeric", month: "numeric", day: "numeric" };
 
   useEffect(() => {
     handleGetList();
@@ -25,6 +41,20 @@ const DetailSection = () => {
       const res = await requestAPI.detailCar(id);
       console.log(res);
       setCar(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const continuePay = async () => {
+    console.log(rent);
+    console.log(dayRange);
+
+    try {
+      const res = await axios.post(
+        "https://api-car-rental.binaracademy.org/customer/order"
+      );
+      console.log(res);
     } catch (error) {
       console.log(error);
     }
@@ -129,7 +159,9 @@ const DetailSection = () => {
           <p>Total</p>
           <p>{`Rp.${car.price}`}</p>
         </div>
-        <button className="btnPayment">Lanjutkan Pembayaran</button>
+        <button className="btnPayment" onClick={continuePay}>
+          Lanjutkan Pembayaran
+        </button>
       </div>
     </div>
   );
