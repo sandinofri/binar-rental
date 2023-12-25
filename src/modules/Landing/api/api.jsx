@@ -8,9 +8,10 @@ export async function listCar(name, category, minPrice, maxPrice, status) {
   return response;
 }
 
-export async function detailCar(id) {
+export async function detailCar(id, config) {
   const response = await axios.get(
-    `https://api-car-rental.binaracademy.org/customer/car/${id}`
+    `https://api-car-rental.binaracademy.org/customer/car/${id}`,
+    config
   );
   return response;
 }

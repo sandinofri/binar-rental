@@ -28,7 +28,7 @@ const SignIn = (props) => {
   const navigate = useNavigate();
 
   const handleSubmit = () => {
-    const token = localStorage.getItem("Acces Token");
+    const token = localStorage.getItem("access_token");
 
     const config = () => {
       header: {
@@ -44,7 +44,7 @@ const SignIn = (props) => {
       )
       .then((res) => {
         // console.log(res);
-        localStorage.setItem("Acces Token", res.data.access_token);
+        localStorage.setItem("access_token", res.data.access_token);
         alert("Login Berhasil");
 
         navigate("/");

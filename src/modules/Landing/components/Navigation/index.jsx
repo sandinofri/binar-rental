@@ -4,11 +4,11 @@ import logo from "../../assets/image/logo.png";
 import { HashLink } from "react-router-hash-link";
 
 const Navigation = () => {
-  const token = localStorage.getItem("Acces Token");
+  const token = localStorage.getItem("access_token");
   //   console.log(token);
 
   const handleLogout = () => {
-    localStorage.removeItem("Acces Token");
+    localStorage.removeItem("access_token");
   };
 
   return (

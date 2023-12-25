@@ -2,35 +2,15 @@ import React from "react";
 import "./style.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
+import { useSelector } from "react-redux";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
   const { id } = useParams();
-  const [dayRange, setDayRange] = useState(null);
-
-  const [rent, setRent] = useState({
-    start_rent_at: "",
-    finish_rent_at: "",
-    start_date: "",
-    end_date: "",
-  });
-  const getDay = (dayDiff, startDate, endDate) => {
-    setDayRange(dayDiff);
-    setRent({
-      ...rent,
-      start_rent_at: startDate.toLocaleDateString("en-ZA", options2),
-      finish_rent_at: endDate.toLocaleDateString("en-ZA", options2),
-      start_date: startDate.toLocaleDateString("en-UK", options),
-      end_date: endDate.toLocaleDateString("en-UK", options),
-    });
-    // console.log(dayDiff);
-  };
-  // console.log(dayRange);
-  const options = { year: "numeric", month: "short", day: "numeric" };
-  const options2 = { year: "numeric", month: "numeric", day: "numeric" };
+  const { is_disabled } = useSelector((state) => state.detail);
 
   useEffect(() => {
     handleGetList();
@@ -47,9 +27,7 @@ const DetailSection = () => {
   };
 
   const continuePay = async () => {
-    console.log(rent);
-    console.log(dayRange);
-
+    alert("button berhasil di klik");
     try {
       const res = await axios.post(
         "https://api-car-rental.binaracademy.org/customer/order"
@@ -59,6 +37,7 @@ const DetailSection = () => {
       console.log(error);
     }
   };
+  // console.log(is_disabled);
 
   return (
     <div className="container detail-wrapper">
@@ -153,13 +132,16 @@ const DetailSection = () => {
         <p className="ms-3 detail-category">{car.category}</p>
         <div className="ms-3 rentDuration">
           <p>Tentukan lama sewa mobil (max. 7 hari) </p>
-          <Calendars func={getDay} />
+          <Calendars />
         </div>
         <div className="detail-price">
           <p>Total</p>
           <p>{`Rp.${car.price}`}</p>
         </div>
-        <button className="btnPayment" onClick={continuePay}>
+        <button
+          className={is_disabled ? "btnPayment" : "disabled"}
+          onClick={continuePay}
+          disabled={!is_disabled}>
           Lanjutkan Pembayaran
         </button>
       </div>

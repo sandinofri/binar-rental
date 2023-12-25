@@ -29,7 +29,7 @@ const SignUp = (props) => {
   // console.log(form);
   const navigate = useNavigate();
   const handleSubmit = () => {
-    const token = localStorage.getItem("Acces Token");
+    const token = localStorage.getItem("access_token");
 
     axios
       .post(`https://api-car-rental.binaracademy.org/admin/auth/register`, form)
