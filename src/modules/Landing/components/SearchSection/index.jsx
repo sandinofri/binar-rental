@@ -18,7 +18,7 @@ const SearchSection = () => {
     b: 3,
   });
   const listcarnew = list.slice(slicey.a, slicey.b);
-  // console.log(listcarnew);
+  console.log(listcarnew);
 
   useEffect(() => {
     handleGetList();
