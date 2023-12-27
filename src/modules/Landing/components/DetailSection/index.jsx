@@ -11,6 +11,8 @@ const DetailSection = () => {
   const [car, setCar] = useState({});
   const { id } = useParams();
   const { is_disabled } = useSelector((state) => state.detail);
+  const state = useSelector((state) => state.detail);
+  // console.log(state);
 
   useEffect(() => {
     handleGetList();
@@ -27,10 +29,22 @@ const DetailSection = () => {
   };
 
   const continuePay = async () => {
-    alert("button berhasil di klik");
+    // alert("button berhasil di klik");
+    const payload = {
+      start_rent_at: state.start_rent_at,
+      finish_rent_at: state.finish_rent_at,
+      car_id: id,
+    };
+    const token = localStorage.getItem("access_token");
+    const config = {
+      headers: { access_token: token },
+    };
+
     try {
       const res = await axios.post(
-        "https://api-car-rental.binaracademy.org/customer/order"
+        "https://api-car-rental.binaracademy.org/customer/order",
+        payload,
+        config
       );
       console.log(res);
     } catch (error) {
