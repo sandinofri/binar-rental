@@ -45,6 +45,17 @@
   font-weight: 700;
   color: #ffffff;
   font-size: 14px;
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  -moz-transition: ease 0.5s;
+  -ms-transition: ease 0.5s;
+  -o-transition: ease 0.5s;
+}
+
+.banner .btn-banner:hover {
+  color: white;
+  /* transform: scale(1.1); */
+  background-color: #026402;
 }
 
 .banner .btn-banner a {

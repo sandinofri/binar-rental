@@ -1,18 +1,3 @@
-/* .register ul {
-  display: flex;
-  list-style: none;
-  gap: 6px;
-  margin: 10px 0px;
-}
-
-.register .pass {
-  position: relative;
-  left: 4px;
-}
-
-h2 {
-  margin-top: 5px;
-} */
 .register {
   /* display: flex; */
   max-width: 1440px;
@@ -33,6 +18,11 @@ h2 {
   width: 100px;
   height: auto;
   background: var(--primary-dark-blue-01, #cfd4ed);
+}
+
+.register .sign-page .btn,
+.register .sign-page .btn:active {
+  border: none;
 }
 
 .register .sign-page .login-area h1 {

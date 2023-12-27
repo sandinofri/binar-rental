@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Logo from "../../assets/image/logo.png";
+import * as requestAPI from "../../api/api";
 const SignUp = (props) => {
   const [form, setForm] = useState({
     name: "",
@@ -28,32 +29,28 @@ const SignUp = (props) => {
 
   // console.log(form);
   const navigate = useNavigate();
-  const handleSubmit = () => {
-    const token = localStorage.getItem("access_token");
-
-    axios
-      .post(`https://api-car-rental.binaracademy.org/admin/auth/register`, form)
-      .then((res) => {
-        // console.log(res);
-        localStorage.setItem("Acces Token", res.data.access_token);
-        alert("Register Berhasil Berhasil");
-        navigate("/");
-      })
-      .catch((err) => {
-        // console.log(err);
-        if (!form.name.length) {
-          alert("Nama tidak boleh kosong");
-        } else if (!form.email.length) {
-          alert("email tidak boleh kosong");
-        } else if (!form.password.length) {
-          alert("password tidak boleh kosong");
-        } else if (form.email.length) {
-          alert(err.response.data.message);
-        } else if (form.password.length) {
-          alert(err.response.data.error.message);
-        }
-      });
+  const handleSubmit = async () => {
+    // const token = localStorage.getItem("access_token");
+    try {
+      const res = await requestAPI.register(form);
+      localStorage.setItem("Acces Token", res.data.access_token);
+      alert("Register Berhasil Berhasil");
+      navigate("/");
+    } catch (error) {
+      if (!form.name.length) {
+        alert("Nama tidak boleh kosong");
+      } else if (!form.email.length) {
+        alert("email tidak boleh kosong");
+      } else if (!form.password.length) {
+        alert("password tidak boleh kosong");
+      } else if (form.email.length) {
+        alert(err.response.data.message);
+      } else if (form.password.length) {
+        alert(err.response.data.error.message);
+      }
+    }
   };
+
   return (
     <div className="register mx-auto">
       <div className="sign-page ">

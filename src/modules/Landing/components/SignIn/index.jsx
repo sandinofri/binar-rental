@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../assets/image/logo.png";
+import * as requestAPI from "../../api/api";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -27,7 +28,7 @@ const SignIn = (props) => {
   // console.log(form);
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const token = localStorage.getItem("access_token");
 
     const config = () => {
@@ -36,31 +37,24 @@ const SignIn = (props) => {
       }
     };
 
-    axios
-      .post(
-        `https://api-car-rental.binaracademy.org/admin/auth/login`,
-        form,
-        config
-      )
-      .then((res) => {
-        // console.log(res);
-        localStorage.setItem("access_token", res.data.access_token);
-        alert("Login Berhasil");
-
-        navigate("/");
-      })
-      .catch((err) => {
-        if (!form.email.length) {
-          alert("email tidak boleh kosong");
-        } else if (!form.password.length) {
-          alert("password tidak boleh kosong");
-        } else if (form.email.length) {
-          alert(err.response.data.message);
-        } else if (form.password.length) {
-          alert(err.response.data.message);
-        }
-        // console.log(err.response);
-      });
+    try {
+      const res = await requestAPI.authLogin(form, config);
+      localStorage.setItem("access_token", res.data.access_token);
+      console.log(res);
+      alert("Login Berhasil");
+      navigate("/");
+    } catch (error) {
+      if (!form.email.length) {
+        alert("email tidak boleh kosong");
+      } else if (!form.password.length) {
+        alert("password tidak boleh kosong");
+      } else if (form.email.length) {
+        alert(err.response.data.message);
+      } else if (form.password.length) {
+        alert(err.response.data.message);
+      }
+      // console.log(err.response);
+    }
   };
 
   return (
