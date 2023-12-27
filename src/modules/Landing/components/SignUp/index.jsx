@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
+import sideImg from "../../assets/image/landing-page-desktop.png";
+
 const SignUp = (props) => {
   const [form, setForm] = useState({
     name: "",
@@ -104,7 +106,10 @@ const SignUp = (props) => {
               </h6>
             </div>
             <div className="bg col-xl-6">
-              <h1>ini background</h1>
+              <h1>Binar Car Rental</h1>
+              <div className="side-img">
+                <img src={sideImg} alt="" />
+              </div>
             </div>
           </div>
         </div>

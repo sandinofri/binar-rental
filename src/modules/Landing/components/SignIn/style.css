@@ -1,12 +1,21 @@
 .register {
   /* display: flex; */
   max-width: 1440px;
+  height: 900px;
+  overflow: hidden;
+}
+
+.register .sign-page,
+.register .container-fluid,
+.register .row,
+.register .login-area {
+  height: 900px;
 }
 
 /* LOGIN AREA CODE START  */
 .register .sign-page .login-area {
   /* width: auto; */
-  padding: 274px 175px 222px !important;
+  padding: 206px 175px 207px !important;
 }
 
 .register .sign-page .login-area .btn {
@@ -83,14 +92,46 @@ h6 {
 /* END OF LOGIN AREA CODE  */
 
 .register .bg {
-  background-color: beige;
+  background-color: #0d28a6;
+  padding: 0 0 0 115px !important;
   /* width: 50%; */
+}
+
+.register .bg h1 {
+  color: #fff;
+  font-family: Rubik;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 72px */
+  opacity: 0.7;
+  padding-top: 112px;
+}
+
+.register .side-img {
+  position: relative;
+  height: 667px;
+  top: 40px;
+}
+
+.register .side-img img {
+  position: absolute;
+  bottom: -1px;
+  right: 0;
 }
 
 @media screen and (max-width: 1200px) {
   .register .sign-page .login-area {
-    padding: 29px 24px 204px !important;
+    padding: 29px 24px !important;
     box-sizing: border-box;
+  }
+
+  .register,
+  .register .sign-page,
+  .register .container-fluid,
+  .register .row,
+  .register .login-area {
+    height: 640px;
   }
 
   .bg {

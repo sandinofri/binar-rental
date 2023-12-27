@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
+import sideImg from "../../assets/image/landing-page-desktop.png";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -105,7 +106,10 @@ const SignIn = (props) => {
               </h6>
             </div>
             <div className="bg col-6">
-              <h1>ini background</h1>
+              <h1>Binar Car Rental</h1>
+              <div className="side-img">
+                <img src={sideImg} alt="" />
+              </div>
             </div>
           </div>
         </div>
