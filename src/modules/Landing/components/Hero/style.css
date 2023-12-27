@@ -57,11 +57,17 @@
   font-size: 14px;
   border-radius: 3px;
   border: none;
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  -moz-transition: ease 0.5s;
+  -ms-transition: ease 0.5s;
+  -o-transition: ease 0.5s;
 }
 
 .hero-btn:hover {
-  color: black;
-  transform: scale(1.1);
+  color: white;
+  /* transform: scale(1.1); */
+  background-color: #026402;
 }
 
 .hero-btn-wrapper {

@@ -19,7 +19,6 @@ let Hero = ({ showButton }) => {
               kebutuhanmu untuk sewa mobil selama 24 jam.
             </p>
             <div>
-              {" "}
               <Link className="hero-btn-wrapper" to={`/search`}>
                 {showButton && (
                   <button className="hero-btn">Mulai Sewa Mobil</button>
