@@ -35,9 +35,9 @@ const SignUp = (props) => {
     // const token = localStorage.getItem("access_token");
     try {
       const res = await requestAPI.register(form);
-      localStorage.setItem("Acces Token", res.data.access_token);
+      // const token = localStorage.setItem("acces_token", res.data.access_token);
       alert("Register Berhasil Berhasil");
-      navigate("/");
+      navigate(-1);
     } catch (error) {
       if (!form.name.length) {
         alert("Nama tidak boleh kosong");
@@ -46,9 +46,9 @@ const SignUp = (props) => {
       } else if (!form.password.length) {
         alert("password tidak boleh kosong");
       } else if (form.email.length) {
-        alert(err.response.data.message);
+        alert(error.response.data.message);
       } else if (form.password.length) {
-        alert(err.response.data.error.message);
+        alert(error.response.data.error.message);
       }
     }
   };

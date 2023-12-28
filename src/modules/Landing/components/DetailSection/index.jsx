@@ -6,12 +6,15 @@ import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
+import { useNavigate, redirect } from "react-router-dom";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
   const { id } = useParams();
   const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
+  const navigate = useNavigate();
+
   // console.log(state);
 
   useEffect(() => {
@@ -30,12 +33,18 @@ const DetailSection = () => {
 
   const continuePay = async () => {
     // alert("button berhasil di klik");
+
     const payload = {
       start_rent_at: state.start_rent_at,
       finish_rent_at: state.finish_rent_at,
       car_id: id,
     };
     const token = localStorage.getItem("access_token");
+    if (!token) {
+      alert("Login dulu yuk");
+      return navigate("/register");
+    }
+
     const config = {
       headers: { access_token: token },
     };
@@ -47,6 +56,7 @@ const DetailSection = () => {
         config
       );
       console.log(res);
+      navigate("/eticket");
     } catch (error) {
       console.log(error);
     }

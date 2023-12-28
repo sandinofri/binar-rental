@@ -43,7 +43,7 @@ const SignIn = (props) => {
       localStorage.setItem("access_token", res.data.access_token);
       console.log(res);
       alert("Login Berhasil");
-      navigate("/");
+      navigate(-1);
     } catch (error) {
       if (!form.email.length) {
         alert("email tidak boleh kosong");
