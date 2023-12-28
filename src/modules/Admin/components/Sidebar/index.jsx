@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom"
 import HomeIcon from "@/modules/Admin/assets/icons/home.png"
 import CarIcon from "@/modules/Admin/assets/icons/cars.png"
+import SmallLogo from "@/modules/Admin/assets/images/small-brand.svg?react"
 import './style.scss'
+
 
 export default function Sidebar() {
   return (
     <div className="main-sidebar">
       <aside className="sidebar-wrapper">
         <div className="sidebar-brand">
-          <svg width="44" height="44" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="34" height="34" fill="#CFD4ED" />
-          </svg>
+          <SmallLogo />
         </div>
         <ul className="sidebar-menu">
           <li className="sidebar-item active">
