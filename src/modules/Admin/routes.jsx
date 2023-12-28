@@ -13,5 +13,9 @@ export const routes = [
     element: (
       <SignIn />
     )
+  },
+  {
+    path:'/admin/dashboard',
+    element:(<Dashboard/>)
   }
 ]

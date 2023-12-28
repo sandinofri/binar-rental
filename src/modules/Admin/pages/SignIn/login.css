@@ -3,7 +3,8 @@ h1 {
 }
 
 .left {
-  background: url("@/modules/admin/assets/image/login-image.png"), lightgray 50% / cover no-repeat;
+  background: url("@/modules/admin/assets/image/login-image.png"),
+    lightgray 50% / cover no-repeat;
 }
 
 .gambar {
@@ -36,9 +37,8 @@ h1 {
 }
 
 .right input::placeholder {
-  color: #A5A5A5;
+  color: #a5a5a5;
 }
-
 
 .right .logo {
   width: 100px;
@@ -53,6 +53,21 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: 36px;
+}
+
+.right p {
+  display: flex;
+  width: 370px;
+  padding: 12px 16px;
+  align-items: flex-start;
+  border-radius: 5px;
+  background: rgba(208, 12, 26, 0.1);
+  color: #d00c1a;
+  font-family: Arial;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
 }
 
 .right label {
