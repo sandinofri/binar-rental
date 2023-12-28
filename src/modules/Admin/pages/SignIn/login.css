@@ -2,6 +2,10 @@ h1 {
   color: red;
 }
 
+.left {
+  background: url("@/modules/admin/assets/image/login-image.png"), lightgray 50% / cover no-repeat;
+}
+
 .gambar {
   width: 100%;
 }
@@ -16,6 +20,7 @@ h1 {
   justify-content: center;
   gap: 32px;
 }
+
 .right input {
   font-family: Arial;
   font-size: 12px;
@@ -27,7 +32,13 @@ h1 {
   color: slategray;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 5px;
+  padding: 0rem 1rem;
 }
+
+.right input::placeholder {
+  color: #A5A5A5;
+}
+
 
 .right .logo {
   width: 100px;
