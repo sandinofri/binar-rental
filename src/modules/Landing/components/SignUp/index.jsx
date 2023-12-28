@@ -64,7 +64,7 @@ const SignUp = (props) => {
                   <img src={Logo} alt="" />
                 </a>
               </div>
-              <h1>Sign Up</h1>
+              <h1 className="title">Sign Up</h1>
               <div class="mb-2  ">
                 <label class="form-label">Name*</label>
                 <input

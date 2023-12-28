@@ -13,6 +13,10 @@
 }
 
 /* LOGIN AREA CODE START  */
+
+.register .sign-page .title {
+  color: black;
+}
 .register .sign-page .login-area {
   /* width: auto; */
   padding: 206px 175px 207px !important;

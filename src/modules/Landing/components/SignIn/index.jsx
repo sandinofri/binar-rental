@@ -69,7 +69,7 @@ const SignIn = (props) => {
                   <img src={Logo} alt="" />
                 </a>
               </div>
-              <h1> Welcome Back</h1>
+              <h1 className="title"> Welcome Back</h1>
               <div class="mb-2  ">
                 <label for="exampleFormControlInput1" class="form-label">
                   Email
