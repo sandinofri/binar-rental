@@ -31,6 +31,9 @@ export const detailSlice = createSlice({
         (state.start_date = ""),
         (state.end_date = "");
     },
+    sendOrderId: (state, action) => {
+      state.id = action.payload.orderId;
+    },
   },
 });
 

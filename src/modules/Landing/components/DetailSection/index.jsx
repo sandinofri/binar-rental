@@ -6,7 +6,10 @@ import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
-import { useNavigate, redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import fiUser from "../../assets/icon/fi_users.png";
+// import { useDispatch } from "react-redux";
+// import { saveDateRent } from "../../features/detail/detailSlice";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
@@ -14,7 +17,7 @@ const DetailSection = () => {
   const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const navigate = useNavigate();
-
+  // const dispatch = useDispatch();
   // console.log(state);
 
   useEffect(() => {
@@ -24,10 +27,10 @@ const DetailSection = () => {
   const handleGetList = async () => {
     try {
       const res = await requestAPI.detailCar(id);
-      console.log(res);
+      // console.log(res);
       setCar(res.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -50,13 +53,16 @@ const DetailSection = () => {
     };
 
     try {
+      // dispatch(saveDateRent(payload));
       const res = await axios.post(
-        "https://api-car-rental.binaracademy.org/customer/order",
+        "https://api-car-rental.binaracademy.org/customer/order/",
         payload,
         config
       );
-      console.log(res);
-      navigate("/eticket");
+      // console.log(res);
+      const orderId = res.data.id;
+      console.log(orderId);
+      navigate(`/paymentPages/${orderId}`);
     } catch (error) {
       console.log(error);
     }
@@ -151,9 +157,14 @@ const DetailSection = () => {
         <div className="detail-img-wrapper">
           <img className="detail-img" src={car.image} alt="" />
         </div>
-        <p className="fw-bold ms-3">{car.name}</p>
+        <p className="fw-bold ms-3 mb-1">{car.name}</p>
+        <div className="cat">
+          <div className="ms-3 img-user">
+            <img src={fiUser} alt="" />
+          </div>
+          <p className="ms-3 detail-category">{car.category}</p>
+        </div>
 
-        <p className="ms-3 detail-category">{car.category}</p>
         <div className="ms-3 rentDuration">
           <p>Tentukan lama sewa mobil (max. 7 hari) </p>
           <Calendars />

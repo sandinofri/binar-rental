@@ -42,6 +42,14 @@
   box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
 }
 
+.detail-right .cat {
+  display: flex;
+}
+
+.detail-right .cat img {
+  width: 12px;
+}
+
 .detail-right .rentDuration .duration {
   width: 315px;
   height: 36px;
@@ -77,8 +85,8 @@ input::placeholder {
 }
 
 .detail-category {
-  position: relative;
-  bottom: 20px;
+  /* position: relative; */
+  /* bottom: 20px; */
   color: #8a8a8a;
 }
 
