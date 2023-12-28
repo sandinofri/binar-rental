@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "jquery";
 import "popper.js";
-import "bootstrap/dist/js/bootstrap";
+import "bootstrap/dist/js/bootstrap.js";
 import { routes } from "@/modules/Landing/routes";
 import { useRoutes } from "react-router-dom";
 

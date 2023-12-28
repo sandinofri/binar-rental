@@ -48,11 +48,14 @@ const Navigation = () => {
               <HashLink to="/#Testimonial">Testimonial</HashLink>
               <HashLink to="/#FAQ">FAQ</HashLink>
               {!token ? (
-                <a href="/register" className="register">
+                <a href="/register" className="nav-register">
                   Register
                 </a>
               ) : (
-                <a onClick={handleLogout} className="register" href="/register">
+                <a
+                  onClick={handleLogout}
+                  className="nav-register"
+                  href="/register">
                   Logout
                 </a>
               )}
