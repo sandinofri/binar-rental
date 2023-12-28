@@ -1,31 +1,31 @@
 import DetailCarPage from "./pages/DetailCarPage";
 import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
+import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
+import PaymentPages from "./pages/PaymentPages";
+// import authLogin from "./components/hoc/authLogin";
 
 export const routes = [
   {
     path: "/",
-    element: (
-      <LandingPage />
-    ),
+    element: <LandingPage />,
   },
   {
     path: "/search",
-    element: (
-      <SearchResult />
-    ),
+    element: <SearchResult />,
   },
   {
     path: "/detail/:id",
-    element: (
-      <DetailCarPage />
-    ),
+    element: <DetailCarPage />,
   },
   {
     path: "*",
-    element: (
-      <NotFound />
-    ),
+    element: <NotFound />,
   },
-]
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  { path: "/paymentPages/:id", element: <PaymentPages /> },
+];
