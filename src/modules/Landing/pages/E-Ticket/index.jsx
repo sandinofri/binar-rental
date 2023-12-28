@@ -1,6 +1,6 @@
 import Navigation from '../../components/Navigation'
 
-const EticketPages = () => {
+const Eticket = () => {
     return (
         <div>
             <Navigation/>
@@ -8,4 +8,4 @@ const EticketPages = () => {
     );
 }
 
-export default EticketPages;
+export default Eticket;
