@@ -1,3 +1,4 @@
+import Dashboard from "./pages/DashBoard/Dashboard";
 import SignIn from "./pages/SignIn";
 
 export const routes = [
@@ -6,5 +7,9 @@ export const routes = [
     element: (
       <SignIn />
     )
+  },
+  {
+    path:'/admin/dashboard',
+    element:(<Dashboard/>)
   }
 ]
