@@ -9,6 +9,7 @@ const SearchSection = () => {
   const [list, setList] = useState([]);
   const [name, setName] = useState("");
   const [category, setCategory] = useState("");
+  const [selected, setSelected] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [status, setStatus] = useState();
@@ -64,6 +65,7 @@ const SearchSection = () => {
 
   const handlePrice = (e) => {
     const selectedValue = e.target.value;
+    setSelected(selectedValue);
     // console.log(selectedValue);
 
     if (selectedValue === "option1") {
@@ -97,6 +99,7 @@ const SearchSection = () => {
 
   const handleEdit = () => {
     handleGetList();
+    setSelected("");
     setSubmit(false);
     setName("");
     setCategory("");
@@ -165,6 +168,7 @@ const SearchSection = () => {
           <div>
             <p className="rectangle-p2">Harga</p>
             <select
+              value={selected}
               onClick={showModal}
               className="rectangle-div"
               name=""
