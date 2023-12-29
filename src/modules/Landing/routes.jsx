@@ -4,7 +4,7 @@ import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
 import PaymentPages from "./pages/PaymentPages";
-// import authLogin from "./components/hoc/authLogin";
+import AuthLogin from "./components/hoc/authLogin";
 
 export const routes = [
   {
@@ -27,5 +27,12 @@ export const routes = [
     path: "/register",
     element: <Register />,
   },
-  { path: "/paymentPages/:id", element: <PaymentPages /> },
+  {
+    path: "/paymentPages/:id",
+    element: (
+      <AuthLogin>
+        <PaymentPages />
+      </AuthLogin>
+    ),
+  },
 ];
