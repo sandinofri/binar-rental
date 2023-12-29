@@ -35,10 +35,6 @@
     "react-router-dom": "^6.21.1",
     "react-router-hash-link": "^2.4.3",
     "react-slick": "^0.29.0",
-<<<<<<< HEAD
-    "redux-toolkit": "^1.1.2",
-=======
->>>>>>> 987e8c4798d131273551c0ec89590430796196ab
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.2",
     "swiper": "^11.0.5"
@@ -52,11 +48,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "sass": "^1.69.5",
-<<<<<<< HEAD
-    "vite": "^4.4.5",
-    "vite-plugin-svgr": "^4.2.0"
-=======
     "vite": "^4.4.5"
->>>>>>> 987e8c4798d131273551c0ec89590430796196ab
   }
 }

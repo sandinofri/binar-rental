@@ -4,14 +4,10 @@ import Navigation from "../../components/Navigation";
 // import PayMain from "../../components/PayMain/paymain";
 import Footer from "../../components/Footer";
 
-
-
 const PaymentPages = () => {
-
   return (
     <div>
       <Navigation />
-
       <Footer />
     </div>
   );

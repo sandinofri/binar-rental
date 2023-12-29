@@ -7,6 +7,7 @@ export const initialState = {
   end_date: "",
   is_disabled: false,
   loading: false,
+  id: "",
 };
 
 export const detailSlice = createSlice({
@@ -37,7 +38,12 @@ export const detailSlice = createSlice({
   },
 });
 
-export const { disableButton, enableButton, saveDateRent, resetDateRent } =
-  detailSlice.actions;
+export const {
+  disableButton,
+  enableButton,
+  saveDateRent,
+  resetDateRent,
+  sendOrderId,
+} = detailSlice.actions;
 
 export default detailSlice.reducer;

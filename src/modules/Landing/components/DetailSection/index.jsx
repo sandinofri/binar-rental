@@ -8,8 +8,8 @@ import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import fiUser from "../../assets/icon/fi_users.png";
+// import { sendOrderId } from "../../features/detail/detailSlice";
 // import { useDispatch } from "react-redux";
-// import { saveDateRent } from "../../features/detail/detailSlice";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
@@ -17,7 +17,7 @@ const DetailSection = () => {
   const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   // console.log(state);
 
   useEffect(() => {
@@ -43,6 +43,7 @@ const DetailSection = () => {
       car_id: id,
     };
     const token = localStorage.getItem("access_token");
+    console.log(token);
     if (!token) {
       alert("Login dulu yuk");
       return navigate("/register");
@@ -61,7 +62,8 @@ const DetailSection = () => {
       );
       // console.log(res);
       const orderId = res.data.id;
-      console.log(orderId);
+      // dispatch(sendOrderId(orderId));
+      // console.log(orderId);
       navigate(`/paymentPages/${orderId}`);
     } catch (error) {
       console.log(error);
@@ -158,7 +160,7 @@ const DetailSection = () => {
           <img className="detail-img" src={car.image} alt="" />
         </div>
         <p className="fw-bold ms-3 mb-1">{car.name}</p>
-        <div className="cat">
+        <div className="mb-3 cat">
           <div className="ms-3 img-user">
             <img src={fiUser} alt="" />
           </div>
