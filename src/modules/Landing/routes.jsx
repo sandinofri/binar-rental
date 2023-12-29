@@ -1,9 +1,10 @@
 import DetailCarPage from "./pages/DetailCarPage";
 import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
+import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
 import PaymentPages from "./pages/PaymentPages";
-import AuthLogin from "./components/hoc/authLogin";
+// import authLogin from "./components/hoc/authLogin";
 
 export const routes = [
   {
@@ -26,12 +27,5 @@ export const routes = [
     path: "/register",
     element: <Register />,
   },
-  {
-    path: "/paymentPages/:id",
-    element: (
-      <AuthLogin>
-        <PaymentPages />
-      </AuthLogin>
-    ),
-  },
+  { path: "/paymentPages/:id", element: <PaymentPages /> },
 ];
