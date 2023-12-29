@@ -2,40 +2,26 @@ import DetailCarPage from "./pages/DetailCarPage";
 import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 import SearchResult from "./pages/SearchResult";
-<<<<<<< HEAD
-=======
 import PaymentPages from "./pages/PaymentPages";
 import AuthLogin from "./components/hoc/authLogin";
->>>>>>> d0d558aa0c0849f7a5e48db3259e10bea3114ca3
 
 export const routes = [
   {
     path: "/",
-    element: (
-      <LandingPage />
-    ),
+    element: <LandingPage />,
   },
   {
     path: "/search",
-    element: (
-      <SearchResult />
-    ),
+    element: <SearchResult />,
   },
   {
     path: "/detail/:id",
-    element: (
-      <DetailCarPage />
-    ),
+    element: <DetailCarPage />,
   },
   {
     path: "*",
-    element: (
-      <NotFound />
-    ),
+    element: <NotFound />,
   },
-<<<<<<< HEAD
-]
-=======
   {
     path: "/register",
     element: <Register />,
@@ -49,4 +35,3 @@ export const routes = [
     ),
   },
 ];
->>>>>>> d0d558aa0c0849f7a5e48db3259e10bea3114ca3
