@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import "../../../../../node_modules/react-datepicker/src/stylesheets/datepicker.scss";
 import "./style.css";

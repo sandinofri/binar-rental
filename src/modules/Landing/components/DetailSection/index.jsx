@@ -1,4 +1,3 @@
-import React from "react";
 import "./style.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -6,6 +5,7 @@ import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
@@ -63,18 +63,18 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3 mt-4">Include</h6>
           <div>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Apa saja yang termasuk dalam
+              <i className="bi bi-dot detail-icon"></i>Apa saja yang termasuk dalam
               paket misal durasi max 12 jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Sudah termasuk bensin selama
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk bensin selama
               12 jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Sudah termasuk Tiket Wisata
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk Tiket Wisata
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Sudah termasuk pajak
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk pajak
             </p>
           </div>
         </div>
@@ -82,15 +82,15 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3">Exclude</h6>
           <div>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
               sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
               jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
           </div>
@@ -99,39 +99,39 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3">Refund, Reschedule, Overtime</h6>
           <div>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
               sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
               jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
               sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
               jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
               sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
               jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
           </div>
@@ -152,12 +152,13 @@ const DetailSection = () => {
           <p>Total</p>
           <p>{`Rp.${car.price}`}</p>
         </div>
-        <button
-          className={is_disabled ? "btnPayment" : "disabled"}
+        <Link
+          className={is_disabled ? "btnToPayment" : "disabled"}
           onClick={continuePay}
-          disabled={!is_disabled}>
+          disabled={!is_disabled}
+          to={`/payment/${id}`}>
           Lanjutkan Pembayaran
-        </button>
+        </Link>
       </div>
     </div>
   );

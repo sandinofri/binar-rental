@@ -3,7 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
-import PaymentPages from "./pages/PaymentPages"
+import PaymentPages from "./pages/PaymentPages";
 import Transfer from "./pages/Transfer";
 import Eticket from "./pages/E-Ticket"
 
@@ -21,7 +21,7 @@ export const routes = [
     element: <DetailCarPage />,
   },
   {
-    path: "/payment",
+    path: "/payment/:id",
     element: <PaymentPages/>
   },
   {

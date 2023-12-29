@@ -1,5 +1,5 @@
-import Navigation from '../../components/Navigation'
-import HeaderPay from '../../components/HeaderPayment/headerpay';
+import Navigation from '../../components/Navigation';
+import HeaderPay from '../../components/HeaderPay/headerpay'
 import DetailPay from '../../components/DetailPay/detailpay';
 import PayMain from '../../components/PayMain/paymain';
 import Footer from '../../components/Footer'
