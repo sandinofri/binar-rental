@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const initialState = {
+const initialState = {
   start_rent_at: "",
   finish_rent_at: "",
   start_date: "",

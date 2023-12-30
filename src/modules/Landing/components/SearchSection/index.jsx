@@ -2,7 +2,7 @@ import React from "react";
 import "./style.css";
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 
 const SearchSection = () => {
@@ -19,10 +19,22 @@ const SearchSection = () => {
     b: 3,
   });
   const listcarnew = list.slice(slicey.a, slicey.b);
-  console.log(listcarnew);
+  // console.log(listcarnew);
+
+  const [hideList, setHideList] = useState(false);
+  const { id } = useParams();
+
+  const HideList = () => {
+    if (id) {
+      console.log(id);
+      setHideList(true);
+      console.log(hideList);
+    }
+  };
 
   useEffect(() => {
     handleGetList();
+    HideList();
   }, [isSubmit]);
 
   const handlePrev = (a, b) => {
@@ -48,6 +60,7 @@ const SearchSection = () => {
         maxPrice,
         status
       );
+
       // console.log(res)
       setList(res.data.cars);
     } catch (error) {
@@ -95,6 +108,7 @@ const SearchSection = () => {
     setMinPrice(minPrice);
     setMaxPrice(maxPrice);
     setStatus(status);
+    alert("a");
   };
 
   const handleEdit = () => {
@@ -106,6 +120,7 @@ const SearchSection = () => {
     setMinPrice("");
     setMaxPrice("");
     setStatus("");
+    alert("b");
   };
 
   const handleChangeSubmit = () => {
@@ -136,7 +151,7 @@ const SearchSection = () => {
   };
 
   return (
-    <div className="rectangle">
+    <div className={!hideList ? "rectangle" : "rectangle no-margin"}>
       <div className="container header-rectangle">
         <div className="rectangle-wrapper">
           <div className="rectangle-text-box">
@@ -207,11 +222,12 @@ const SearchSection = () => {
           </div>
         </div>
       </div>
-      <div className="listcar-wrapper">
+      <div
+        className={!hideList ? "listcar-wrapper" : "listcar-wrapper hide-list"}>
         <div className="listcar">
           {listcarnew.length ? (
-            listcarnew.map((car) => (
-              <div key={car.id}>
+            listcarnew.map((car, id) => (
+              <div key={id}>
                 <div className="listcar-card">
                   <img className="listcar-img" src={car.image} />
                   <p className="namecar">{car.name}</p>
@@ -234,7 +250,7 @@ const SearchSection = () => {
           )}
         </div>
       </div>
-      <div className="pagination" id="pagination">
+      <div className={!hideList ? "pagination" : " hide-list"} id="pagination">
         <button
           disabled={!slicey.a ? true : false}
           onClick={() => handlePrev(slicey.a, slicey.b)}>
