@@ -58,6 +58,7 @@
 
 .rectangle .rectangle-text {
   position: relative;
+  height: 40px;
   font-size: 14px;
   color: #d0d0d0;
   border: 1px solid #d0d0d0;
@@ -106,6 +107,13 @@
   border: none;
 }
 
+.rectangle .disabled-input {
+  width: 281px;
+  border-radius: 2px;
+  border: 1px solid var(--Neutral-02, #d0d0d0);
+  background-color: var(--Neutral-02, #d0d0d0);
+}
+
 .listcar-wrapper {
   display: flex;
   position: relative;
@@ -113,7 +121,7 @@
   top: 20px;
 }
 
-.rectangle .hide-list {
+.rectangle .hide-element {
   display: none;
 }
 

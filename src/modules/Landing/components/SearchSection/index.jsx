@@ -21,20 +21,20 @@ const SearchSection = () => {
   const listcarnew = list.slice(slicey.a, slicey.b);
   // console.log(listcarnew);
 
-  const [hideList, setHideList] = useState(false);
+  const [hide, setHide] = useState(false);
   const { id } = useParams();
 
-  const HideList = () => {
+  const HideElement = () => {
     if (id) {
       // console.log(id);
-      setHideList(true);
+      setHide(true);
       // console.log(hideList);
     }
   };
 
   useEffect(() => {
     handleGetList();
-    HideList();
+    HideElement();
   }, [isSubmit]);
 
   const handlePrev = (a, b) => {
@@ -151,30 +151,36 @@ const SearchSection = () => {
   };
 
   return (
-    <div className={!hideList ? "rectangle" : "rectangle no-margin"}>
+    <div className={!hide ? "rectangle" : "rectangle no-margin"}>
       <div className="container header-rectangle">
         <div className="rectangle-wrapper">
           <div className="rectangle-text-box">
             <p className="rectangle-p1">Nama Mobil</p>
             <input
+              disabled={!hide ? false : true}
               onClick={showModal}
               onChange={handleSearch}
               value={name}
-              className="rectangle-text"
+              className={
+                !hide ? "rectangle-text" : "rectangle-text disabled-input"
+              }
               type="text"
-              placeholder="Ketik nama / tipe mobil"
+              placeholder={!hide ? "Ketik nama / tipe mobil" : ""}
             />
           </div>
           <div>
             <p className="rectangle-p2">Kategori</p>
             <select
+              disabled={!hide ? false : true}
               onClick={showModal}
-              className="rectangle-div"
+              className={
+                !hide ? "rectangle-div" : "rectangle-div disabled-input"
+              }
               name=""
               id=""
               onChange={handleCategory}
               value={category}>
-              <option value="">Masukan Kapasitas Mobil</option>
+              <option value="">{!hide ? "Masukan Kapasitas Mobil" : ""}</option>
               <option value={"small"}>2 - 4 Orang</option>
               <option value={"medium"}>4 - 6 Orang</option>
               <option value={"large"}>6 - 8 Orang</option>
@@ -183,13 +189,18 @@ const SearchSection = () => {
           <div>
             <p className="rectangle-p2">Harga</p>
             <select
+              disabled={!hide ? false : true}
               value={selected}
               onClick={showModal}
-              className="rectangle-div"
+              className={
+                !hide ? "rectangle-div" : "rectangle-div disabled-input"
+              }
               name=""
               id=""
               onChange={handlePrice}>
-              <option value="">Masukan Harga Sewa per Hari</option>
+              <option value="">
+                {!hide ? "Masukan Harga Sewa per Hari" : ""}
+              </option>
               <option value="option1">&lt; Rp. 400.000</option>
               <option value="option2">Rp.400.000 - Rp.600.000</option>
               <option value="option3">&gt; Rp. 600.000</option>
@@ -198,18 +209,21 @@ const SearchSection = () => {
           <div>
             <p className="rectangle-p2">Status</p>
             <select
+              disabled={!hide ? false : true}
               onClick={showModal}
-              className="rectangle-div"
+              className={
+                !hide ? "rectangle-div" : "rectangle-div disabled-input"
+              }
               name=""
               id=""
               onChange={handleStatus}
               value={status}>
-              <option value="">Status</option>
+              <option value="">{!hide ? "Status" : ""}</option>
               <option value="true">Disewa</option>
               <option value="false">Belum Disewa</option>
             </select>
           </div>
-          <div>
+          <div className={!hide ? null : "hide-element"}>
             {isSubmit ? (
               <button className="rectangle-btn" onClick={handleChangeSubmit}>
                 Edit
@@ -223,7 +237,7 @@ const SearchSection = () => {
         </div>
       </div>
       <div
-        className={!hideList ? "listcar-wrapper" : "listcar-wrapper hide-list"}>
+        className={!hide ? "listcar-wrapper" : "listcar-wrapper hide-element"}>
         <div className="listcar">
           {listcarnew.length ? (
             listcarnew.map((car, id) => (
@@ -250,7 +264,7 @@ const SearchSection = () => {
           )}
         </div>
       </div>
-      <div className={!hideList ? "pagination" : " hide-list"} id="pagination">
+      <div className={!hide ? "pagination" : " hide-element"} id="pagination">
         <button
           disabled={!slicey.a ? true : false}
           onClick={() => handlePrev(slicey.a, slicey.b)}>
@@ -262,7 +276,7 @@ const SearchSection = () => {
           &gt;
         </button>
       </div>
-      <div id="myModal" className="modal"></div>
+      <div id="myModal" className={!hide ? "modal" : "hide-element"}></div>
     </div>
   );
 };
