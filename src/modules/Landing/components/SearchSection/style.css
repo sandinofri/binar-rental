@@ -25,6 +25,10 @@
   margin-bottom: 140px;
 }
 
+.no-margin {
+  margin-bottom: -70px;
+}
+
 .header-rectangle {
   max-width: 1200px !important;
   margin-bottom: 20px;
@@ -109,6 +113,10 @@
   top: 20px;
 }
 
+.rectangle .hide-list {
+  display: none;
+}
+
 .rectangle .listcar {
   position: relative;
   display: flex;
@@ -185,7 +193,7 @@
   display: flex;
   gap: 20px;
   position: absolute;
-  left: 190px;
+  left: 195px;
   bottom: -90px;
 }
 

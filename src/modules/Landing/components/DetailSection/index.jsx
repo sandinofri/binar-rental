@@ -17,7 +17,7 @@ const DetailSection = () => {
   const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // console.log(state);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const DetailSection = () => {
       car_id: id,
     };
     const token = localStorage.getItem("access_token");
-    console.log(token);
+    // console.log(token);
     if (!token) {
       alert("Login dulu yuk");
       return navigate("/register");
@@ -81,18 +81,19 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3 mt-4">Include</h6>
           <div>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Apa saja yang termasuk dalam
-              paket misal durasi max 12 jam
+              <i className="bi bi-dot detail-icon"></i>Apa saja yang termasuk
+              dalam paket misal durasi max 12 jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Sudah termasuk bensin selama
-              12 jam
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk bensin
+              selama 12 jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Sudah termasuk Tiket Wisata
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk Tiket
+              Wisata
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Sudah termasuk pajak
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk pajak
             </p>
           </div>
         </div>
@@ -100,15 +101,15 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3">Exclude</h6>
           <div>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
           </div>
@@ -117,39 +118,39 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3">Refund, Reschedule, Overtime</h6>
           <div>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
-              <i class="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
           </div>
