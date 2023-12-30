@@ -108,6 +108,7 @@ const SearchSection = () => {
     setMinPrice(minPrice);
     setMaxPrice(maxPrice);
     setStatus(status);
+    alert("a");
   };
 
   const handleEdit = () => {
@@ -119,6 +120,7 @@ const SearchSection = () => {
     setMinPrice("");
     setMaxPrice("");
     setStatus("");
+    alert("b");
   };
 
   const handleChangeSubmit = () => {
