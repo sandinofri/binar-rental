@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ReactDatePicker from "react-datepicker";
 import "../../../../../node_modules/react-datepicker/src/stylesheets/datepicker.scss";
 import "./style.css";
@@ -48,6 +48,7 @@ const Calendars = () => {
     }
   };
 
+  const state = useSelector((state) => state.detail);
   useEffect(() => {
     handleGetDateRent();
     if (dayDiff > 7) {
@@ -57,6 +58,7 @@ const Calendars = () => {
       dispatch(resetDateRent());
       dispatch(disableButton());
     } else if (startDate && endDate) {
+      console.log(state);
       const diff = endDate.getTime() - startDate.getTime();
       setDayDiff(diff / (1000 * 60 * 60 * 24));
     }
@@ -67,10 +69,13 @@ const Calendars = () => {
   return (
     <div className="calendar">
       <ReactDatePicker
+        formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
         placeholderText="Pilih tanggal awal dan akhir sewa"
         selectsRange={true}
         startDate={startDate}
         endDate={endDate}
+        todayButton="Pilih Tanggal"
+        dateFormat={"d MMM yyyy"}
         onChange={(update) => {
           setDateRange(update);
         }}

@@ -55,11 +55,7 @@ const DetailSection = () => {
 
     try {
       // dispatch(saveDateRent(payload));
-      const res = await axios.post(
-        "https://api-car-rental.binaracademy.org/customer/order/",
-        payload,
-        config
-      );
+      const res = await requestAPI.createOrder(payload, config);
       // console.log(res);
       const orderId = res.data.id;
       // dispatch(sendOrderId(orderId));

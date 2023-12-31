@@ -32,3 +32,12 @@ export async function register(form) {
   );
   return response;
 }
+
+export async function createOrder(payload, config) {
+  const response = await axios.post(
+    "https://api-car-rental.binaracademy.org/customer/order/",
+    payload,
+    config
+  );
+  return response;
+}
