@@ -4,7 +4,7 @@ import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
 import PaymentPages from "./pages/PaymentPages";
-import Transfer from "./pages/Transfer";
+import TransferPages from "./pages/TransferPages";
 import Eticket from "./pages/E-Ticket"
 
 export const routes = [
@@ -26,7 +26,7 @@ export const routes = [
   },
   {
     path: "transfer",
-    element: <Transfer/>
+    element: <TransferPages/>
   },
   {
     path: "/eticket",

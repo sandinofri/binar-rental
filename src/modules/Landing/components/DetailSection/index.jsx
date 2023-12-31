@@ -1,6 +1,5 @@
 import "./style.css";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
@@ -41,12 +40,8 @@ const DetailSection = () => {
     };
 
     try {
-      const res = await axios.post(
-        "https://api-car-rental.binaracademy.org/customer/order",
-        payload,
-        config
-      );
-      console.log(res);
+      const res = await requestAPI.createRent(payload, config);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }

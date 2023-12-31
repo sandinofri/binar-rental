@@ -2,12 +2,17 @@ import './style.css'
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import * as requestAPI from '../../api/api'
+// import { useSelector } from 'react-redux';
 
 const PayMain = () => {
     const [showChevdown, setShowChevdown] = useState(false)
     const [car, setCar] = useState({});
     const {id} = useParams()
     const [selectedBank, setSelectedBank] = useState(null);
+    // const [formData, setFormData] = useState({
+    //     total_price: "",
+    // });
+    // const state = useSelector((state) => state.detail);
 
     const handleBank = (bankId) => {
         if (selectedBank === bankId) {
@@ -23,19 +28,37 @@ const PayMain = () => {
         }
     }
 
-    // useEffect(() => {
-    //     handleGetList();
-    // }, []);
+    useEffect(() => {
+        handleGetList();
+        getCustOrder()
+    }, []);
 
-    // const handleGetList = async () => {
-    //     try {
-    //         const res = await requestAPI.detailCar(id)
-    //         console.log(res)
-    //         setCar(res.data)
-    //     } catch (error) {
-    //         console.log(error)
-    //     }
-    // }
+    const handleGetList = async () => {
+        try {
+            const res = await requestAPI.detailCar(id)
+            // console.log(res)
+            setCar(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getCustOrder = async () => {
+        const token = localStorage.getItem("access_token");
+        const config = {
+            headers: { access_token: token },
+        };
+    
+        try {
+            const res = await requestAPI.customerOrder(id, config);
+            // setFormData({
+            //     total_price: res.data.data.total_price
+            // });
+            console.log(res.data)
+            } catch (error) {
+            console.log(error);
+            }
+        };
 
     const handleChevDown = () => {
         setShowChevdown(!showChevdown)
@@ -100,7 +123,7 @@ const PayMain = () => {
                                                     Sewa Mobil Rp{car.price} x 7 hari
                                                 </li>
                                             </ul>
-                                                <p className='chevdown-text-right-1'>Rp. 3.500.000</p>
+                                                <p className='chevdown-text-right-1'></p>
                                         </div>
 
                                         <div>

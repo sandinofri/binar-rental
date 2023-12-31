@@ -15,6 +15,18 @@ export async function detailCar(id, config) {
   return response;
 }
 
+export async function createRent( payload, config) {
+  const response = await axios.post(`https://api-car-rental.binaracademy.org/customer/order`, payload, config);
+  
+  return response;
+}
+
+export async function customerOrder( id, config) {
+  const response = await axios.get(`https://api-car-rental.binaracademy.org/customer/order/${id}`, config);
+  
+  return response;
+}
+
 export async function authLogin(form, config) {
   const response = await axios.post(
     `https://api-car-rental.binaracademy.org/admin/auth/login`,

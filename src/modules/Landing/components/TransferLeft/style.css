@@ -1,0 +1,71 @@
+.transfer-left-1 {
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 605px;
+    height: 96px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
+}
+
+.transfer-left-2 {
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 605px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
+}
+
+.transfer-left-3 {
+    margin-top: 25px;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 605px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
+}
+
+.bank-transfer {
+    background-color: white;
+    width: 60px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid rgb(206, 204, 204);
+    height: 30px;
+}
+
+.wrapper-an {
+    line-height: 10px;
+}
+
+.box-left-transfer {
+    border: 1px solid black;
+    width: 300px;
+}
+
+.desc-transfer-bank {
+    display: flex;
+}
+
+.desc-bank {
+    width: 500px;
+}
+
+.desc-bank-IB{
+    position: relative;
+    left: -100px;
+}
+
+.title-desc-bank {
+    font-size: 15px;
+    width: 110px;
+    margin-right: 80px;
+}

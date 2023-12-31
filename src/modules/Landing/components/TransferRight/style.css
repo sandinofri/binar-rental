@@ -1,0 +1,10 @@
+.transfer-right {
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 405px;
+    height: 474px;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
+}

@@ -17,7 +17,7 @@ const DetailPay = () => {
     const handleGetList = async () => {
         try {
             const res = await requestAPI.detailCar(id)
-            console.log(res)
+            // console.log(res)
             setCar(res.data)
         } catch (error) {
             console.log(error)
