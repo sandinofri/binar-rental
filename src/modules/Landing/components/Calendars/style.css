@@ -18,6 +18,38 @@
   line-height: 18px; /* 128.571% */
 }
 
+.calendar .pick-date,
+.calendar .disabled-button {
+  cursor: pointer;
+  margin: auto;
+  width: 283px;
+  color: white;
+  display: flex;
+  padding: 8px 12px;
+  justify-content: center;
+  border: none;
+  border-radius: 2px;
+  background: var(--Primary-Main, #35b0a7);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  transition: ease 0.3s;
+  -webkit-transition: ease 0.3s;
+  -moz-transition: ease 0.3s;
+  -ms-transition: ease 0.3s;
+  -o-transition: ease 0.3s;
+}
+
+.calendar .disabled-button {
+  cursor: default;
+  background-color: #009c9761;
+}
+
+.calendar .pick-date:hover {
+  background-color: #00807c;
+}
+
 .calendar .img {
   position: absolute;
   top: 9px;
@@ -35,6 +67,7 @@
 }
 
 .react-datepicker {
+  height: 405px;
   border: none;
   margin-top: 3px;
   border-radius: 4px;
@@ -166,4 +199,9 @@
 
 .react-datepicker__today-button:hover {
   background-color: #009c96;
+}
+
+.react-datepicker__children-container {
+  width: 306px;
+  padding: 0 12px;
 }

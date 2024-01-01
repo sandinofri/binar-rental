@@ -24,9 +24,11 @@ const Calendars = () => {
   const options2 = { year: "numeric", month: "numeric", day: "numeric" };
 
   const { is_disabled } = useSelector((state) => state.detail);
-  // const state = useSelector((state) => state.detail);
+  const [pickDate, setPickDate] = useState(false);
+  // console.log(pickDate);
 
   const handleReset = () => {
+    setPickDate(false);
     setDateRange([null, null]);
     setDayDiff(null);
     dispatch(resetDateRent());
@@ -48,7 +50,14 @@ const Calendars = () => {
     }
   };
 
-  const state = useSelector((state) => state.detail);
+  const handleOpenCloseCalendar = () => {
+    setPickDate(true);
+    if (startDate && endDate) {
+      setPickDate(!pickDate);
+    }
+  };
+
+  // const state = useSelector((state) => state.detail);
   useEffect(() => {
     handleGetDateRent();
     if (dayDiff > 7) {
@@ -58,7 +67,7 @@ const Calendars = () => {
       dispatch(resetDateRent());
       dispatch(disableButton());
     } else if (startDate && endDate) {
-      console.log(state);
+      // console.log(state);
       const diff = endDate.getTime() - startDate.getTime();
       setDayDiff(diff / (1000 * 60 * 60 * 24));
     }
@@ -68,18 +77,27 @@ const Calendars = () => {
 
   return (
     <div className="calendar">
-      <ReactDatePicker
-        formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
-        placeholderText="Pilih tanggal awal dan akhir sewa"
-        selectsRange={true}
-        startDate={startDate}
-        endDate={endDate}
-        todayButton="Pilih Tanggal"
-        dateFormat={"d MMM yyyy"}
-        onChange={(update) => {
-          setDateRange(update);
-        }}
-      />
+      <div onClick={handleOpenCloseCalendar}>
+        <ReactDatePicker
+          formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
+          placeholderText="Pilih tanggal awal dan akhir sewa"
+          selectsRange={true}
+          startDate={startDate}
+          endDate={endDate}
+          shouldCloseOnSelect={false}
+          open={pickDate}
+          dateFormat={"d MMM yyyy"}
+          onChange={(update) => {
+            setDateRange(update);
+          }}>
+          <button
+            disabled={startDate && endDate ? false : true}
+            className={startDate && endDate ? "pick-date" : " disabled-button"}
+            onClick={handleOpenCloseCalendar}>
+            Pilih Tanggal
+          </button>
+        </ReactDatePicker>
+      </div>
       <FontAwesomeIcon
         className={is_disabled ? "showClose" : "hideClose"}
         onClick={handleReset}
