@@ -1,6 +1,7 @@
 import DetailCarPage from "./pages/DetailCarPage";
 import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
+import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
 import PaymentPages from "./pages/PaymentPages";
 import AuthLogin from "./components/hoc/authLogin";

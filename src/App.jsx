@@ -11,4 +11,4 @@ function App() {
   return route
 }
 
-export default App
+export default App;

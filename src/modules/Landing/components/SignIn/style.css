@@ -1,0 +1,144 @@
+.register {
+  /* display: flex; */
+  max-width: 1440px;
+  height: 900px;
+  overflow: hidden;
+}
+
+.register .sign-page,
+.register .container-fluid,
+.register .row,
+.register .login-area {
+  height: 900px;
+}
+
+/* LOGIN AREA CODE START  */
+
+.register .sign-page .title {
+  color: black;
+}
+.register .sign-page .login-area {
+  /* width: auto; */
+  padding: 206px 175px 207px !important;
+}
+
+.register .sign-page .login-area .btn {
+  padding: 0 !important;
+}
+
+.register .sign-page .login-area .btn img {
+  margin: 0;
+  width: 100px;
+  height: auto;
+  background: var(--primary-dark-blue-01, #cfd4ed);
+}
+
+.register .sign-page .btn,
+.register .sign-page .btn:active {
+  border: none;
+}
+
+.register .sign-page .login-area h1 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 36px; /* 150% */
+  margin: 32px 0;
+}
+
+.register .sign-page .login-area label {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; /* 142.857% */
+}
+
+.register .sign-page input::placeholder {
+  color: #a5a5a5;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px; /* 150% */
+  /* padding: 10px 0 10.25px 15px !important; */
+  box-sizing: border-box;
+}
+
+.register .sign-page button {
+  margin-top: 31.75px;
+  width: 100%;
+  background-color: #0d28a6;
+  margin-bottom: 32px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px; /* 142.857% */
+  padding: 8px 12px !important ;
+  box-sizing: border-box;
+  text-decoration: none;
+  border-radius: 2px;
+  border: none;
+}
+
+.register .sign-page a {
+  color: #fff;
+  text-decoration: none;
+}
+
+h6 {
+  font-size: 0.9rem !important;
+}
+
+.register .sign-page .login-area span {
+  color: #0d28a6;
+  font-size: 14px;
+  font-weight: 700 !important;
+  line-height: 20px; /* 142.857% */
+  text-decoration-line: underline;
+}
+
+/* END OF LOGIN AREA CODE  */
+
+.register .bg {
+  background-color: #0d28a6;
+  padding: 0 0 0 115px !important;
+  /* width: 50%; */
+}
+
+.register .bg h1 {
+  color: #fff;
+  font-family: Rubik;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%; /* 72px */
+  opacity: 0.7;
+  padding-top: 112px;
+}
+
+.register .side-img {
+  position: relative;
+  height: 667px;
+  top: 40px;
+}
+
+.register .side-img img {
+  position: absolute;
+  bottom: -1px;
+  right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .register .sign-page .login-area {
+    padding: 29px 24px !important;
+    box-sizing: border-box;
+  }
+
+  .register,
+  .register .sign-page,
+  .register .container-fluid,
+  .register .row,
+  .register .login-area {
+    height: 640px;
+  }
+
+  .bg {
+    display: none;
+  }
+}

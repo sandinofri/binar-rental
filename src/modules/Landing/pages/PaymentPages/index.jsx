@@ -1,17 +1,15 @@
 import Navigation from "../../components/Navigation";
-// import HeaderPay from '../../components/HeaderPayment/headerpay';
-// import DetailPay from '../../components/DetailPay/detailpay';
-// import PayMain from '../../components/PayMain/paymain';
+// import HeaderPay from "../../components/HeaderPayment/headerpay";
+// import DetailPay from "../../components/DetailPay/detailpay";
+// import PayMain from "../../components/PayMain/paymain";
 import Footer from "../../components/Footer";
-import { useSelector } from "react-redux";
+import EmptyHero from "../../components/EmptyHero";
 
 const PaymentPages = () => {
   return (
     <div>
       <Navigation />
-      {/* <HeaderPay />
-            <DetailPay/>
-            <PayMain /> */}
+      <EmptyHero />
       <Footer />
     </div>
   );
