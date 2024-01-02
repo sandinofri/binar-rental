@@ -7,7 +7,7 @@
 .modal {
   display: none;
   position: fixed; /* Stay in place */
-  z-index: 1021; /* Sit on top */
+  z-index: 1022; /* Sit on top */
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -32,7 +32,7 @@
 .header-rectangle {
   max-width: 1200px !important;
   margin-bottom: 20px;
-  z-index: 2000;
+  z-index: 1056;
   background-color: white;
   padding: 15px 20px 30px 20px;
   border-radius: 8px;
@@ -95,6 +95,7 @@
 }
 
 .rectangle .rectangle-btn {
+  scroll-snap-align: h;
   position: relative;
   top: 39px;
   width: 92px;
@@ -119,10 +120,6 @@
   position: relative;
   margin: auto;
   top: 20px;
-}
-
-.rectangle .hide-element {
-  display: none;
 }
 
 .rectangle .listcar {
@@ -196,12 +193,16 @@
   border: none;
 }
 
-.rectangle .pagination {
-  padding-left: 480px !important;
+.rectangle .page {
   display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.rectangle .pagination {
+  justify-content: center;
   gap: 20px;
   position: absolute;
-  left: 195px;
   bottom: -90px;
 }
 

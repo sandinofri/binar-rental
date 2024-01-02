@@ -108,7 +108,7 @@ const SearchSection = () => {
     setMinPrice(minPrice);
     setMaxPrice(maxPrice);
     setStatus(status);
-    alert("a");
+    // alert("a");
   };
 
   const handleEdit = () => {
@@ -120,7 +120,7 @@ const SearchSection = () => {
     setMinPrice("");
     setMaxPrice("");
     setStatus("");
-    alert("b");
+    // alert("b");
   };
 
   const handleChangeSubmit = () => {
@@ -136,16 +136,19 @@ const SearchSection = () => {
 
   const showModal = () => {
     // console.log("terbuka");
+    document.body.style.overflow = "hidden";
     document.getElementById("myModal").style.display = "block";
   };
 
   const closeModal = () => {
     // console.log("tertutup");
+    document.body.style.overflow = "auto";
     document.getElementById("myModal").style.display = "none";
   };
 
   window.onclick = function (event) {
     if (event.target == myModal) {
+      document.body.style.overflow = "auto";
       myModal.style.display = "none";
     }
   };
@@ -264,17 +267,19 @@ const SearchSection = () => {
           )}
         </div>
       </div>
-      <div className={!hide ? "pagination" : " hide-element"} id="pagination">
-        <button
-          disabled={!slicey.a ? true : false}
-          onClick={() => handlePrev(slicey.a, slicey.b)}>
-          &lt;
-        </button>
-        <button
-          disabled={listcarnew.length < 3 ? true : false}
-          onClick={() => handleNext(slicey.a, slicey.b)}>
-          &gt;
-        </button>
+      <div className="page">
+        <div className={!hide ? "pagination" : " hide-element"} id="pagination">
+          <button
+            disabled={!slicey.a ? true : false}
+            onClick={() => handlePrev(slicey.a, slicey.b)}>
+            &lt;
+          </button>
+          <button
+            disabled={listcarnew.length < 3 ? true : false}
+            onClick={() => handleNext(slicey.a, slicey.b)}>
+            &gt;
+          </button>
+        </div>
       </div>
       <div id="myModal" className={!hide ? "modal" : "hide-element"}></div>
     </div>

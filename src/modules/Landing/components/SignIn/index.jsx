@@ -59,11 +59,11 @@ const SignIn = (props) => {
   };
 
   return (
-    <div className="register mx-auto">
+    <div className="register ">
       <div className="sign-page ">
         <div className="container-fluid">
           <div className="row">
-            <div className="login-area col " xs={12}>
+            <div className="login-area col-6 " xs={12}>
               <div className="btn">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
@@ -108,7 +108,7 @@ const SignIn = (props) => {
             <div className="bg col-6">
               <h1>Binar Car Rental</h1>
               <div className="side-img">
-                <img src={sideImg} alt="" />
+                <div className="img"></div>
               </div>
             </div>
           </div>
