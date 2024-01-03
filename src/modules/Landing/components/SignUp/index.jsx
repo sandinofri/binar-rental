@@ -5,6 +5,8 @@ import axios from "axios";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
 import sideImg from "../../assets/image/landing-page-desktop.png";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoading } from "../../features/detail/detailSlice";
 
 const SignUp = (props) => {
   const [form, setForm] = useState({
@@ -30,15 +32,21 @@ const SignUp = (props) => {
   };
 
   // console.log(form);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.detail);
   const navigate = useNavigate();
   const handleSubmit = async () => {
+    dispatch(isLoading());
     // const token = localStorage.getItem("access_token");
     try {
       const res = await requestAPI.register(form);
       // const token = localStorage.setItem("acces_token", res.data.access_token);
       alert("Register Berhasil Berhasil");
-      navigate(-1);
+      dispatch(isLoading());
+      props.func(false);
+      // navigate(-1);
     } catch (error) {
+      dispatch(isLoading());
       if (!form.name.length) {
         alert("Nama tidak boleh kosong");
       } else if (!form.email.length) {
@@ -99,16 +107,22 @@ const SignUp = (props) => {
                   placeholder="6+ Karakter"
                 />
               </div>
-              <button onClick={handleSubmit}> Sign Up</button>
+              <button
+                onClick={handleSubmit}
+                className={loading ? "disabled" : null}>
+                Sign Up
+              </button>
               <h6 className="text-center">
                 Don't have an account?{" "}
                 <span onClick={handleSignIn}>Sign in here</span>
               </h6>
             </div>
-            <div className="bg col-xl-6">
+            <div className="bg col-6">
               <h1>Binar Car Rental</h1>
               <div className="side-img">
-                <img src={sideImg} alt="" />
+                <div className="img">
+                  <img src={sideImg} alt="" />
+                </div>
               </div>
             </div>
           </div>

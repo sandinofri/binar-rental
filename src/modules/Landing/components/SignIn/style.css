@@ -10,7 +10,7 @@
 .register .container-fluid,
 .register .row,
 .register .login-area {
-  height: auto;
+  height: 670px;
 }
 
 /* LOGIN AREA CODE START  */
@@ -87,6 +87,7 @@ h6 {
 }
 
 .register .sign-page .login-area span {
+  cursor: pointer;
   color: #0d28a6;
   font-size: 14px;
   font-weight: 700 !important;
@@ -98,8 +99,9 @@ h6 {
 
 .register .bg {
   background-color: #0d28a6;
-  height: 742px;
+  height: 743px;
   padding: 0 0 0 115px !important;
+  overflow: hidden;
   /* width: 50%; */
 }
 
@@ -111,23 +113,33 @@ h6 {
   font-weight: 500;
   line-height: 150%; /* 72px */
   opacity: 0.7;
-  padding-top: 65px;
+  /* padding-top: 30px; */
 }
 
 .register .side-img {
   position: relative;
   height: auto;
-  top: 40px;
+  /* top: 40px; */
 }
 
 .register .side-img .img {
-  background-image: url("../../assets/image/landing-page-desktop.png");
-  background-repeat: no-repeat;
+  /* background-image: url("../../assets/image/landing-page-desktop.png"); */
+  /* background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
-  /* margin-top: 35px; */
+  position: relative; */
   border: 1px solid black;
-  height: 556px;
+  width: 655px;
+  height: 670px;
+}
+
+.register .side-img .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.register .sign-page .row .disabled {
+  background-color: #0d29a671;
 }
 
 @media screen and (max-width: 1200px) {
