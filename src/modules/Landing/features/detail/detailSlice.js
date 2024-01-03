@@ -5,7 +5,7 @@ const initialState = {
   finish_rent_at: "",
   start_date: "",
   end_date: "",
-  is_disabled: false,
+  is_disabled: false, //btn detailSection
   loading: false,
   id: "",
 };
@@ -14,12 +14,17 @@ export const detailSlice = createSlice({
   name: "detail",
   initialState,
   reducers: {
+    isLoading: (state) => {
+      state.loading = !state.loading;
+    },
+    //DetailSection
     disableButton: (state) => {
       state.is_disabled = false;
     },
     enableButton: (state) => {
       state.is_disabled = true;
     },
+    //end
     saveDateRent: (state, action) => {
       state.start_date = action.payload.start_date;
       state.end_date = action.payload.end_date;
@@ -44,6 +49,7 @@ export const {
   saveDateRent,
   resetDateRent,
   sendOrderId,
+  isLoading,
 } = detailSlice.actions;
 
 export default detailSlice.reducer;
