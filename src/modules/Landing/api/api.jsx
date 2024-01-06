@@ -27,6 +27,12 @@ export async function customerOrder( id, config) {
   return response;
 }
 
+export async function paymentSlip(orderId, formData, config) {
+  const response = await axios.put(`https://api-car-rental.binaracademy.org/customer/order/${orderId}/slip`, formData, config);
+
+  return response;
+}
+
 export async function authLogin(form, config) {
   const response = await axios.post(
     `https://api-car-rental.binaracademy.org/admin/auth/login`,

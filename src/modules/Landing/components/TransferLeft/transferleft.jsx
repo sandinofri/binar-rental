@@ -29,7 +29,7 @@ const TransferLeft = () => {
                         </div>
                         <div>
                             <p>Total Bayar</p>
-                            <p className='box-left-transfer'>100000000000</p>
+                            <p className='box-left-transfer fw-bold'>100000000000</p>
                         </div>
             </div>
 

@@ -48,7 +48,10 @@
 
 .box-left-transfer {
     border: 1px solid black;
-    width: 300px;
+    width: 500px;
+    font-size: 13px;
+    padding: 6px;
+    border-radius: 2px;
 }
 
 .desc-transfer-bank {
