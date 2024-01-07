@@ -1,5 +1,6 @@
 import './style.css'
 import AtmBca from './atmbca';
+import Countdown from '../../Countdown/countdown';
 
 const TransferLeft = () => {
     return (
@@ -10,7 +11,7 @@ const TransferLeft = () => {
                     <p>Rabu, 19 Mei 2023 jam 13:00 WIB</p>
                 </div>
                 <div>
-                    aaa
+                <Countdown timerKey="countdown24Hours" />
                 </div>
             </div>
 

@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import './style.css';
-import * as requestAPI from '../../api/api';
+import * as requestAPI from '../../../api/api';
+import Countdown from '../../Countdown/countdown';
+
 
 const TransferRight = ({ orderId }) => {
     const [selectedFile, setSelectedFile] = useState(null);
@@ -50,7 +52,10 @@ const TransferRight = ({ orderId }) => {
                 </div>
             ) : (
                 <div>
-                    <p className='fw-bold'>Konfirmasi Pembayaran</p>
+                    <div className='d-flex justify-content-between align-items-center'>
+                        <p className='fw-bold'>Konfirmasi Pembayaran</p>
+                        <Countdown timerKey="countdown10Minutes"/>
+                    </div>
                     <p className='text-transfer-right mb-4'>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek, tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
                     <h6>Upload Bukti Pembayaran</h6>
                     <p className='text-transfer-right'>Untuk membantu kami lebih cepat melakukan pengecekan, kamu bisa upload bukti bayarmu</p>

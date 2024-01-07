@@ -2,17 +2,15 @@ import './style.css'
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import * as requestAPI from '../../api/api'
-// import { useSelector } from 'react-redux';
+import BankSelection from '../bankSelection/bankselection';
+// import { useSelector, useDispatch } from 'react-redux';
+// import { selectBank, setBank, clearBank, selectBankInfo } from '../../features/bankReducer/bankSlice';
 
 const PayMain = () => {
     const [showChevdown, setShowChevdown] = useState(false)
     const [car, setCar] = useState({});
     const {id} = useParams()
     const [selectedBank, setSelectedBank] = useState(null);
-    // const [formData, setFormData] = useState({
-    //     total_price: "",
-    // });
-    // const state = useSelector((state) => state.detail);
 
     const handleBank = (bankId) => {
         if (selectedBank === bankId) {
@@ -51,9 +49,6 @@ const PayMain = () => {
     
         try {
             const res = await requestAPI.customerOrder(id, config);
-            // setFormData({
-            //     total_price: res.data.data.total_price
-            // });
             console.log(res.data)
             } catch (error) {
             console.log(error);
@@ -65,30 +60,7 @@ const PayMain = () => {
     }
     return (
         <div className='paymain'>
-            <div className="paymain-left">
-                <div>
-                    <h1 className="title-left-paymain">Pilih Bank Transfer</h1>
-                    <p className="text-left-paymain">Kamu bisa membayar dengan transfer melalui ATM, Internet Banking atau Mobile Banking</p>
-                </div>
-                <div className="btn-left-paymain">
-                    <div className={`d-flex mb-2 border-bottom p-1 position-relative${selectedBank === 'bca' ? 'selected' : ''}`} id='bca' onClick={() => handleBank('bca')}>
-                        <p className="bank">BCA</p>
-                        <p className="mt-1">BCA Transfer</p>
-                        {selectedBank === 'bca' && <i className='bi bi-check2 position-absolute me-3 end-0'></i>}
-                    </div>
-                    <div className={`d-flex mb-2 border-bottom p-1 position-relative ${selectedBank === 'bni' ? 'selected' : ''}`} id='bni' onClick={() => handleBank('bni')}>
-                        <p className="bank">BNI</p>
-                        <p className="mt-1">BNI Transfer</p>
-                        {selectedBank === 'bni' && <i className='bi bi-check2 position-absolute me-3 end-0'></i>}
-                    </div>
-                    <div className={`d-flex mb-2 border-bottom p-1 position-relative ${selectedBank === 'mandiri' ? 'selected' : ''}`} id='mandiri' onClick={() => handleBank('mandiri')}>
-                        <p className="bank">Mandiri</p>
-                        <p className="mt-1">Mandiri Transfer</p>
-                        {selectedBank === 'mandiri' && <i className='bi bi-check2 position-absolute me-3 end-0'></i>}
-                    </div>
-                </div>
-            </div>
-
+            <BankSelection selectedBank={selectedBank} handleBank={handleBank} />
 
             <div className="paymain-right">
                 <div>
@@ -153,10 +125,13 @@ const PayMain = () => {
                                             <p className='fw-bold'>Total</p>
                                             <p className=' fs-6 chevdown-text-right-1'>Rp {car.price}</p>
                                         </div>
-
-                                        <Link onClick={handleClick} className={`btn-paymain-right${selectedBank ? '' : ' disabled'}`} 
-                                        to={selectedBank ? `/transfer` : '#'}>Bayar</Link>
-
+                                        <Link
+                                            onClick={handleClick}
+                                            className={`btn-paymain-right${selectedBank ? '' : ' disabled'}`}
+                                            to={selectedBank ? `/transfer?bank=${selectedBank}` : '#'}
+                                            >
+                                            Bayar
+                                        </Link>
                                 </div>
                             }
                         </div>
