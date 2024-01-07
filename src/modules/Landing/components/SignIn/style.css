@@ -99,7 +99,7 @@ h6 {
 
 .register .bg {
   background-color: #0d28a6;
-  height: 743px;
+  height: 100vh;
   padding: 0 0 0 115px !important;
   overflow: hidden;
   /* width: 50%; */
@@ -128,8 +128,8 @@ h6 {
   background-size: cover;
   position: relative; */
   border: 1px solid black;
-  width: 655px;
-  height: 670px;
+  width: 100%;
+  height: 95%;
 }
 
 .register .side-img .img img {

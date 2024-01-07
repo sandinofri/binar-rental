@@ -70,8 +70,8 @@ const SignIn = (props) => {
     <div className="register ">
       <div className="sign-page ">
         <div className="container-fluid">
-          <div className="row">
-            <div className="login-area col-6 " xs={12}>
+          <div className="row ">
+            <div className="login-area col-xl-6 " xs={12}>
               <div className="btn">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
