@@ -25,7 +25,7 @@ export const routes = [
     element: <PaymentPages/>
   },
   {
-    path: "transfer",
+    path: "/transfer",
     element: <TransferPages/>
   },
   {

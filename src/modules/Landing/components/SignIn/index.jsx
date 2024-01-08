@@ -70,28 +70,28 @@ const SignIn = (props) => {
                 </a>
               </div>
               <h1 className="title"> Welcome Back</h1>
-              <div class="mb-2  ">
-                <label for="exampleFormControlInput1" class="form-label">
+              <div className="mb-2  ">
+                <label for="exampleFormControlInput1" className="form-label">
                   Email
                 </label>
                 <input
                   name="email"
                   type="email"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Contoh: johndee@gmail.com"
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <label for="exampleFormControlInput1" class="form-label">
+                <label for="exampleFormControlInput1" className="form-label">
                   Password
                 </label>
                 <input
                   name="password"
                   type="password"
                   id="inputPassword5"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="passwordHelpBlock"
                   placeholder="6+ Karakter"
                   onChange={handleChange}

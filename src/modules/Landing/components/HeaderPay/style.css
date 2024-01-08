@@ -24,14 +24,19 @@
     background-color: #0D28A6;
 }
 
+.bg-header-pay {
+    background-color: #0D28A6;
+    color: white;
+}
+
 .number-header-pay {
+    border: 1px solid #0D28A6;
     border-radius: 100%;
-    border: 1px solid black;
-    width: 15px;
+    width: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 12px;
+    font-size: 13px;
     align-content: center;
-    height: 15px;
+    height: 18px;
 }

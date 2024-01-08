@@ -124,6 +124,10 @@ h6 {
   right: 0;
 }
 
+.text-center {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 1200px) {
   .register .sign-page .login-area {
     padding: 29px 24px !important;
