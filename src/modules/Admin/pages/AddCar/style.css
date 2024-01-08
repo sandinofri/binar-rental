@@ -1,0 +1,36 @@
+.container-bg-add {
+    background-color:#F4F5F7;
+    height: 900px;
+}
+.information-cars {
+    font-size: 30px;
+    font-weight: 700;
+}
+.form-add {
+    width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 130px;
+    margin-top: 10px;
+    background-color: white;
+    padding: 16px ;
+}
+.label-add {
+    display: flex;
+    gap: 9px
+}
+.label-name {
+    width: 147px;
+    height: 18px;
+    padding: 9px;
+    
+}
+.input-add {
+    width: 300px;
+    padding: 9px 12px;
+    border: 1px solid black;
+    border-radius: 5px;
+
+
+}

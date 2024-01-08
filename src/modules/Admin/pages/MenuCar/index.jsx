@@ -8,14 +8,14 @@ import LeftNavbar from "../../component/LeftNavbar";
 const MenuCar = () => {
   const dispatch = useDispatch()
   const {list}= useSelector((state) => state.menuCar)
-console.log(list)
+
 useEffect(() => {
   dispatch(getMenu())
 },[])
 
 const handleDelete = (id) => {
   dispatch(deleteCar(id))
-  console.log( "<<<<")
+  
 
 }
   
