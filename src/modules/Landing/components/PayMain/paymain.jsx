@@ -3,12 +3,13 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import * as requestAPI from '../../api/api'
 import BankSelection from '../bankSelection/bankselection';
-// import { useSelector, useDispatch } from 'react-redux';
-// import { selectBank, setBank, clearBank, selectBankInfo } from '../../features/bankReducer/bankSlice';
+import { useSelector } from 'react-redux';
 
 const PayMain = () => {
     const [showChevdown, setShowChevdown] = useState(false)
     const [car, setCar] = useState({});
+    const [cars, setCars] = useState({})
+    const rentDuration = useSelector((state) => state.detail.rent_duration);
     const {id} = useParams()
     const [selectedBank, setSelectedBank] = useState(null);
 
@@ -27,19 +28,8 @@ const PayMain = () => {
     }
 
     useEffect(() => {
-        handleGetList();
         getCustOrder()
     }, []);
-
-    const handleGetList = async () => {
-        try {
-            const res = await requestAPI.detailCar(id)
-            // console.log(res)
-            setCar(res.data)
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
     const getCustOrder = async () => {
         const token = localStorage.getItem("access_token");
@@ -49,7 +39,9 @@ const PayMain = () => {
     
         try {
             const res = await requestAPI.customerOrder(id, config);
-            console.log(res.data)
+            // console.log(res.data)
+            setCar(res.data)
+            setCars(res.data.Car)
             } catch (error) {
             console.log(error);
             }
@@ -64,10 +56,10 @@ const PayMain = () => {
 
             <div className="paymain-right">
                 <div>
-                    <p className='fw-bold ms-3 mt-3'>{car.name}</p>
-                    <p className='ms-3 text-secondary mb-5'>{car.category}</p>
+                    <p className='fw-bold ms-3 mt-3'>{cars.name}</p>
+                    <p className='ms-3 text-secondary mb-5'>{cars.category}</p>
                 </div>
-                <div className='d-flex justify-content-between ms-3 me-3'>
+                <div className='d-flex justify-content-between ms-4 me-3'>
                         <div className='paymain-price'>
                             <button onClick={handleChevDown} className='border-0 bg-white'>
                                 {
@@ -89,19 +81,19 @@ const PayMain = () => {
                                         <div>
                                             <p className='fw-bold'>Harga</p>
                                         </div>
-                                        <div className='d-flex ju'>
+                                        <div className='d-flex justify-content-between'>
                                             <ul>
                                                 <li className='chevdown-text-left'>
-                                                    Sewa Mobil Rp{car.price} x 7 hari
+                                                    Sewa Mobil Rp.{cars.price} x {rentDuration} hari
                                                 </li>
                                             </ul>
-                                                <p className='chevdown-text-right-1'></p>
+                                                <p className='chevdown-text-right-1'>Rp {car.total_price}</p>
                                         </div>
 
                                         <div>
                                             <p className='fw-bold'>Biaya Lainnya</p>
                                         </div>
-                                        <div className='d-flex'>
+                                        <div className='d-flex justify-content-between'>
                                             <ul>
                                                 <li className='chevdown-text-left'>Pajak</li>
                                                 <li className='chevdown-text-left'>Biaya Makan Sopir</li>
@@ -121,22 +113,25 @@ const PayMain = () => {
                                                 <li className='chevdown-text-left'>Tol dan parkir</li>
                                             </ul>
                                         </div>
+                                        <hr className='line-payment-right' />
                                         <div className='d-flex justify-content-between'>
                                             <p className='fw-bold'>Total</p>
-                                            <p className=' fs-6 chevdown-text-right-1'>Rp {car.price}</p>
+                                            <p className='fs-6 fw-bold'>Rp {car.total_price}</p>
                                         </div>
-                                        <Link
-                                            onClick={handleClick}
-                                            className={`btn-paymain-right${selectedBank ? '' : ' disabled'}`}
-                                            to={selectedBank ? `/transfer?bank=${selectedBank}` : '#'}
-                                            >
-                                            Bayar
-                                        </Link>
+
+                                            <Link
+                                                onClick={handleClick}
+                                                className={`btn-paymain-right${selectedBank ? '' : ' disabled'}`}
+                                                to={selectedBank ? `/transfer?bank=${selectedBank}` : '#'}
+                                                >
+                                                Bayar
+                                            </Link>
+
                                 </div>
                             }
                         </div>
                     <div>
-                        <p className='fw-bolder'>{`Rp ${car.price}`}</p> 
+                        <p className='totalprice-payment'>{`Rp ${car.total_price}`}</p> 
                     </div>
                 </div>
             </div>

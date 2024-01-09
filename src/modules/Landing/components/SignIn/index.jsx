@@ -1,11 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
-import sideImg from "../../assets/image/landing-page-desktop.png";
+import sideImg from "../../assets/image/LandingPage.png";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -64,7 +63,7 @@ const SignIn = (props) => {
         <div className="container-fluid">
           <div className="row">
             <div className="login-area col " xs={12}>
-              <div className="btn">
+              <div className="logo-register">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
                 </a>
@@ -98,18 +97,16 @@ const SignIn = (props) => {
                 />
               </div>
               <div>
-                <button onClick={handleSubmit}> Sign in</button>
+                <button className="btn-register" onClick={handleSubmit}> Sign in</button>
               </div>
               <h6 className="text-center">
                 Don't have an account?
                 <span onClick={handleSignUp}>Sign Up for free</span>
               </h6>
             </div>
-            <div className="bg col-6">
+            <div className="col-6 side-img-wrapper">
               <h1>Binar Car Rental</h1>
-              <div className="side-img">
-                <img src={sideImg} alt="" />
-              </div>
+              <img className="side-img" src={sideImg} alt="" />
             </div>
           </div>
         </div>

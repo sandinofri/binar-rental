@@ -15,10 +15,15 @@ const DetailPay = () => {
     }, []);
 
     const handleGetList = async () => {
+        const token = localStorage.getItem("access_token");
+        const config = {
+            headers: { access_token: token },
+        };
+
         try {
-            const res = await requestAPI.detailCar(id)
-            // console.log(res)
-            setCar(res.data)
+            const res = await requestAPI.customerOrder(id, config)
+            // console.log(res.data.Car)
+            setCar(res.data.Car)
         } catch (error) {
             console.log(error)
         }

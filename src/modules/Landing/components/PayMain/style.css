@@ -6,50 +6,6 @@
     height: 550px;
 }
 
-.paymain-left {
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    width: 605px;
-    height: 320px;
-    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.20);
-}
-
-.title-left-paymain {
-    color: black;
-    font-size: 20px;
-    margin-bottom: -10px;
-    font-weight: bold;
-    padding: 20px 0px 0px 20px;
-}
-
-.text-left-paymain {
-    font-size: 13px;
-    letter-spacing: -0.5px;
-    padding: 20px 0px 0px 20px;
-}
-
-.btn-left-paymain {
-    position: relative;
-    cursor: pointer;
-    margin-top: 20px;
-    padding-left: 20px;
-}
-
-.bank {
-    background-color: white;
-    width: 60px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-right: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    border: 1px solid rgb(206, 204, 204);
-    height: 30px;
-}
-
 .paymain-right {
     border-radius: 5px;
     display: flex;
@@ -64,31 +20,38 @@
 }
 
 .chevdown-text-right-1 {
-    position: relative;
-    left: 70px;
     font-size: 13px;
     font-weight: 600;
 }
 
 .chevdown-text-right-2 {
-    position: relative;
-    left: 165px;
     color: #5CB85F;
     font-size: 13px;
     line-height: 15px;
 }
 
 .btn-paymain-right {
-    background-color: #5CB85F;
-    padding: 3px 120px;
-    border-radius: 3px;
     text-decoration: none;
     color: white;
     font-weight: 700;
+    background-color: #5CB85F;
+    border-radius: 2px;
+    padding: 10px 158px;
+    text-align: center;
 }
 
 
 .btn-paymain-right.disabled {
     pointer-events: none;
     opacity: 0.5; 
+}
+
+.totalprice-payment {
+    font-weight: 700;
+    position: absolute;
+    right: 220px;
+}
+
+.line-payment-right {
+    margin-top: -10px;
 }
