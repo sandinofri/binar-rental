@@ -43,7 +43,7 @@ const SignIn = () => {
       console.log(response);
       setLoading(false);
       navigate("/admin/dashboard");
-      localStorage.setItem("token", response.data.data.access_token);
+      localStorage.setItem("token", response.data.access_token);
     } catch (error) {
       setError(error.response.data.message);
       setLoading(false);
