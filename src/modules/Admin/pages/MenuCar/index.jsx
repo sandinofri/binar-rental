@@ -4,7 +4,9 @@ import { getMenu } from "../../redux/features/menuCar/menuSlicer";
 import { deleteCar } from "../../redux/features/deleteCar/deleteSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../component/Navbar";
+import { Link } from "react-router-dom";
 import LeftNavbar from "../../component/LeftNavbar";
+
 const MenuCar = () => {
   const dispatch = useDispatch()
   const {list}= useSelector((state) => state.menuCar)
@@ -25,7 +27,9 @@ const handleDelete = (id) => {
         {/* <LeftNavbar/> */}
       <div className="information-cars">
         <p>List Cars</p>
-        <button>Add New Car</button>
+        <Link to={"/admin/add"}>
+          <button className="add-car">Add New Car</button>
+        </Link>
       </div>
       <div className="category-car">
         <button>All</button>

@@ -1,6 +1,13 @@
+import { useNavigate } from "react-router-dom"
+
+
 import Navbar from "../../component/Navbar"
 import "./style.css"
 const AddCar = () => {
+    let navigate = useNavigate();
+    function handleCancelClick() {
+        navigate("/admin/menu")
+    }
     return (
         <div className="container-bg-add">
             <Navbar/>
@@ -30,6 +37,10 @@ const AddCar = () => {
                 </p>
                 <p>Created at</p>
                 <p>Updated at</p>
+            </div>
+            <div className="button-add">
+                <button className="cancel" onClick={handleCancelClick}>Cancel</button>
+                <button className="save">Save</button>
             </div>
         </div>
     )
