@@ -56,12 +56,12 @@ const PayMain = () => {
 
             <div className="paymain-right">
                 <div>
-                    <p className='fw-bold ms-3 mt-3'>{cars.name}</p>
-                    <p className='ms-3 text-secondary mb-5'>{cars.category}</p>
+                    <p className='fw-bold ms-4 mt-4'>{cars.name}</p>
+                    <p className='ms-4 text-secondary mb-5'>{cars.category}</p>
                 </div>
                 <div className='d-flex justify-content-between ms-4 me-3'>
                         <div className='paymain-price'>
-                            <button onClick={handleChevDown} className='border-0 bg-white'>
+                            <button onClick={handleChevDown} className='border-0 bg-white mb-4'>
                                 {
                                     showChevdown 
                                     ? 
@@ -113,12 +113,11 @@ const PayMain = () => {
                                                 <li className='chevdown-text-left'>Tol dan parkir</li>
                                             </ul>
                                         </div>
-                                        <hr className='line-payment-right' />
-                                        <div className='d-flex justify-content-between'>
+                                        <hr/>
+                                        <div className='d-flex justify-content-between mb-5'>
                                             <p className='fw-bold'>Total</p>
                                             <p className='fs-6 fw-bold'>Rp {car.total_price}</p>
                                         </div>
-
                                             <Link
                                                 onClick={handleClick}
                                                 className={`btn-paymain-right${selectedBank ? '' : ' disabled'}`}
@@ -126,7 +125,6 @@ const PayMain = () => {
                                                 >
                                                 Bayar
                                             </Link>
-
                                 </div>
                             }
                         </div>

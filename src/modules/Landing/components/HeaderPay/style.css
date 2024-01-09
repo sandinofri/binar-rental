@@ -16,9 +16,7 @@
 }
 
 .line-header {
-    height: 2px;
-    position: relative;
-    bottom: 8px;
+    height: 1px;
     width: 40px;
     margin: 0px 5px;
     background-color: #0D28A6;

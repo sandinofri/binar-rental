@@ -3,7 +3,6 @@
     display: flex;
     justify-content: space-between;
     margin: auto;
-    height: 550px;
 }
 
 .paymain-right {
@@ -38,6 +37,8 @@
     border-radius: 2px;
     padding: 10px 158px;
     text-align: center;
+    position: relative;
+    bottom: 20px;
 }
 
 
@@ -50,8 +51,4 @@
     font-weight: 700;
     position: absolute;
     right: 220px;
-}
-
-.line-payment-right {
-    margin-top: -10px;
 }

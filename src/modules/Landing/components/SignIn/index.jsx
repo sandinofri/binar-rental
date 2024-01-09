@@ -5,6 +5,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
 import sideImg from "../../assets/image/LandingPage.png";
+import { useDispatch, useSelector } from "react-redux";
+import { isLoading } from "../../features/detail/detailSlice";
 
 const SignIn = (props) => {
   const [form, setForm] = useState({
@@ -26,9 +28,12 @@ const SignIn = (props) => {
   };
 
   // console.log(form);
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.detail);
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
+    dispatch(isLoading());
     const token = localStorage.getItem("access_token");
 
     const config = () => {
@@ -38,12 +43,16 @@ const SignIn = (props) => {
     };
 
     try {
+      console.log(loading);
       const res = await requestAPI.authLogin(form, config);
       localStorage.setItem("access_token", res.data.access_token);
       console.log(res);
+      dispatch(isLoading());
       alert("Login Berhasil");
-      navigate("/");
+      navigate(-1);
     } catch (error) {
+      dispatch(isLoading());
+      console.log(loading);
       if (!form.email.length) {
         alert("email tidak boleh kosong");
       } else if (!form.password.length) {
@@ -58,7 +67,7 @@ const SignIn = (props) => {
   };
 
   return (
-    <div className="register mx-auto">
+    <div className="register ">
       <div className="sign-page ">
         <div className="container-fluid">
           <div className="row">

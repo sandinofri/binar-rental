@@ -64,6 +64,7 @@
 }
 
 .register .sign-page .login-area span {
+  cursor: pointer;
   color: #0d28a6;
   font-size: 14px;
   font-weight: 700 !important;

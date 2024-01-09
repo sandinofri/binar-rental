@@ -3,9 +3,10 @@ import LandingPage from "./pages/LandingPage";
 import NotFound from "./pages/NotFound";
 import Register from "./pages/Register";
 import SearchResult from "./pages/SearchResult";
-import PaymentPages from "./pages/PaymentPages";
+import Payment from "./pages/Payment";
 import TransferPages from "./pages/TransferPages";
 import Eticket from "./pages/E-Ticket"
+import AuthLogin from "./components/hoc/authLogin";
 
 export const routes = [
   {
@@ -22,7 +23,10 @@ export const routes = [
   },
   {
     path: "/payment/:id",
-    element: <PaymentPages/>
+    element: (
+      <AuthLogin>
+        <Payment/>
+      </AuthLogin>)
   },
   {
     path: "/transfer",

@@ -6,6 +6,7 @@ import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import fiuser from '../../assets/icon/fi_users.png'
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
@@ -25,18 +26,25 @@ const DetailSection = () => {
       // console.log(res.data);
       setCar(res.data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
   const continuePay = async () => {
     // alert("button berhasil di klik");
+
     const payload = {
       start_rent_at: state.start_rent_at,
       finish_rent_at: state.finish_rent_at,
       car_id: id,
     };
     const token = localStorage.getItem("access_token");
+    // console.log(token);
+    if (!token) {
+      alert("Login dulu yuk");
+      return navigate("/register");
+    }
+
     const config = {
       headers: { access_token: token },
     };
@@ -140,9 +148,14 @@ const DetailSection = () => {
         <div className="detail-img-wrapper">
           <img className="detail-img" src={car.image} alt="" />
         </div>
-        <p className="fw-bold ms-3">{car.name}</p>
+        <p className="fw-bold ms-3 mb-1">{car.name}</p>
+        <div className="mb-3 cat">
+          <div className="ms-3 img-user">
+            <img src={fiuser} alt="" />
+          </div>
+          <p className="ms-3 detail-category">{car.category}</p>
+        </div>
 
-        <p className="ms-3 detail-category">{car.category}</p>
         <div className="ms-3 rentDuration">
           <p>Tentukan lama sewa mobil (max. 7 hari) </p>
           <Calendars />

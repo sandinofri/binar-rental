@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const initialState = {
+const initialState = {
   start_rent_at: "",
   finish_rent_at: "",
   start_date: "",
@@ -8,18 +8,24 @@ export const initialState = {
   rent_duration: 0,
   is_disabled: false,
   loading: false,
+  id: "",
 };
 
 export const detailSlice = createSlice({
   name: "detail",
   initialState,
   reducers: {
+    isLoading: (state) => {
+      state.loading = !state.loading;
+    },
+    //DetailSection
     disableButton: (state) => {
       state.is_disabled = false;
     },
     enableButton: (state) => {
       state.is_disabled = true;
     },
+    //end
     saveDateRent: (state, action) => {
       state.start_date = action.payload.start_date;
       state.end_date = action.payload.end_date;
@@ -41,9 +47,19 @@ export const detailSlice = createSlice({
       state.end_date = "";
       state.rent_duration = 0;
     },
+    sendOrderId: (state, action) => {
+      state.id = action.payload.orderId;
+    },
   },
 });
 
-export const { disableButton, enableButton, saveDateRent, resetDateRent } = detailSlice.actions;
+export const {
+  disableButton,
+  enableButton,
+  saveDateRent,
+  resetDateRent,
+  sendOrderId,
+  isLoading,
+} = detailSlice.actions;
 
 export default detailSlice.reducer;

@@ -7,7 +7,7 @@
   background-color: #f1f3ff;
   display: flex;
   align-items: center;
-  height: 288px;
+  height: 200px;
 }
 
 @media (max-width: 576px) {
