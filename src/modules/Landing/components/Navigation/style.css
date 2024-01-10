@@ -9,6 +9,11 @@
   width: 100%;
 }
 
+.navbar .container {
+  width: 1440px;
+  padding: 0 !important;
+}
+
 .navbar-nav {
   align-items: center;
 }
@@ -23,6 +28,15 @@
   color: white !important;
   padding: 8px 12px !important;
   border-radius: 2px;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+.offcanvas-body .nav-register:hover {
+  background-color: #408042;
 }
 
 .navbar .navbar-toggler,
@@ -45,6 +59,22 @@
   gap: 20px;
 }
 
+.navbar .nav-bar {
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+.navbar .nav-bar:hover {
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+}
+
 .nav-link a {
   margin-right: 10px;
   text-decoration: none;
@@ -58,6 +88,9 @@
 }
 
 @media (max-width: 576px) {
+  .navbar {
+    padding: 24px 16px !important;
+  }
   .container {
     padding: 0px 16px !important;
   }

@@ -9,7 +9,7 @@ const Register = () => {
     // console.log(data);
   };
 
-  console.log(isLogged);
+  // console.log(isLogged);
 
   return (
     <div>

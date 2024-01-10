@@ -121,17 +121,17 @@ const LandingPage = () => {
 
       <Hero showButton={true} />
 
-      <OurServices data={Our} />
+      {/* <OurServices data={Our} /> */}
 
-      <WhyUsCard data={WhyUs} />
+      {/* <WhyUsCard data={WhyUs} /> */}
 
-      <Testimonial data={Testi} />
+      {/* <Testimonial data={Testi} /> */}
 
-      <Banner />
+      {/* <Banner /> */}
 
-      <Faq data={FaqSection} />
+      {/* <Faq data={FaqSection} /> */}
 
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

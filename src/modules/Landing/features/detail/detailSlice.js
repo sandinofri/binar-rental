@@ -5,7 +5,7 @@ const initialState = {
   finish_rent_at: "",
   start_date: "",
   end_date: "",
-  is_disabled: false, //btn detailSection
+  is_disabled: false, //btn detailSection , btn SignIn
   loading: false,
   id: "",
 };

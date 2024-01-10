@@ -1,22 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
-import sideImg from "../../assets/image/landing-page-desktop.png";
 import { useDispatch, useSelector } from "react-redux";
-import { isLoading } from "../../features/detail/detailSlice";
+import {
+  disableButton,
+  enableButton,
+  isLoading,
+} from "../../features/detail/detailSlice";
+import classNames from "classnames";
 
 const SignUp = (props) => {
+  const state = useSelector((state) => state.detail);
+  const { loading } = useSelector((state) => state.detail);
+
+  const dispatch = useDispatch();
   const [form, setForm] = useState({
     name: "",
     email: "",
     password: "",
   });
 
+  const className = classNames({
+    //nama class : condition
+    disabled: !state.is_disabled,
+    disabled_loading: loading,
+    null: state.is_disabled,
+  });
+
   const handleChange = (e) => {
-    // console.log(e.target);
+    dispatch(enableButton());
     const { name, value } = e.target;
     setForm({
       ...form,
@@ -24,27 +37,23 @@ const SignUp = (props) => {
     });
   };
 
-  // console.log(props.func);
+  useEffect(() => {
+    if (!form.name && !form.email && !form.password) {
+      dispatch(disableButton());
+    }
+  }, [state.is_disabled, form.name, form.email, form.password]);
 
   const handleSignIn = () => {
     props.func(false);
-    // console.log(props.func());
   };
 
-  // console.log(form);
-  const dispatch = useDispatch();
-  const { loading } = useSelector((state) => state.detail);
-  const navigate = useNavigate();
   const handleSubmit = async () => {
     dispatch(isLoading());
-    // const token = localStorage.getItem("access_token");
     try {
       const res = await requestAPI.register(form);
-      // const token = localStorage.setItem("acces_token", res.data.access_token);
       alert("Register Berhasil Berhasil");
       dispatch(isLoading());
-      props.func(false);
-      // navigate(-1);
+      props.func(false); // sign in component will show
     } catch (error) {
       dispatch(isLoading());
       if (!form.name.length) {
@@ -109,7 +118,8 @@ const SignUp = (props) => {
               </div>
               <button
                 onClick={handleSubmit}
-                className={loading ? "disabled" : null}>
+                disabled={!state.is_disabled}
+                className={className}>
                 Sign Up
               </button>
               <h6 className="text-center">
@@ -117,13 +127,9 @@ const SignUp = (props) => {
                 <span onClick={handleSignIn}>Sign in here</span>
               </h6>
             </div>
-            <div className="bg col-6">
-              <h1>Binar Car Rental</h1>
-              <div className="side-img">
-                <div className="img">
-                  <img src={sideImg} alt="" />
-                </div>
-              </div>
+            <div className="bg col-xl-6">
+              <h1 className="ms-5">Binar Car Rental</h1>
+              <div className="img ms-5"></div>
             </div>
           </div>
         </div>
