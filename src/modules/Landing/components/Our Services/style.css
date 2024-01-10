@@ -66,14 +66,13 @@
 @media screen and (max-width: 1200px) {
   .services .services-wrapper {
     width: 100%;
-    gap: 25px;
   }
 }
 
 @media screen and (max-width: 991px) {
   .services .services-wrapper .frame {
     width: 100%;
-    align-items: center !important;
+    align-items: center;
   }
 
   .services .services-wrapper {
@@ -83,6 +82,10 @@
   .services h1,
   .services p {
     text-align: center;
+  }
+
+  .services .services-wrapper img {
+    margin-left: -10%;
   }
 }
 
@@ -98,12 +101,18 @@
     width: 70%;
   }
 
-  .frame {
+  .services .services-wrapper .frame {
     width: 100%;
+    align-items: start;
   }
 
+  .services h1,
+  .services p {
+    text-align: left;
+  }
   .services .services-wrapper img {
-    margin-left: -30px;
+    margin: auto;
+    margin-left: 10%;
   }
 
   .text-services {

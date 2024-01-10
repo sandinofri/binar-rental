@@ -145,18 +145,15 @@
     margin: auto;
   }
 
-  .mySwiper .testi-card img {
-    margin: 0 0 10px 80px;
-  }
-
   .swiper-slide {
-    display: block !important;
+    text-align: center;
+    display: flex !important;
     width: 98% !important;
-    height: 370px !important;
+    height: 390px !important;
     padding: 40px 32px !important;
     display: flex;
     flex-direction: column;
-    gap: 24px !important;
+    gap: 24px;
     border-radius: 8px;
   }
 
@@ -171,6 +168,7 @@
     color: #000000;
     font-size: 14px;
     margin: auto;
+    padding-top: 24px !important;
     text-align: start;
   }
 
@@ -195,14 +193,14 @@
     height: 32px !important;
     border-radius: 50%;
     border: 1px solid #c4c4c4;
-    top: 440px !important;
+    top: 97% !important;
   }
 
   .swiper-button-next {
-    left: 180px !important;
+    left: 54% !important;
   }
   .swiper-button-prev {
-    left: 120px !important;
+    left: 38% !important;
   }
 
   .swiper-button-prev:after,
