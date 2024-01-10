@@ -10,7 +10,7 @@
 }
 
 .navbar .container {
-  margin-left: 106px;
+  margin: auto;
   width: 83%;
   padding: 0 !important;
 }
@@ -88,7 +88,7 @@
   line-height: 20px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 800px) {
   .navbar {
     padding: 24px 16px !important;
   }
