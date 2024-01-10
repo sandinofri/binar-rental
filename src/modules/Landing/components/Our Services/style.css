@@ -4,13 +4,13 @@
 }
 
 .services {
-  padding-top: 100px !important;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
 }
 
 .services-wrapper {
-  width: 1000px;
+  width: 82%;
 }
 
 .image-service {
@@ -21,21 +21,14 @@
   flex-direction: column;
   display: inline-flex;
   gap: 16px;
-  margin-top: 40px;
 }
 
-.services .text-services {
+.services h1,
+.services p {
   font-family: "Arial-Bold", Helvetica;
   font-weight: 700;
   color: #000000;
   font-size: 24px;
-}
-
-.services .sewa {
-  font-family: "Arial-Bold", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 14px;
 }
 
 .services .frame-2 {
@@ -61,26 +54,56 @@
   font-weight: 700;
 }
 
-.services .p,
-.frame .sewa {
-  position: relative;
+.services p,
+.frame {
+  /* position: relative; */
   font-family: "Arial-Bold", Helvetica;
   font-weight: 400;
   color: #000000;
   font-size: 14px;
 }
 
+@media screen and (max-width: 1200px) {
+  .services .services-wrapper {
+    width: 100%;
+    gap: 25px;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .services .services-wrapper .frame {
+    width: 100%;
+    align-items: center !important;
+  }
+
+  .services .services-wrapper {
+    width: 82%;
+    gap: 25px;
+  }
+  .services h1,
+  .services p {
+    text-align: center;
+  }
+}
+
 @media (max-width: 576px) {
+  .services {
+    padding-top: 60px;
+  }
+  .services .services-wrapper {
+    width: 100%;
+    gap: 25px;
+  }
   .image-service {
-    width: 80%;
+    width: 70%;
   }
 
   .frame {
-    width: 80%;
+    width: 100%;
   }
 
   .services .services-wrapper img {
-    margin-left: 20px;
+    margin-left: -30px;
   }
 
   .text-services {

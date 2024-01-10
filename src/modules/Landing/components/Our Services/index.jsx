@@ -1,20 +1,18 @@
 import React from "react";
 import imgservice from "../../assets/image/img_service.png";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.css";
 import "./style.css";
 
 let OurServices = (props) => {
   return (
     <div id="Services">
-      <div className="container services">
-        <div className="row services-wrapper">
-          <div className="col-lg-6 col-md-6 col-sm-12">
+      <div className="container services ">
+        <div className="row services-wrapper ">
+          <div className="col-lg-6 col-12 frame">
             <img className="image-service" src={imgservice} alt="" />
           </div>
-          <div className="col-lg-6 col-md-6 col-sm-12 frame">
-            <p className="text-services">
-              Best Car Rental for any kind of trip in (Lokasimu)!
-            </p>
+          <div className="col-lg-6 col-12 frame right-frame">
+            <h1>Best Car Rental for any kind of trip in (Lokasimu)!</h1>
             <p className="sewa">
               Sewa mobil di (Lokasimu) bersama Binar Car Rental jaminan harga
               lebih murah dibandingkan yang lain, kondisi mobil baru, serta
