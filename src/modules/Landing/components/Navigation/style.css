@@ -10,7 +10,8 @@
 }
 
 .navbar .container {
-  width: 1440px;
+  margin-left: 106px;
+  width: 83%;
   padding: 0 !important;
 }
 
@@ -91,8 +92,11 @@
   .navbar {
     padding: 24px 16px !important;
   }
-  .container {
-    padding: 0px 16px !important;
+  .navbar .container {
+    width: 100%;
+    margin-left: -5px;
+
+    /* padding: 0px 16px !important; */
   }
 
   .navbar-nav {
