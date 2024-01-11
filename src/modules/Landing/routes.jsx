@@ -41,8 +41,8 @@ export const routes = [
     path: "*",
     element: <NotFound />,
   },
-  // {
-  //   path: "/register",
-  //   element: <Register />,
-  // },
+  {
+    path: "/register",
+    element: <Register />,
+  },
 ];
