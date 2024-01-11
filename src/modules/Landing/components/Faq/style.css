@@ -50,6 +50,15 @@
   color: black;
   background-color: transparent;
   font-size: 15px;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
+}
+
+.faq .faq-wrapper:hover {
+  background-color: rgb(227, 227, 234);
 }
 
 .faq .faq-item {
@@ -64,6 +73,10 @@
 }
 
 @media (max-width: 576px) {
+  .faq {
+    padding-top: 100px;
+  }
+
   .faq .title-container {
     width: 100%;
   }

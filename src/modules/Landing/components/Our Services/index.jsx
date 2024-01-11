@@ -9,7 +9,7 @@ let OurServices = (props) => {
       <div className="container services ">
         <div className="row services-wrapper ">
           <div className="col-lg-6 col-12 frame">
-            <img className="image-service" src={imgservice} alt="" />
+            <img className="image-service col-md-12" src={imgservice} alt="" />
           </div>
           <div className="col-lg-6 col-12 frame right-frame">
             <h1>Best Car Rental for any kind of trip in (Lokasimu)!</h1>
