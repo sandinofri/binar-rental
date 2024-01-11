@@ -8,6 +8,7 @@ import TransferPages from "./pages/TransferPages";
 import Eticket from "./pages/E-Ticket"
 import AuthLogin from "./components/hoc/authLogin";
 
+
 export const routes = [
   {
     path: "/",
@@ -40,8 +41,8 @@ export const routes = [
     path: "*",
     element: <NotFound />,
   },
-  {
-    path: "/register",
-    element: <Register />,
-  },
+  // {
+  //   path: "/register",
+  //   element: <Register />,
+  // },
 ];
