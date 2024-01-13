@@ -1,9 +1,18 @@
 import { useNavigate } from "react-router-dom"
-
+import { useSelector, useDispatch } from "react-redux"
+import addCar from "../../redux/features/addCar/addSlice"
 
 import Navbar from "../../component/Navbar"
 import "./style.css"
+import { useEffect } from "react"
 const AddCar = () => {
+    
+    const dispatch = useDispatch()
+    
+    
+    useEffect(() => {
+        dispatch(addCar())
+    },[])
     let navigate = useNavigate();
     function handleCancelClick() {
         navigate("/admin/menu")

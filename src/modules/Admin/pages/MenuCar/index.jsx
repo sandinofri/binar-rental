@@ -17,7 +17,7 @@ useEffect(() => {
 
 const handleDelete = (id) => {
   dispatch(deleteCar(id))
-  
+   
 
 }
   
@@ -48,7 +48,7 @@ const handleDelete = (id) => {
               <p>{item.category}</p>
             </div>
             <div className="button">
-              <button onClick={() => handleDelete()} className="delete">Delete</button>
+              <button onClick={() => handleDelete(item.id)} className="delete">Delete</button>
               <button className="edit">Edit</button>
             </div>
           </div>

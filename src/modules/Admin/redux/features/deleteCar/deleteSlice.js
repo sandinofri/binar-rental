@@ -17,8 +17,17 @@ import { createAsyncThunk,createSlice } from "@reduxjs/toolkit";
 //     }
 // }
 export const deleteCar = createAsyncThunk("delete/deleteCar", async (id) => {
+    console.log(id)
+    const token = localStorage.getItem("access_token")
+    // console.log(token)
+
+    const config = {
+        headers: {
+            access_token: token, 
+        }
+    }
     try {
-        const res = await axios.delete(`https://api-car-rental.binaracademy.org/admin/order/${id}`) 
+        const res = await axios.delete(`https://api-car-rental.binaracademy.org/admin/car/${id}`, config) 
         console.log(res)
         return res.data
     }
