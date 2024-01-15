@@ -1,4 +1,3 @@
-import React from "react";
 import "./style.css";
 import logo from "../../assets/image/logo.png";
 import { HashLink } from "react-router-hash-link";

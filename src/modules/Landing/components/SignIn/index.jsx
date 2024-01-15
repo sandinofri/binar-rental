@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
@@ -6,6 +6,7 @@ import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
 import classNames from "classnames";
 
+import sideImg from "../../assets/image/LandingPage.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   disableButton,
@@ -89,36 +90,36 @@ const SignIn = (props) => {
     <div className="register ">
       <div className="sign-page ">
         <div className="container-fluid">
-          <div className="row ">
-            <div className="login-area col-xl-6 " xs={12}>
-              <div className="btn">
+          <div className="row">
+            <div className="login-area col " xs={12}>
+              <div className="logo-register">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
                 </a>
               </div>
               <h1 className="title"> Welcome Back</h1>
-              <div class="mb-2  ">
-                <label for="exampleFormControlInput1" class="form-label">
+              <div className="mb-2  ">
+                <label for="exampleFormControlInput1" className="form-label">
                   Email
                 </label>
                 <input
                   name="email"
                   type="email"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Contoh: johndee@gmail.com"
                   onChange={handleChange}
                 />
               </div>
               <div>
-                <label for="exampleFormControlInput1" class="form-label">
+                <label for="exampleFormControlInput1" className="form-label">
                   Password
                 </label>
                 <input
                   name="password"
                   type="password"
                   id="inputPassword5"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="passwordHelpBlock"
                   placeholder="6+ Karakter"
                   onChange={handleChange}
@@ -131,6 +132,10 @@ const SignIn = (props) => {
                   className={className}>
                   Sign in
                 </button>
+                <button className="btn-register" onClick={handleSubmit}>
+                  {" "}
+                  Sign in
+                </button>
               </div>
               <h6 className="text-center">
                 Don't have an account?
@@ -140,6 +145,10 @@ const SignIn = (props) => {
             <div className="bg col-xl-6">
               <h1 className="ms-5">Binar Car Rental</h1>
               <div className="img ms-5"></div>
+              <div className="col-6 side-img-wrapper">
+                <h1>Binar Car Rental</h1>
+                <img className="side-img" src={sideImg} alt="" />
+              </div>
             </div>
           </div>
         </div>

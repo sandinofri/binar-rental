@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import Logo from "../../assets/image/logo.png";
 import * as requestAPI from "../../api/api";
+import Logo from "../../assets/image/logo.png";
+import * as requestAPI from "../../api/api";
+import sideImg from "../../assets/image/LandingPage.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   disableButton,
@@ -76,42 +79,42 @@ const SignUp = (props) => {
         <div className="container-fluid">
           <div className="row">
             <div className="login-area col-xl-6 ">
-              <div className="btn">
+              <div className="logo-register">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
                 </a>
               </div>
               <h1 className="title">Sign Up</h1>
-              <div class="mb-2  ">
-                <label class="form-label">Name*</label>
+              <div className="mb-2  ">
+                <label className="form-label">Name*</label>
                 <input
                   onChange={handleChange}
                   name="name"
                   type="name"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Nama Lengkap"
                 />
               </div>
-              <div class="mb-2  ">
-                <label class="form-label">Email*</label>
+              <div className="mb-2  ">
+                <label className="form-label">Email*</label>
                 <input
                   onChange={handleChange}
                   type="email"
                   name="email"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Contoh: johndee@gmail.com"
                 />
               </div>
               <div>
-                <label class="form-label">Create Password*</label>
+                <label className="form-label">Create Password*</label>
                 <input
                   onChange={handleChange}
                   name="password"
                   type="password"
                   id="inputPassword5"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="passwordHelpBlock"
                   placeholder="6+ Karakter"
                 />
@@ -122,6 +125,10 @@ const SignUp = (props) => {
                 className={className}>
                 Sign Up
               </button>
+              <button className="btn-register" onClick={handleSubmit}>
+                {" "}
+                Sign Up
+              </button>
               <h6 className="text-center">
                 Don't have an account?{" "}
                 <span onClick={handleSignIn}>Sign in here</span>
@@ -130,6 +137,10 @@ const SignUp = (props) => {
             <div className="bg col-xl-6">
               <h1 className="ms-5">Binar Car Rental</h1>
               <div className="img ms-5"></div>
+              <div className="col-xl-6 side-img-wrapper">
+                <h1>Binar Car Rental</h1>
+                <img className="side-img" src={sideImg} alt="" />
+              </div>
             </div>
           </div>
         </div>

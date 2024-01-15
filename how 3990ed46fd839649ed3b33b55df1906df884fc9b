@@ -1,0 +1,101 @@
+[33mcommit 3990ed46fd839649ed3b33b55df1906df884fc9b[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32msandi[m[33m)[m
+Author: sandinofri <sandinofri92@gmail.com>
+Date:   Thu Dec 28 21:34:11 2023 +0700
+
+    add login validation
+
+[33mcommit 23c32247704179d2995c436786c4c6c7ddd90373[m
+Author: Richie-Z <zakariarichie@yahoo.com>
+Date:   Thu Dec 28 19:15:19 2023 +0700
+
+    refactor(admin): login admin style
+
+[33mcommit d89699924fbfb928a081c5e11d723ede6b8686b5[m
+Author: Richie-Z <zakariarichie@yahoo.com>
+Date:   Wed Dec 20 18:00:04 2023 +0700
+
+    refactor(admin): rename dir LoginPages to SignIn
+
+[33mcommit 5cf4f4f4a521312b1f9b11085880562464209920[m
+Merge: 2b80e08 fbca502
+Author: Richie <48403322+Richie-Z@users.noreply.github.com>
+Date:   Wed Dec 20 17:57:19 2023 +0700
+
+    Merge pull request #4 from Richie-Z/feature/richie/admin-template
+    
+    feat(admin): introduce admin routes
+
+[33mcommit 2b80e086bdbb5f75290f31532a96b5d7e26ed36a[m
+Merge: 701fe9f 79c05a2
+Author: sandinofri <132036921+sandinofri@users.noreply.github.com>
+Date:   Tue Dec 19 11:54:16 2023 +0700
+
+    Merge pull request #3 from Richie-Z/sandi
+    
+    add login page
+
+[33mcommit 79c05a2385f46e865d4e91ce419038d1aa4b3a2e[m[33m ([m[1;31morigin/sandi[m[33m)[m
+Author: sandinofri <sandinofri92@gmail.com>
+Date:   Tue Dec 19 11:39:18 2023 +0700
+
+    add login page
+
+[33mcommit 701fe9fd04979a662cdb210ed1befbd02c91b47b[m
+Merge: bdb6a87 ca8e7c7
+Author: Muhamad Kaka Hardiansyah <135733263+Kakagenz86@users.noreply.github.com>
+Date:   Mon Dec 18 08:58:36 2023 +0800
+
+    Merge pull request #2 from Richie-Z/feature/kaka/payment-E-tiket
+    
+    add payment and eticket pages
+
+[33mcommit ca8e7c77e8bdd0de34d56231c5ba15e4759acae0[m
+Author: kakagenz <kakagenz86@gmail.com>
+Date:   Mon Dec 18 08:50:38 2023 +0800
+
+    add payment and etiket pages
+
+[33mcommit fbca50222fead27a657a6dab3291e08b016786ab[m
+Author: Richie-Z <zakariarichie@yahoo.com>
+Date:   Fri Dec 15 19:22:16 2023 +0700
+
+    feat(admin): introduce admin routes
+
+[33mcommit bdb6a87c79538993c3d4649e9aae8e1ef3ad1563[m
+Merge: df45a16 b305c9a
+Author: Richie <48403322+Richie-Z@users.noreply.github.com>
+Date:   Fri Dec 15 19:16:06 2023 +0700
+
+    Merge pull request #1 from Richie-Z/feature/richie/admin-template
+    
+    refactor/modularizing the structure dir
+
+[33mcommit b305c9a4e0ebec41fb774a0402de504fbe9e30d3[m
+Author: Richie-Z <zakariarichie@yahoo.com>
+Date:   Fri Dec 15 19:13:06 2023 +0700
+
+    refactor: modularizing the structur dir
+
+[33mcommit d8db981e4bced2b2f37f6e4e437778018aee87e3[m
+Author: Richie-Z <zakariarichie@yahoo.com>
+Date:   Fri Dec 15 19:10:55 2023 +0700
+
+    feat(vite): add resolve alias
+
+[33mcommit 209ebf5a8cdc5889fb84d31d09e1cab6890a49fc[m
+Author: Richie-Z <zakariarichie@yahoo.com>
+Date:   Fri Dec 15 18:44:14 2023 +0700
+
+    refactor(route): use useRoutes for simplicity
+
+[33mcommit df45a166a03c9fe81ae59f54ec2e22abb6a104a0[m
+Author: kakagenz <kakagenz86@gmail.com>
+Date:   Wed Dec 6 23:24:26 2023 +0800
+
+    add landing page, search, detail
+
+[33mcommit 86c3eb557de0da51afe2f76bdbd38d0037d2356e[m
+Author: kakagenz <kakagenz86@gmail.com>
+Date:   Wed Dec 6 23:12:22 2023 +0800
+
+    first commit
