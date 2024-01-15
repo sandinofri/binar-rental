@@ -135,13 +135,12 @@ const SearchSection = () => {
 
   const showModal = () => {
     // console.log("terbuka");
-    document.body.style.overflow = "hidden";
     document.getElementById("myModal").style.display = "block";
+    document.getElementById("myModal").style.zIndex = 1022;
   };
 
   const closeModal = () => {
     // console.log("tertutup");
-    document.body.style.overflow = "auto";
     document.getElementById("myModal").style.display = "none";
   };
 

@@ -4,6 +4,10 @@
   scroll-behavior: smooth;
 }
 
+.sticky-top {
+  z-index: 1023 !important;
+}
+
 .navbar {
   background-color: #f1f3ff;
   width: 100%;

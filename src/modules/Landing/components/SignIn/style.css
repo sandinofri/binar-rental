@@ -138,15 +138,57 @@
     box-sizing: border-box;
   }
 
-  .register,
-  .register .sign-page,
-  .register .container-fluid,
-  .register .row,
-  .register .login-area {
-    height: 640px;
+  .register .bg .img {
+    width: 100%;
+    height: 100%;
+    background-image: url("../../assets/image/landing-page-desktop.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top left;
+    /* border: 1px solid black; */
   }
 
-  .register .side-img-wrapper {
-    display: none;
+  .register .sign-page .row .disabled,
+  .register .sign-page .row .disabled_loading {
+    background-color: #0d29a671;
+    .register .side-img {
+      position: relative;
+      width: 600px;
+      right: -12px;
+      height: 600px;
+    }
+
+    .register .side-img-wrapper {
+      background-color: #0d28a6;
+      height: 100vh;
+      flex-direction: column;
+      display: flex;
+      justify-content: end;
+      align-items: end;
+    }
+
+    .text-center {
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .register .sign-page .login-area {
+        padding: 29px 24px !important;
+        box-sizing: border-box;
+      }
+
+      .register,
+      .register .sign-page,
+      .register .container-fluid,
+      .register .row,
+      .register .login-area {
+        height: 640px;
+      }
+
+      .register .side-img-wrapper {
+        display: none;
+      }
+    }
   }
 }
