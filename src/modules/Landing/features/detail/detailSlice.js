@@ -5,8 +5,7 @@ const initialState = {
   finish_rent_at: "",
   start_date: "",
   end_date: "",
-  rent_duration: 0,
-  is_disabled: false,
+  is_disabled: false, //btn detailSection , btn SignIn
   loading: false,
   id: "",
 };
@@ -36,7 +35,9 @@ export const detailSlice = createSlice({
       const startDate = new Date(action.payload.start_date);
       const endDate = new Date(action.payload.end_date);
       const durationInMilliseconds = endDate - startDate;
-      const durationInDays = Math.ceil(durationInMilliseconds / (1000 * 60 * 60 * 24));
+      const durationInDays = Math.ceil(
+        durationInMilliseconds / (1000 * 60 * 60 * 24)
+      );
 
       state.rent_duration = durationInDays;
     },

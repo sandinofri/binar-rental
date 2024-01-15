@@ -7,11 +7,18 @@
   background-color: #f1f3ff;
   display: flex;
   align-items: center;
-  height: 450px;
+  height: 100%;
 }
 
 .hero .container {
   max-width: 1440px;
+  height: 100%;
+  padding-top: 4%;
+}
+
+.hero .container .row {
+  height: 100%;
+  background-color: #f1f3ff;
 }
 
 .hero-left {
@@ -19,12 +26,25 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
+  padding-bottom: 4%;
 }
 
 .hero-right {
+  background-color: #f1f3ff;
   display: flex;
   justify-content: end;
-  position: relative;
+  align-items: end;
+  height: 407px;
+}
+
+.bg-hero {
+  background-color: darkblue;
+  border-radius: 80px 0px 0px 0px;
+  height: 70%;
+}
+
+.hero-car {
+  margin-top: -150px;
 }
 
 .hero-text {
@@ -75,22 +95,6 @@
   left: 85px;
 }
 
-.bg-hero {
-  background-color: darkblue;
-  position: absolute;
-  top: 105px;
-  right: 0;
-  border-radius: 80px 0px 0px 0px;
-  height: 250px;
-}
-
-.hero-car {
-  height: 407px;
-  position: relative;
-  bottom: 150px;
-  width: 704px;
-}
-
 @media (max-width: 576px) {
   .hero {
     height: 700px;
@@ -100,7 +104,7 @@
 
   .hero-text {
     width: 100%;
-    /* position: relative; */
+
     left: 0;
   }
 
@@ -115,16 +119,25 @@
     left: 0;
   }
 
+  .hero .container .row {
+    height: 100%;
+  }
+
+  .hero .container .hero-left {
+    height: 100%;
+  }
+
+  .hero-right {
+    width: 100%;
+    height: 8%;
+  }
   .hero-right .bg-hero {
-    width: 98%;
-    height: 120px;
-    position: absolute;
-    right: 0;
+    width: 100%;
+    height: 170%;
   }
 
   .hero-car {
-    height: 230px;
-    margin-top: 65px;
+    margin-top: -85px;
     width: 100%;
   }
 }

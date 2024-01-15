@@ -24,6 +24,7 @@ const Calendars = () => {
   const options2 = { year: "numeric", month: "numeric", day: "numeric" };
 
   const { is_disabled } = useSelector((state) => state.detail);
+  const state = useSelector((state) => state.detail);
   const [pickDate, setPickDate] = useState(false);
   // console.log(pickDate);
 
@@ -42,6 +43,7 @@ const Calendars = () => {
         end_date: endDate.toLocaleDateString("en-UK", options),
         start_rent_at: startDate.toLocaleDateString("en-CA", options2),
         finish_rent_at: endDate.toLocaleDateString("en-CA", options2),
+        day_rent: dayDiff,
       };
       // console.log(payload);
       dispatch(saveDateRent(payload));
@@ -80,8 +82,11 @@ const Calendars = () => {
       <div onClick={handleOpenCloseCalendar}>
         <ReactDatePicker
           formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
-          className="calendar-input"
-          placeholderText="Pilih tanggal awal dan akhir sewa"
+          placeholderText={
+            !state.end_date
+              ? "Pilih tanggal awal dan akhir sewa"
+              : `${state.start_date} - ${state.end_date}`
+          }
           selectsRange={true}
           startDate={startDate}
           endDate={endDate}
@@ -100,11 +105,11 @@ const Calendars = () => {
         </ReactDatePicker>
       </div>
       <FontAwesomeIcon
-        className={is_disabled ? "showClose" : "hideClose"}
+        className={is_disabled ? "show-close" : "hide-close"}
         onClick={handleReset}
         icon={faXmark}
       />
-      <img src={calendar} alt="" className="img-calendar" />
+      <img src={calendar} alt="" className="img" />
     </div>
   );
 };

@@ -4,13 +4,13 @@
 }
 
 .services {
-  padding-top: 100px !important;
+  padding-top: 100px;
   display: flex;
   justify-content: center;
 }
 
 .services-wrapper {
-  width: 1000px;
+  width: 82%;
 }
 
 .image-service {
@@ -21,21 +21,14 @@
   flex-direction: column;
   display: inline-flex;
   gap: 16px;
-  margin-top: 40px;
 }
 
-.services .text-services {
+.services h1,
+.services p {
   font-family: "Arial-Bold", Helvetica;
   font-weight: 700;
   color: #000000;
   font-size: 24px;
-}
-
-.services .sewa {
-  font-family: "Arial-Bold", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 14px;
 }
 
 .services .frame-2 {
@@ -61,26 +54,65 @@
   font-weight: 700;
 }
 
-.services .p,
-.frame .sewa {
-  position: relative;
+.services p,
+.frame {
+  /* position: relative; */
   font-family: "Arial-Bold", Helvetica;
   font-weight: 400;
   color: #000000;
   font-size: 14px;
 }
 
-@media (max-width: 576px) {
-  .image-service {
-    width: 80%;
+@media screen and (max-width: 1200px) {
+  .services .services-wrapper {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  .services .services-wrapper .frame {
+    width: 100%;
+    align-items: center;
   }
 
-  .frame {
-    width: 80%;
+  .services .services-wrapper {
+    width: 82%;
+    gap: 25px;
+  }
+  .services h1,
+  .services p {
+    text-align: center;
   }
 
   .services .services-wrapper img {
-    margin-left: 20px;
+    margin-left: -10%;
+  }
+}
+
+@media (max-width: 576px) {
+  .services {
+    padding-top: 100px;
+  }
+  .services .services-wrapper {
+    width: 100%;
+    gap: 25px;
+  }
+  .image-service {
+    width: 70%;
+  }
+
+  .services .services-wrapper .frame {
+    width: 100%;
+    align-items: start;
+  }
+
+  .services h1,
+  .services p {
+    text-align: left;
+  }
+  .services .services-wrapper img {
+    margin: auto;
+    margin-left: 10%;
   }
 
   .text-services {
