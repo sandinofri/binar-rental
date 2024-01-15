@@ -136,7 +136,7 @@ const SearchSection = () => {
   const showModal = () => {
     // console.log("terbuka");
     document.getElementById("myModal").style.display = "block";
-    document.getElementById("myModal").style.zIndex = 1022;
+    document.getElementById("myModal").style.zIndex = 1000;
   };
 
   const closeModal = () => {

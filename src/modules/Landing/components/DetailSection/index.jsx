@@ -1,12 +1,12 @@
 import "./style.css";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import fiuser from '../../assets/icon/fi_users.png'
+import fiuser from "../../assets/icon/fi_users.png";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
@@ -42,7 +42,7 @@ const DetailSection = () => {
     // console.log(token);
     if (!token) {
       alert("Login dulu yuk");
-      return navigate("/register");
+      navigate("/register");
     }
 
     const config = {
@@ -51,7 +51,7 @@ const DetailSection = () => {
 
     try {
       const res = await requestAPI.createRent(payload, config);
-      const orderId = res.data.id
+      const orderId = res.data.id;
       navigate(`/payment/${orderId}`);
       console.log(res.data);
     } catch (error) {
@@ -70,15 +70,16 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3 mt-4">Include</h6>
           <div>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Apa saja yang termasuk dalam
-              paket misal durasi max 12 jam
+              <i className="bi bi-dot detail-icon"></i>Apa saja yang termasuk
+              dalam paket misal durasi max 12 jam
             </p>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Sudah termasuk bensin selama
-              12 jam
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk bensin
+              selama 12 jam
             </p>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Sudah termasuk Tiket Wisata
+              <i className="bi bi-dot detail-icon"></i>Sudah termasuk Tiket
+              Wisata
             </p>
             <p className="detail-desc">
               <i className="bi bi-dot detail-icon"></i>Sudah termasuk pajak
@@ -89,12 +90,12 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3">Exclude</h6>
           <div>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
               <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
@@ -106,36 +107,36 @@ const DetailSection = () => {
           <h6 className="title fw-bold ms-3">Refund, Reschedule, Overtime</h6>
           <div>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
-            </p>
-            <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
-              penginapan
-            </p>
-            <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
-            </p>
-            <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
               <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
               penginapan
             </p>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya makan
-              sopir Rp 75.000/hari
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
             </p>
             <p className="detail-desc">
-              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari 12
-              jam akan ada tambahan biaya Rp 20.000/jam
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
+            </p>
+            <p className="detail-desc">
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
+              penginapan
+            </p>
+            <p className="detail-desc">
+              <i className="bi bi-dot detail-icon"></i>Tidak termasuk biaya
+              makan sopir Rp 75.000/hari
+            </p>
+            <p className="detail-desc">
+              <i className="bi bi-dot detail-icon"></i>Jika overtime lebih dari
+              12 jam akan ada tambahan biaya Rp 20.000/jam
             </p>
             <p className="detail-desc">
               <i className="bi bi-dot detail-icon"></i>Tidak termasuk akomodasi
@@ -164,12 +165,12 @@ const DetailSection = () => {
           <p>Total</p>
           <p>{`Rp.${car.price}`}</p>
         </div>
-        <Link
+        <button
           className={is_disabled ? "btnToPayment" : "disabled"}
           onClick={continuePay}
           disabled={!is_disabled}>
           Lanjutkan Pembayaran
-        </Link>
+        </button>
       </div>
     </div>
   );

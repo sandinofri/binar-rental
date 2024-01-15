@@ -32,7 +32,7 @@
 .header-rectangle {
   max-width: 1200px !important;
   margin-bottom: 20px;
-  z-index: 1022;
+  z-index: 1020;
   background-color: white;
   padding: 15px 20px 30px 20px;
   border-radius: 8px;
