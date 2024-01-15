@@ -3,7 +3,7 @@
   position: relative;
 }
 
-.calendar input {
+.calendar .calendar-input {
   width: 315px;
   height: 36px;
   border-radius: 2px;
@@ -50,7 +50,7 @@
   background-color: #00807c;
 }
 
-.calendar .img {
+.calendar .img-calendar {
   position: absolute;
   top: 9px;
   right: 85px;

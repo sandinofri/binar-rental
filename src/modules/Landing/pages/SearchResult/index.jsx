@@ -1,4 +1,3 @@
-import React from "react";
 import "jquery";
 import "popper.js";
 import "bootstrap/dist/js/bootstrap";

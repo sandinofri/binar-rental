@@ -20,7 +20,7 @@ export default function Sidebar() {
             </Link>
           </li>
           <li className="sidebar-item">
-            <Link to="/admin/login">
+            <Link to="/admin/cars">
               <img src={CarIcon} alt="home" />
               <p>Mobil</p>
             </Link>

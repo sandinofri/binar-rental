@@ -76,42 +76,42 @@ const SignUp = (props) => {
         <div className="container-fluid">
           <div className="row">
             <div className="login-area col-xl-6 ">
-              <div className="btn">
+              <div className="logo-register">
                 <a href={"/"}>
                   <img src={Logo} alt="" />
                 </a>
               </div>
               <h1 className="title">Sign Up</h1>
-              <div class="mb-2  ">
-                <label class="form-label">Name*</label>
+              <div className="mb-2  ">
+                <label className="form-label">Name*</label>
                 <input
                   onChange={handleChange}
                   name="name"
                   type="name"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Nama Lengkap"
                 />
               </div>
-              <div class="mb-2  ">
-                <label class="form-label">Email*</label>
+              <div className="mb-2  ">
+                <label className="form-label">Email*</label>
                 <input
                   onChange={handleChange}
                   type="email"
                   name="email"
-                  class="form-control mb-3"
+                  className="form-control mb-3"
                   id="exampleFormControlInput1"
                   placeholder="Contoh: johndee@gmail.com"
                 />
               </div>
               <div>
-                <label class="form-label">Create Password*</label>
+                <label className="form-label">Create Password*</label>
                 <input
                   onChange={handleChange}
                   name="password"
                   type="password"
                   id="inputPassword5"
-                  class="form-control"
+                  className="form-control"
                   aria-describedby="passwordHelpBlock"
                   placeholder="6+ Karakter"
                 />

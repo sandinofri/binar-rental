@@ -80,6 +80,7 @@ const Calendars = () => {
       <div onClick={handleOpenCloseCalendar}>
         <ReactDatePicker
           formatWeekDay={(nameOfDay) => nameOfDay.substr(0, 1)}
+          className="calendar-input"
           placeholderText="Pilih tanggal awal dan akhir sewa"
           selectsRange={true}
           startDate={startDate}
@@ -103,7 +104,7 @@ const Calendars = () => {
         onClick={handleReset}
         icon={faXmark}
       />
-      <img src={calendar} alt="" className="img" />
+      <img src={calendar} alt="" className="img-calendar" />
     </div>
   );
 };

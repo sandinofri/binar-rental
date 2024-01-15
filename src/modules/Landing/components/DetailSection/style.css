@@ -111,13 +111,15 @@ input::placeholder {
   margin-bottom: 0;
 }
 
-.detail-right .btnPayment:active {
+.detail-right .btnToPayment:active {
   border: none;
   background-color: #117514;
   color: #fff;
 }
 
-.detail-right .btnPayment {
+.detail-right .btnToPayment {
+  text-decoration: none;
+  text-align: center;
   margin: 24px auto 10px;
   border: none;
   width: 22.3em;
@@ -134,6 +136,8 @@ input::placeholder {
 
 .disabled {
   margin: 24px auto 10px;
+  text-decoration: none;
+  text-align: center;
   border: none;
   width: 22.3em;
   padding: 8px 12px;
