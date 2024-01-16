@@ -1,16 +1,19 @@
-import React from 'react'
-import Navigation from '../../components/Navigation';
-import Footer from '../../components/Footer';
-import DetailSection from '../../components/DetailSection';
+import Navigation from "../../components/Navigation";
+import Footer from "../../components/Footer";
+import DetailSection from "../../components/DetailSection";
+import SearchSection from "../../components/SearchSection";
+import EmptyHero from "../../components/EmptyHero";
 
 const DetailCarPage = () => {
-    return ( 
-        <div>
-            <Navigation/>
-            <DetailSection/>
-            <Footer/>
-        </div>
-    );
-}
+  return (
+    <div>
+      <Navigation />
+      <EmptyHero />
+      <SearchSection />
+      <DetailSection />
+      <Footer />
+    </div>
+  );
+};
 
 export default DetailCarPage;

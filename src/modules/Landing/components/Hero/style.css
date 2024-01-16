@@ -1,120 +1,143 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .hero {
-    background-color: #f1f3ff;
-    display: flex;
-    align-items: center;
-    height: 450px;
+  background-color: #f1f3ff;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.hero .container {
+  max-width: 1440px;
+  height: 100%;
+  padding-top: 4%;
+}
+
+.hero .container .row {
+  height: 100%;
+  background-color: #f1f3ff;
 }
 
 .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding-bottom: 4%;
 }
 
 .hero-right {
-    display: flex;
-    justify-content: end;
-    position: relative;
-}
-
-.hero-text {
-    font-family: "Arial-Bold", Helvetica;
-    width: 560px;
-    position: relative;
-    left: 85px;
-    font-weight: 700;
-    color: #000000;
-    font-size: 36px;
-}
-
-.hero-text-2 {
-    font-family: "Arial-Bold", Helvetica;
-    position: relative;
-    left: 85px;
-    font-weight: 700;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    width: 560px;
-    color: #000000;
-}
-
-.hero-btn {
-    padding: 8px 12px;
-    font-family: "Arial-Bold", Helvetica;
-    font-weight: 700;
-    color: white;
-    background-color: #5cb85f;
-    font-size: 14px;
-    border-radius: 3px;
-    border: none;
-}
-
-.hero-btn:hover {
-    color: black;
-    transform: scale(1.1);
-}
-
-.hero-btn-wrapper {
-    position: relative;
-    left: 85px;
+  background-color: #f1f3ff;
+  display: flex;
+  justify-content: end;
+  align-items: end;
+  height: 407px;
 }
 
 .bg-hero {
-    background-color: darkblue;
-    position: absolute;
-    top: 105px;
-    right: 0;
-    border-radius: 80px 0px 0px 0px;
-    height: 250px;
+  background-color: darkblue;
+  border-radius: 80px 0px 0px 0px;
+  height: 70%;
 }
 
 .hero-car {
-    height: 407px;
-    position: relative;
-    bottom: 150px;
-    width: 704px;
+  margin-top: -150px;
 }
 
-@media (max-width:576px) {
-    .hero {
-        height: 700px;
-        margin-top: -120px;
-        margin-bottom: 200px;
-    }
+.hero-text {
+  font-family: "Arial-Bold", Helvetica;
+  width: 560px;
+  position: relative;
+  left: 85px;
+  font-weight: 700;
+  color: #000000;
+  font-size: 36px;
+}
 
-    .hero-text {
-        width: 70%;
-        position: relative;
-        left: 0;
-    }
+.hero-text-2 {
+  font-family: "Arial-Bold", Helvetica;
+  position: relative;
+  left: 85px;
+  font-weight: 400;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 560px;
+  color: #000000;
+}
 
-    .hero-text-2 {
-        width: 100%;
-        position: relative;
-        left: 0;
-    }
+.hero-btn {
+  padding: 8px 12px;
+  font-family: "Arial-Bold", Helvetica;
+  font-weight: 700;
+  color: white;
+  background-color: #5cb85f;
+  font-size: 14px;
+  border-radius: 3px;
+  border: none;
+  transition: ease 0.5s;
+  -webkit-transition: ease 0.5s;
+  -moz-transition: ease 0.5s;
+  -ms-transition: ease 0.5s;
+  -o-transition: ease 0.5s;
+}
 
-    .hero-btn-wrapper {
-        position: relative;
-        left: 0;
-    }
+.hero-btn:hover {
+  color: white;
+  /* transform: scale(1.1); */
+  background-color: #026402;
+}
 
-    .bg-hero {
-        width: 98%;
-        height: 120px;
-        position: absolute;
-        right: 0;
-    }
-    
-    .hero-car {
-        height: 250px;
-        margin-top: 50px;
-        width: 100%;
-    }
+.hero-btn-wrapper {
+  position: relative;
+  left: 85px;
+}
+
+@media (max-width: 576px) {
+  .hero {
+    height: 700px;
+    margin-top: -120px;
+    margin-bottom: 70px;
+  }
+
+  .hero-text {
+    width: 100%;
+
+    left: 0;
+  }
+
+  .hero-text-2 {
+    width: 100%;
+    position: relative;
+    left: 0;
+  }
+
+  .hero-btn-wrapper {
+    position: relative;
+    left: 0;
+  }
+
+  .hero .container .row {
+    height: 100%;
+  }
+
+  .hero .container .hero-left {
+    height: 100%;
+  }
+
+  .hero-right {
+    width: 100%;
+    height: 8%;
+  }
+  .hero-right .bg-hero {
+    width: 100%;
+    height: 170%;
+  }
+
+  .hero-car {
+    margin-top: -85px;
+    width: 100%;
+  }
 }

@@ -1,76 +1,100 @@
-import React from 'react'
-import './login.css'
-import loginimage from "../../assets/image/login-image.png"
 import { useState } from "react";
-import axios from 'axios';
-
+import "./login.css";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 const SignIn = () => {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
- 
-  const navigate = useNavigate()
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const[error,setError]=useState('')
+  const[empty,setEmpty]=useState('')
+  const navigate = useNavigate();
 
-  
-  const handleEmailLogin = (e) => {
-    setEmail(e.target.value)
-  }
-  const handlePasswordLogin = (e) => {
-    setPassword(e.target.value)
-  }
-  
-  
-  const handleLogin = () => {
-    // console.log("test")
-    const payload = {
-      email: email,
-      password: password,
-      role: "Admin"
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setError('')
+    setEmpty('')
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    setError('')
+    setEmpty('')
+  };
+
+  const handleLogin = async () => {
+    setLoading(true);
+    if (!email || !password) {
+      setEmpty('Password and email must be filled in')
+      setLoading(false)
+      return;
     }
-    axios.post("https://api-car-rental.binaracademy.org/admin/auth/login", payload)
-    .then ((res) => {
-      console.log("test", res)
-    localStorage.setItem("access_token", res.data.access_token)
-    navigate("/admin/menu")
-    })
-    .catch ((err) => console.log(err))
-
-
-   
-
-  }
+    try {
+      const payload = {
+        email,
+        password,
+      };
+      const response = await axios.post(
+        "https://api-car-rental.binaracademy.org/admin/auth/login",
+        payload
+      );
+      console.log(response);
+      setLoading(false);
+      navigate("/admin/dashboard");
+      localStorage.setItem("token", response.data.access_token);
+    } catch (error) {
+      setError(error.response.data.message);
+      setLoading(false);
+    }
+  };
   return (
     <>
       <section>
         <div className="row min-vh-100">
-          <div className="col-lg-8 left">
-            <div className="gambar">
-              <img src={loginimage} alt="" />
-            </div>
-          </div>
+          <div className="col-lg-8 left"></div>
           <div className="col-lg-4 d-flex justify-content-center ">
             <div className="right">
-              {/* <p>{Succsess}</p> */}
               <div className="logo"></div>
-              <h1>welcome, admin BCR</h1>
+              <h1>Welcome, Admin BCR</h1>
+              {error && <p>{error}</p>}
+              {empty && <p>{empty}</p>}
               <form action="">
                 <div className="d-flex flex-column mb-3">
-                  <label htmlFor="" className="mb-2">email</label>
-                  <input onChange={handleEmailLogin} type="text" placeholder="ex:admin@mail.com" />
-
+                  <label htmlFor="" className="mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Contoh: johndee@gmail.com"
+                    onChange={handleEmailChange}
+                  />
                 </div>
                 <div className="d-flex flex-column">
-                  <label htmlFor="" className='mb-2'>password</label>
-                  <input onChange={handlePasswordLogin} type="" placeholder="6+ caracter" />
+                  <label htmlFor="" className="mb-2">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    placeholder="6+ caracter"
+                    onChange={handlePasswordChange}
+                  />
                 </div>
-                <a onClick={handleLogin} className="text-center">sign In</a>
+                {loading ? (
+                  "loading..."
+                ) : (
+                  <a className="text-center" onClick={handleLogin}>
+                    Sign In
+                  </a>
+                )}
               </form>
             </div>
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default SignIn
+export default SignIn;
