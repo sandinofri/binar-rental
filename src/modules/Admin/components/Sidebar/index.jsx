@@ -4,8 +4,12 @@ import CarIcon from "@/modules/Admin/assets/icons/cars.png"
 import SmallLogo from "@/modules/Admin/assets/images/small-brand.svg?react"
 import './style.scss'
 
-
-export default function Sidebar() {
+export default function Sidebar({ activeMenu }) {
+  const menus = [
+    { icon: HomeIcon, name: "Dashboard", link: "/admin" },
+    { icon: CarIcon, name: "Mobil", link: "/admin/cars" },
+  ]
+  console.log(activeMenu)
   return (
     <div className="main-sidebar">
       <aside className="sidebar-wrapper">
@@ -13,18 +17,16 @@ export default function Sidebar() {
           <SmallLogo />
         </div>
         <ul className="sidebar-menu">
-          <li className="sidebar-item active">
-            <Link to="/admin">
-              <img src={HomeIcon} alt="home" />
-              <p>Dashboard</p>
-            </Link>
-          </li>
-          <li className="sidebar-item">
-            <Link to="/admin/cars">
-              <img src={CarIcon} alt="home" />
-              <p>Mobil</p>
-            </Link>
-          </li>
+          {menus.map((menu, index) => {
+            return (
+              <li className={`sidebar-item ${activeMenu === menu.name && "active"}`} key={index}>
+                <Link to={menu.link}>
+                  <img src={menu.icon} alt="home" />
+                  <p>{menu.name}</p>
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </aside>
     </div>

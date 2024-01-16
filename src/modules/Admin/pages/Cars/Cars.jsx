@@ -3,10 +3,11 @@ import "./cars.css";
 import MainLayout from "../../layouts/MainLayout";
 import Vector from "../../../admin/assets/icons/Vector.png";
 import { Link } from "react-router-dom";
+import MENU_LISTS from "../../constants/menuLists";
 
 const Cars = () => {
   return (
-    <MainLayout>
+    <MainLayout menu={MENU_LISTS[1]}>
       <div className="d-flex gap-2 mt-5">
         <p className="car">Cars</p>
         <div>
