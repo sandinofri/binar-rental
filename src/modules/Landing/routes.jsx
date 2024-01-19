@@ -8,7 +8,6 @@ import TransferPages from "./pages/TransferPages";
 import Eticket from "./pages/E-Ticket"
 import AuthLogin from "./components/hoc/authLogin";
 
-
 export const routes = [
   {
     path: "/",
@@ -30,11 +29,11 @@ export const routes = [
       </AuthLogin>)
   },
   {
-    path: "/transfer",
+    path: "/transfer/:id",
     element: <TransferPages/>
   },
   {
-    path: "/eticket",
+    path: "/eticket/:id",
     element: <Eticket/>
   },
   {

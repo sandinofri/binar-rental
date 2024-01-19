@@ -50,7 +50,7 @@ const DetailSection = () => {
     };
 
     try {
-      const res = await requestAPI.createRent(payload, config);
+      const res = await requestAPI.createOrder(payload, config);
       const orderId = res.data.id
       navigate(`/payment/${orderId}`);
       console.log(res.data);

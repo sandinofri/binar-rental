@@ -5,6 +5,12 @@
     height: 250px;
 }
 
+.title-header-pay {
+    position: relative;
+    left: 20px;
+    top: 11px;
+}
+
 .header-payment-wrapper {
     display: flex;
     justify-content: space-between;
@@ -23,8 +29,15 @@
 }
 
 .bg-header-pay {
-    background-color: #0D28A6;
-    color: white;
+    border: 1px solid #0D28A6;
+    border-radius: 100%;
+    width: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    align-content: center;
+    height: 18px;
 }
 
 .number-header-pay {
@@ -37,4 +50,13 @@
     font-size: 13px;
     align-content: center;
     height: 18px;
+    background-color: #0D28A6;
+    color: white;
+}
+
+.id-header-pay {
+    position: absolute;
+    /* bottom: 500px; */
+    top: 150px;
+    left: 45px;
 }
