@@ -1,6 +1,7 @@
 import MainLayout from "../../layouts/MainLayout"
 import MENU_LISTS from "../../constants/menuLists"
 import axios from "axios";
+
 import { useEffect, useState, React } from "react"
 import {
   Chart as ChartJS,
@@ -14,6 +15,7 @@ import {
 import { Bar } from 'react-chartjs-2';
 import { param } from "jquery";
 import { Save } from "react-bootstrap-icons";
+import TableData from "./tableData/table";
 
 ChartJS.register(
   CategoryScale,
@@ -46,7 +48,7 @@ ChartJS.register(
                       access_token: `${token}`
                   }
               } )
-            console.log(response.data)
+            // console.log(response.data)
             setChartData(response)
             return response.data
         } catch (error) {
@@ -208,6 +210,12 @@ ChartJS.register(
               },
             ],
           }} />
+        <div className="m-5">
+          <h2>Dashboard</h2>
+          <h4>List Order</h4>
+          <TableData/>
+        </div>
+         
 
     </MainLayout>
   )
