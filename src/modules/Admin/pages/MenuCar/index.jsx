@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../component/Navbar";
 import { Link } from "react-router-dom";
 import LeftNavbar from "../../component/LeftNavbar";
-
+import MainLayout from "../../layouts/MainLayout";
 const MenuCar = () => {
   const dispatch = useDispatch()
   const {list}= useSelector((state) => state.menuCar)
@@ -17,14 +17,11 @@ useEffect(() => {
 
 const handleDelete = (id) => {
   dispatch(deleteCar(id))
-   
-
 }
   
   return (
     <div className="container-bg">
-        <Navbar/>
-        {/* <LeftNavbar/> */}
+      <MainLayout/>
       <div className="information-cars">
         <p>List Cars</p>
         <Link to={"/admin/add"}>

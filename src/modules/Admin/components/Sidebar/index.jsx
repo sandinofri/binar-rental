@@ -7,7 +7,7 @@ import './style.scss'
 export default function Sidebar({ activeMenu }) {
   const menus = [
     { icon: HomeIcon, name: "Dashboard", link: "/admin" },
-    { icon: CarIcon, name: "Mobil", link: "/admin/cars" },
+    { icon: CarIcon, name: "Mobil", link: "/admin/menu" },
   ]
   console.log(activeMenu)
   return (
