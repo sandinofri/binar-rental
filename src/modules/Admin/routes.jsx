@@ -3,7 +3,6 @@ import Cars from "./pages/Cars/Cars";
 import Dashboard from "./pages/Dasboard";
 import SignIn from "./pages/SignIn";
 import MenuCar from "./pages/MenuCar";
-// import AddCar from "./pages/AddCar";
 export const routes = [
   {
     path: "/admin",
@@ -17,13 +16,11 @@ export const routes = [
     path: "/admin/cars",
     element: <Cars />,
   },
-  { 
-    path: "/admin/cars/add", 
-    element: <AddCar /> },
+  { path: "/admin/cars/add", element: <AddCar /> },
+
+   
   {
-    path: '/admin/menu',
-    element: (
-      <MenuCar/>
-    )
-  }
-]
+    path: "/admin/menu",
+    element: <MenuCar />,
+  },
+];
