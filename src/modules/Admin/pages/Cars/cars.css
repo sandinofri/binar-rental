@@ -1,20 +1,3 @@
-.car {
-  color: var(--Neutral-01, #000);
-  font-family: Arial;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  padding-top: 4px;
-}
-
-.list-car {
-  font-family: Rubik;
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 300;
-  line-height: 18px;
-}
-
 .list-car2 {
   color: var(--Neutral-01, #000);
   font-family: Arial;
@@ -172,6 +155,7 @@
 
     .inner-foto {
       width: 100%;
+
       input {
         display: flex;
         padding: 9px 12px;
