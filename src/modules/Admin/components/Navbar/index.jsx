@@ -1,13 +1,20 @@
 import LargeLogo from "@/modules/Admin/assets/images/large-brand.svg?react"
 import HamburgerIcon from "@/modules/Admin/assets/icons/fi_menu.svg?react"
 import './style.scss'
+import { useDispatch } from "react-redux"
+import { toggleSidebarDetail } from "../../redux/features/dashboard/dashboardSlice"
 
 export default function Navbar() {
+  const dispatch = useDispatch();
+
+  const handleSidebar = () => {
+    dispatch(toggleSidebarDetail())
+  }
   return (
     <nav className="main-navbar">
       <div className="left-side">
         <LargeLogo />
-        <HamburgerIcon className="hamburger" />
+        <HamburgerIcon className="hamburger" onClick={handleSidebar} />
       </div>
 
       <div className="right-side">
