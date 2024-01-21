@@ -12,6 +12,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 20;
 
   .left-side {
     display: flex;
