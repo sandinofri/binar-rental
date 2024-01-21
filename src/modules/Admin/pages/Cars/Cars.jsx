@@ -7,8 +7,8 @@ import MENU_LISTS from "../../constants/menuLists";
 
 const Cars = () => {
   return (
-    <MainLayout menu={MENU_LISTS[1]}>
-      <div className="d-flex gap-2 mt-5">
+    <MainLayout menu={MENU_LISTS[1]} menuTitle="List Car">
+      <div className="d-flex gap-2">
         <p className="car">Cars</p>
         <div>
           <img src={Vector} alt="vector" />
