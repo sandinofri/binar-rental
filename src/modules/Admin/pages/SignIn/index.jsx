@@ -41,7 +41,7 @@ const SignIn = () => {
       );
       console.log(response);
       setLoading(false);
-      navigate("/admin/dashboard");
+      navigate("/admin");
       localStorage.setItem("token", response.data.access_token);
     } catch (error) {
       setError(error.response.data.message);
