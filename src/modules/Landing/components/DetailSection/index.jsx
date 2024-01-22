@@ -11,10 +11,10 @@ import fiuser from "../../assets/icon/fi_users.png";
 const DetailSection = () => {
   const [car, setCar] = useState({});
   const { id } = useParams();
-  const { is_disabled } = useSelector((state) => state.detail);
+  // const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const navigate = useNavigate();
-  // console.log(state);
+  console.log(state);
 
   useEffect(() => {
     handleGetList();
@@ -166,9 +166,9 @@ const DetailSection = () => {
           <p>{`Rp.${car.price}`}</p>
         </div>
         <button
-          className={is_disabled ? "btnToPayment" : "disabled"}
+          className={state.is_disabled ? "btnToPayment" : "disabled"}
           onClick={continuePay}
-          disabled={!is_disabled}>
+          disabled={!state.is_disabled}>
           Lanjutkan Pembayaran
         </button>
       </div>
