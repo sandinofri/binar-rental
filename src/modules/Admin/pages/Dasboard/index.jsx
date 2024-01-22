@@ -140,7 +140,7 @@ ChartJS.register(
     }
   return (
     <MainLayout menu={MENU_LISTS[0]}>
-      <h1>Hello mama</h1>
+      <h3>Rented Car Visualization</h3>
       <select onChange={handleOnChange}>
         <option value="">Select Month</option>
         {option.map((item, index) => (
