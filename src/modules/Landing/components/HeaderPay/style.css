@@ -28,7 +28,7 @@
     background-color: #0D28A6;
 }
 
-.bg-header-pay {
+.number-header-pay {
     border: 1px solid #0D28A6;
     border-radius: 100%;
     width: 18px;
@@ -40,7 +40,7 @@
     height: 18px;
 }
 
-.number-header-pay {
+.bg-header-pay {
     border: 1px solid #0D28A6;
     border-radius: 100%;
     width: 18px;

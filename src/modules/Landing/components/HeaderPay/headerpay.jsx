@@ -8,22 +8,22 @@ const HeaderPay = ({showId}) => {
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const selectedBank = params.get('bank');
-    const [currentStep, setCurrentStep] = useState(1);
+    const [currentStep, setCurrentStep] = useState();
     const [car, setCar] = useState({});
     const { id } = useParams();
 
     useEffect(() => {
         handleGetList();
         const path = location.pathname;
-
-        if (path === '/payment/:id') {
+    
+        if (path.startsWith('/payment/')) {
             setCurrentStep(1);
-        } else if (path === '/transfer/:id') {
+        } else if (path.startsWith('/transfer/')) {
             setCurrentStep(2);
-        } else if (path === '/eticket/:id') {
+        } else if (path.startsWith('/eticket/')) {
             setCurrentStep(3);
         }
-    }, [location.pathname])
+    }, [location.pathname]);
     
 
     let paymentText = 'Pembayaran';
@@ -58,17 +58,17 @@ const HeaderPay = ({showId}) => {
                 </div>
                     <div className='d-flex gap-2'>
                         <div className='d-flex gap-2 align-items-center'>
-                            <p className={`number-header-pay ${currentStep >= 1 ? 'bg-header-pay' : ''}`}>{currentStep >= 1 ? '✔' : '1' }</p>
+                            <p className={` ${currentStep >= 1 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 1 ? '✔' : '1' }</p>
                             <p className='order-header-pay'>Pilih Metode</p>
                             <div className='line-header'></div>
                         </div>
                         <div className='d-flex gap-2 align-items-center'>
-                            <p className={`number-header-pay ${currentStep >= 2 ? 'bg-header-pay' : ''}`}>{currentStep >= 2 ? '✔' : '2' }</p>
+                            <p className={` ${currentStep >= 2 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 2 ? '✔' : '2' }</p>
                             <p className='order-header-pay'>Bayar</p>
                             <div className='line-header'></div>
                         </div>
                         <div className='d-flex gap-2 align-items-center'>
-                            <p className={`number-header-pay ${currentStep >= 3 ? 'bg-header-pay' : ''}`}>{currentStep >= 2 ? '✔' : '3' }</p>
+                            <p className={` ${currentStep >= 3 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 3 ? '✔' : '3' }</p>
                             <p className='order-header-pay'>Tiket</p>
                         </div>
                     </div>
