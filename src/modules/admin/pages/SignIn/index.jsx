@@ -57,7 +57,7 @@ const SignIn = () => {
           <div className="col-lg-4 d-flex justify-content-center ">
             <div className="right">
               <div className="logo"></div>
-              <h1 className="title-signin">Welcome, Admin BCR</h1>
+              <h1>Welcome, Admin BCR</h1>
               {error && <p>{error}</p>}
               {empty && <p>{empty}</p>}
               <form action="">
