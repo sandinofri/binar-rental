@@ -8,7 +8,7 @@ const PaymentPages = () => {
   return (
     <div>
       <Navigation />
-      <HeaderPay />
+      <HeaderPay showId={false} />
       <DetailPay />
       <PayMain />
       <Footer />

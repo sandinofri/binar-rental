@@ -2,24 +2,42 @@ import { useState } from 'react';
 import './style.css';
 import * as requestAPI from '../../../api/api';
 import Countdown from '../../Countdown/countdown';
+import { useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
-
-const TransferRight = ({ orderId }) => {
-    const [selectedFile, setSelectedFile] = useState(null);
-    const [uploadButtonText, setUploadButtonText] = useState('Upload');
+const TransferRight = () => {
+    const [file, setSlip] = useState(null);
+    const [showImage, setShowImage] = useState(null)
+    const [isImageSelected, setIsImageSelected] = useState(false);
+    const navigate = useNavigate()
+    const { id } = useParams();
 
     const handleFileChange = (e) => {
-        setSelectedFile(e.target.files[0]);
-        setUploadButtonText('Konfirmasi');
+        const extend = e.target.files[0]?.type.split("/")[1]
+        const allowedExtend = ['png', 'jpeg']
+        const sizeImage = 1024 * 1024;
+        const data = e.target.files[0]
+
+        if (!allowedExtend.includes(extend)) {
+            alert('file harus png / jpeg')
+        } else if(data.size > sizeImage) {
+            alert('size image terlalu besar')
+        }else {
+            setSlip(e.target.files[0])
+            setShowImage(URL.createObjectURL(e.target.files[0]))
+            setIsImageSelected(true);
+        }
+    console.log(e.target.files[0])
+
     };
 
     const handleUpload = async () => {
-        if (!selectedFile) {
-            return;
+        if (isImageSelected) {
+            document.getElementById('file').disabled = true;
         }
 
         const formData = new FormData();
-        formData.append('image', selectedFile);
+        formData.append('slip', file);
 
         const token = localStorage.getItem("access_token");
         const config = {
@@ -27,15 +45,16 @@ const TransferRight = ({ orderId }) => {
         };
 
         try {
-            const response = await requestAPI.paymentSlip(orderId, formData, config);
+            const response = await requestAPI.paymentSlip(id, formData, config)
+            navigate(`/eticket/${id}`)
+            
+            console.log(response.data);
 
-            console.log('Respon dari server:', response.data);
-            // Tambahkan logika atau pembaruan state sesuai kebutuhan aplikasi Anda
         } catch (error) {
-            console.error('Gagal mengunggah gambar:', error);
-            // Handle error sesuai kebutuhan aplikasi Anda
+            console.error(error);
         }
     };
+    
 
     const [showConfirmation, setShowConfirmation] = useState(false);
 
@@ -59,15 +78,22 @@ const TransferRight = ({ orderId }) => {
                     <p className='text-transfer-right mb-4'>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek, tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
                     <h6>Upload Bukti Pembayaran</h6>
                     <p className='text-transfer-right'>Untuk membantu kami lebih cepat melakukan pengecekan, kamu bisa upload bukti bayarmu</p>
-                    {selectedFile && (
-                        <div className='d-flex justify-content-center'>
-                            <img src={URL.createObjectURL(selectedFile)} alt="Preview" className='img-transfer' />
+                    <div className='d-flex flex-column'>
+                        <input
+                            type="file"
+                            name="file"
+                            id="file"
+                            style={{ display: 'none' }}
+                            onChange={handleFileChange}
+                        />
+                        <div className='wrapper-img-slip-transfer'>
+                            <i className="bi bi-image"></i>
+                            <img src={showImage} alt="" className='img-slip-transfer' />
                         </div>
-                    )}
-                    <label className='btn-transfer-right-2'>
-                        <input type="file" onChange={handleFileChange} onClick={handleUpload} style={{ display: 'none' }} />
-                        {uploadButtonText} {/* Use dynamic text for the button */}
-                    </label>
+                        <label className='btn-transfer-right' onClick={handleUpload} htmlFor="file" style={{ cursor: 'pointer' }}>
+                        {isImageSelected ? 'Konfirmasi' : 'Upload'}
+                        </label>
+                    </div>
                 </div>
             )}
         </div>
@@ -75,74 +101,3 @@ const TransferRight = ({ orderId }) => {
 }
 
 export default TransferRight;
-
-// import { useState } from 'react';
-// import './style.css';
-// import * as requestAPI from '../../api/api';
-
-// const TransferRight = ({ orderId }) => {
-//     const [selectedFile, setSelectedFile] = useState(null);
-
-//     const handleFileChange = (e) => {
-//         setSelectedFile(e.target.files[0]);
-//     };
-
-//     const handleUpload = async () => {
-//         if (!selectedFile) {
-//             console.error('Pilih file terlebih dahulu');
-//             return;
-//         }
-
-//         const formData = new FormData();
-//         formData.append('image', selectedFile);
-
-//         const token = localStorage.getItem("access_token");
-//         const config = {
-//             headers: { access_token: token },
-//         };
-
-//         try {
-//             const response = await requestAPI.paymentSlip(orderId, formData, config);
-
-//             console.log('Respon dari server:', response.data);
-//             // Tambahkan logika atau pembaruan state sesuai kebutuhan aplikasi Anda
-//         } catch (error) {
-//             console.error('Gagal mengunggah gambar:', error);
-//             // Handle error sesuai kebutuhan aplikasi Anda
-//         }
-//     };
-
-//     const [showConfirmation, setShowConfirmation] = useState(false);
-
-//     const handleConfirmationClick = () => {
-//         setShowConfirmation(true);
-//     };
-
-//     return (
-//         <div className={`transfer-right ${showConfirmation ? 'transfer-right-confirm' : ''}`}>
-//             {!showConfirmation ? (
-//                 <div>
-//                     <p className='text-transfer-right'>Klik konfirmasi pembayaran untuk mempercepat proses pengecekan</p>
-//                     <button onClick={handleConfirmationClick} className='btn-transfer-right-1'>Konfirmasi Pembayaran</button>
-//                 </div>
-//             ) : (
-//                 <div>
-//                     <p className='fw-bold'>Konfirmasi Pembayaran</p>
-//                     <p className='text-transfer-right mb-4'>Terima kasih telah melakukan konfirmasi pembayaran. Pembayaranmu akan segera kami cek, tunggu kurang lebih 10 menit untuk mendapatkan konfirmasi.</p>
-//                     <h6>Upload Bukti Pembayaran</h6>
-//                     <p className='text-transfer-right'>Untuk membantu kami lebih cepat melakukan pengecekan, kamu bisa upload bukti bayarmu</p>
-//                     <input type="file" onChange={handleFileChange} />
-//                     {selectedFile && (
-//                         <div>
-//                             <h6>Preview Bukti Pembayaran</h6>
-//                             <img src={URL.createObjectURL(selectedFile)} alt="Preview" style={{ maxWidth: '100%', maxHeight: '200px' }} />
-//                         </div>
-//                     )}
-//                     <button onClick={handleUpload} className='btn-transfer-right-2'>Upload</button>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// }
-
-// export default TransferRight;

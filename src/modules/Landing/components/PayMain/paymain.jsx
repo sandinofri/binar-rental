@@ -11,18 +11,18 @@ const PayMain = () => {
     const [cars, setCars] = useState({})
     const rentDuration = useSelector((state) => state.detail.rent_duration);
     const {id} = useParams()
-    const [selectedBank, setSelectedBank] = useState(null);
+    const [selectBankTransfer, setSelectBankTransfer] = useState(null);
 
     const handleBank = (bankId) => {
-        if (selectedBank === bankId) {
-        setSelectedBank(null);
+        if (selectBankTransfer === bankId) {
+        setSelectBankTransfer(null);
         } else {
-        setSelectedBank(bankId);
+        setSelectBankTransfer(bankId);
         }
     };
 
     const handleClick = (e) => {
-        if (!selectedBank) {
+        if (!selectBankTransfer) {
             e.preventDefault();
         }
     }
@@ -52,7 +52,7 @@ const PayMain = () => {
     }
     return (
         <div className='paymain'>
-            <BankSelection selectedBank={selectedBank} handleBank={handleBank} />
+            <BankSelection selectBankTransfer={selectBankTransfer} handleBank={handleBank} />
 
             <div className="paymain-right">
                 <div>
@@ -120,8 +120,8 @@ const PayMain = () => {
                                         </div>
                                             <Link
                                                 onClick={handleClick}
-                                                className={`btn-paymain-right${selectedBank ? '' : ' disabled'}`}
-                                                to={selectedBank ? `/transfer?bank=${selectedBank}` : '#'}
+                                                className={`btn-paymain-right${selectBankTransfer ? '' : ' disabled'}`}
+                                                to={selectBankTransfer ? `/transfer/${id}?bank=${selectBankTransfer}` : '#'}
                                                 >
                                                 Bayar
                                             </Link>
