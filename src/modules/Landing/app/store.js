@@ -11,3 +11,4 @@ export const landingReducers = {
 
 export const store = configureStore({
   reducer: landingReducers
+})
