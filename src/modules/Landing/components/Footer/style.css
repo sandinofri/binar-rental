@@ -71,6 +71,15 @@
   color: black;
   line-height: 30px;
   font-weight: 400;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+  -ms-transition: 0.3s ease;
+  -o-transition: 0.3s ease;
+}
+
+.footer .footer-text-wrapper-2:hover {
+  background-color: rgb(227, 227, 234);
 }
 
 /* FIX BOOTSTRAP UI  */

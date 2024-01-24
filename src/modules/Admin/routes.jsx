@@ -2,7 +2,6 @@ import AddCar from "./pages/Cars/AddCar";
 import Cars from "./pages/Cars/Cars";
 import Dashboard from "./pages/Dasboard";
 import SignIn from "./pages/SignIn";
-
 export const routes = [
   {
     path: "/admin",
@@ -13,12 +12,9 @@ export const routes = [
     element: <SignIn />,
   },
   {
-    path: "/admin/dashboard",
-    element: <Dashboard />,
-  },
-  {
     path: "/admin/cars",
     element: <Cars />,
   },
   { path: "/admin/cars/add", element: <AddCar /> },
+
 ];

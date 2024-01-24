@@ -42,10 +42,18 @@ const Navigation = () => {
           </div>
           <div className="offcanvas-body">
             <div className="navbar-nav ms-auto nav-link ">
-              <HashLink to="/#Services">Our Services</HashLink>
-              <HashLink to="/#WhyUs">Why Us</HashLink>
-              <HashLink to="/#Testimonial">Testimonial</HashLink>
-              <HashLink to="/#FAQ">FAQ</HashLink>
+              <HashLink to="/#Services" className="nav-bar">
+                Our Services
+              </HashLink>
+              <HashLink to="/#WhyUs" className="nav-bar">
+                Why Us
+              </HashLink>
+              <HashLink to="/#Testimonial" className="nav-bar">
+                Testimonial
+              </HashLink>
+              <HashLink to="/#FAQ" className="nav-bar">
+                FAQ
+              </HashLink>
               {!token ? (
                 <a href="/register" className="nav-register">
                   Register
@@ -54,7 +62,7 @@ const Navigation = () => {
                 <a
                   onClick={handleLogout}
                   className="nav-register"
-                  href="/register">
+                  href={`${"/search" ? "" : "/register"}`}>
                   Logout
                 </a>
               )}

@@ -4,6 +4,8 @@
 }
 
 .testimonial {
+  max-width: 1440px;
+  margin: auto;
   content: "";
   padding: 100px 16px 0px !important;
 }
@@ -50,15 +52,21 @@
   height: 32px !important;
   border-radius: 50%;
   border: 1px solid #c4c4c4;
-  /* bottom: 10px !important; */
+  /*bottom: 10px !important;
+  */
   top: 330px !important;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }
 
 .swiper-button-next {
-  left: 740px !important;
+  left: 725px !important;
 }
 .swiper-button-prev {
-  left: 680px !important;
+  left: 665px !important;
 }
 
 .swiper-button-prev:after,
@@ -73,6 +81,11 @@
 .swiper-button-next:active {
   background-color: #5cb85f;
   color: white !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: olivedrab;
 }
 
 .testi-card {
@@ -127,11 +140,6 @@
   filter: invert(100%);
 }
 
-.testi-prev:hover,
-.testi-next:hover {
-  filter: invert(0%);
-}
-
 @media (max-width: 576px) {
   .swiper {
     position: relative;
@@ -145,18 +153,15 @@
     margin: auto;
   }
 
-  .mySwiper .testi-card img {
-    margin: 0 0 10px 80px;
-  }
-
   .swiper-slide {
-    display: block !important;
+    text-align: center;
+    display: flex !important;
     width: 98% !important;
-    height: 370px !important;
+    height: 390px !important;
     padding: 40px 32px !important;
     display: flex;
     flex-direction: column;
-    gap: 24px !important;
+    gap: 24px;
     border-radius: 8px;
   }
 
@@ -171,6 +176,7 @@
     color: #000000;
     font-size: 14px;
     margin: auto;
+    padding-top: 24px !important;
     text-align: start;
   }
 
@@ -195,14 +201,14 @@
     height: 32px !important;
     border-radius: 50%;
     border: 1px solid #c4c4c4;
-    top: 440px !important;
+    top: 97% !important;
   }
 
   .swiper-button-next {
-    left: 180px !important;
+    left: 54% !important;
   }
   .swiper-button-prev {
-    left: 120px !important;
+    left: 38% !important;
   }
 
   .swiper-button-prev:after,

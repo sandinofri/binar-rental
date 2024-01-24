@@ -10,7 +10,7 @@ const AddCar = () => {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [category, setCategory] = useState("");
-  const [status,setStatus]=useState(false)
+  const [status, setStatus] = useState(false)
 
   const navigate = useNavigate();
 
@@ -37,7 +37,7 @@ const AddCar = () => {
     const config = {
       headers: {
         "Content-Type": "multipart/form-data",
-        "Authorization": `Bearer ${token}`,
+        "access_token": `${token}`,
       },
     };
     console.log(config);
@@ -58,8 +58,6 @@ const AddCar = () => {
       console.error("Error bung:", error);
     }
   };
-
-  console.log(name, price, image, category);
   return (
     <MainLayout>
       <div className="d-flex gap-2 mt-5">

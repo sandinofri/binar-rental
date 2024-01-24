@@ -7,7 +7,7 @@
 .modal {
   display: none;
   position: fixed; /* Stay in place */
-  z-index: 1022; /* Sit on top */
+  z-index: 1000; /* Sit on top */
   padding-top: 100px;
   left: 0;
   top: 0;
@@ -32,7 +32,7 @@
 .header-rectangle {
   max-width: 1200px !important;
   margin-bottom: 20px;
-  z-index: 1056;
+  z-index: 1020;
   background-color: white;
   padding: 15px 20px 30px 20px;
   border-radius: 8px;
@@ -106,9 +106,15 @@
   font-weight: 500;
   border-radius: 2px;
   border: none;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }
 
 .rectangle .disabled-input {
+  cursor: default;
   width: 281px;
   border-radius: 2px;
   border: 1px solid var(--Neutral-02, #d0d0d0);
@@ -195,6 +201,11 @@
   font-weight: 500;
   border-radius: 2px;
   border: none;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }
 
 .rectangle .page {
@@ -217,10 +228,17 @@
   border-radius: 100px;
   width: 35px;
   height: 35px;
+  transition: 0.2s ease;
+  -webkit-transition: 0.2s ease;
+  -moz-transition: 0.2s ease;
+  -ms-transition: 0.2s ease;
+  -o-transition: 0.2s ease;
 }
 
-.rectangle .pagination button:active {
-  background-color: #64d6e7;
+.rectangle-btn:hover,
+.listcar .listcar-btn:hover,
+.rectangle .pagination button:hover {
+  background-color: rgb(49, 142, 35);
 }
 
 .rectangle .pagination button:disabled {
