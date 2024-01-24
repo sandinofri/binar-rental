@@ -79,7 +79,7 @@ h1 {
   line-height: 20px;
 }
 
-.right a {
+.right .tombol-login-admin {
   width: 350px;
   margin-top: 30px;
   display: flex;
@@ -91,4 +91,20 @@ h1 {
   background-color: #0d28a6;
   border-radius: 2px;
   color: #fff;
+  border: none;
+}
+
+.right .tombol-login-admin:disabled {
+  width: 350px;
+  margin-top: 30px;
+  display: flex;
+  padding: 4px 12px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  background-color:rgb(201, 209, 216);
+  border-radius: 2px;
+  color: #fff;
+  border: none;
 }
