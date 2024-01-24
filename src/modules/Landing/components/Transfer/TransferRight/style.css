@@ -47,3 +47,34 @@
     width: 150px;
     margin-bottom: 20px;
 }
+
+.wrapper-img-slip-transfer {
+    background-color: #EEEEEE;
+    width: 296px;
+    height: 162px;
+    border: 2px dashed #D0D0D0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 35px;
+    position: relative;
+}
+
+.img-slip-transfer {
+    height: 162px;
+    position: absolute;
+}
+
+.btn-transfer-right {
+    width: 357px;
+    height: 36px;
+    color: white;
+    background-color: #5CB85F;
+    font-weight: 700;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}

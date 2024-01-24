@@ -1,10 +1,10 @@
 import "./style.css";
 import { useState, useEffect } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import fiuser from "../../assets/icon/fi_users.png";
 
@@ -50,8 +50,8 @@ const DetailSection = () => {
     };
 
     try {
-      const res = await requestAPI.createRent(payload, config);
-      const orderId = res.data.id;
+      const res = await requestAPI.createOrder(payload, config);
+      const orderId = res.data.id
       navigate(`/payment/${orderId}`);
       console.log(res.data);
     } catch (error) {
