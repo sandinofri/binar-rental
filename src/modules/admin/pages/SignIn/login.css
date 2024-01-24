@@ -1,3 +1,7 @@
+h1 {
+  color: red;
+}
+
 .left {
   background: url("@/modules/admin/assets/image/login-image.png"),
     lightgray 50% / cover no-repeat;
