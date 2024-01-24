@@ -1,5 +1,5 @@
 import './style.css'
-// import DownloadButton from '../downloadButton';
+import DownloadEticket from '../downloadeticket';
 
 const EticketSection = () => {
 
@@ -13,7 +13,7 @@ const EticketSection = () => {
                     <p style={{color: '#8A8A8A', marginBottom: '50px'}}>Tunjukkan invoice ini ke petugas BCR di titik temu.</p>
             </div>
             <div>
-                {/* <DownloadButton /> */}
+                <DownloadEticket />
             </div>
         </div>
     );
