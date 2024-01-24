@@ -1,54 +1,77 @@
-// HeaderPay component (headerpay.js)
+import { useState, useEffect } from 'react';
 import './style.css';
 import { useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import * as requestAPI from '../../api/api'
 
-const HeaderPay = () => {
+const HeaderPay = ({showId}) => {
     const location = useLocation();
     const params = new URLSearchParams(location.search);
     const selectedBank = params.get('bank');
-
-    const [stepCompleted, setStepCompleted] = useState(1);
+    const [currentStep, setCurrentStep] = useState();
+    const [car, setCar] = useState({});
+    const { id } = useParams();
 
     useEffect(() => {
-        const currentPath = location.pathname;
-        if (currentPath === '/payment/:id') {
-            setStepCompleted(1);
-        } else if (currentPath === '/transfer') {
-            setStepCompleted(2);
-        } else if (currentPath === '/eticket') {
-            setStepCompleted(3);
+        handleGetList();
+        const path = location.pathname;
+    
+        if (path.startsWith('/payment/')) {
+            setCurrentStep(1);
+        } else if (path.startsWith('/transfer/')) {
+            setCurrentStep(2);
+        } else if (path.startsWith('/eticket/')) {
+            setCurrentStep(3);
         }
     }, [location.pathname]);
+    
 
     let paymentText = 'Pembayaran';
     if (selectedBank) {
         paymentText = `${selectedBank}`;
     }
 
+    const handleGetList = async () => {
+        const token = localStorage.getItem("access_token");
+        const config = {
+            headers: { access_token: token },
+        };
+
+        try {
+            const res = await requestAPI.customerOrder(id, config)
+            console.log(res.data)
+            setCar(res.data)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div className="header-payment">
             <div className='header-payment-wrapper'>
-                <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-center position-relative'>
                     <p className='bi bi-arrow-left fs-3'></p>
                     <p className='ms-3 fs-5 fw-bold'>{paymentText}</p>
+                        {showId && (
+                            <p className='id-header-pay'>Order ID: {car.id}</p>
+                        )}
                 </div>
-                <div className='d-flex gap-2'>
-                    <div className='d-flex gap-2 align-items-center'>
-                        <p className={`number-header-pay ${stepCompleted >= 1 ? 'bg-header-pay' : ''}`}>{stepCompleted >= 1 ? '✔' : '1'}</p>
-                        <p className='order-header-pay'>Pilih Metode</p>
-                        <div className='line-header'></div>
+                    <div className='d-flex gap-2'>
+                        <div className='d-flex gap-2 align-items-center'>
+                            <p className={` ${currentStep >= 1 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 1 ? '✔' : '1' }</p>
+                            <p className='order-header-pay'>Pilih Metode</p>
+                            <div className='line-header'></div>
+                        </div>
+                        <div className='d-flex gap-2 align-items-center'>
+                            <p className={` ${currentStep >= 2 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 2 ? '✔' : '2' }</p>
+                            <p className='order-header-pay'>Bayar</p>
+                            <div className='line-header'></div>
+                        </div>
+                        <div className='d-flex gap-2 align-items-center'>
+                            <p className={` ${currentStep >= 3 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 3 ? '✔' : '3' }</p>
+                            <p className='order-header-pay'>Tiket</p>
+                        </div>
                     </div>
-                    <div className='d-flex gap-2 align-items-center'>
-                        <p className={`number-header-pay ${stepCompleted >= 2 ? 'bg-header-pay' : ''}`}>{stepCompleted >= 2 ? '✔' : '2'}</p>
-                        <p className='order-header-pay'>Bayar</p>
-                        <div className='line-header'></div>
-                    </div>
-                    <div className='d-flex gap-2 align-items-center'>
-                        <p className={`number-header-pay ${stepCompleted >= 3 ? 'bg-header-pay' : ''}`}>{stepCompleted >= 3 ? '✔' : '3'}</p>
-                        <p className='order-header-pay'>Tiket</p>
-                    </div>
-                </div>
             </div>
         </div>
     );

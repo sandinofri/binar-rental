@@ -7,7 +7,7 @@ const TransferPages = () => {
     return (
         <div>
             <Navigation />
-            <HeaderPay/>
+            <HeaderPay showId={true}/>
             <Transfer/>
             <Footer/>
         </div>
