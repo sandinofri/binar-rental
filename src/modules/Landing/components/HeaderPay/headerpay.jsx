@@ -58,12 +58,12 @@ const HeaderPay = ({showId}) => {
                 </div>
                     <div className='d-flex gap-2'>
                         <div className='d-flex gap-2 align-items-center'>
-                            <p className={` ${currentStep >= 1 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 1 ? '✔' : '1' }</p>
+                            <p className={` ${currentStep >= 1 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 1 + 1 ? '✔' : '1' }</p>
                             <p className='order-header-pay'>Pilih Metode</p>
                             <div className='line-header'></div>
                         </div>
                         <div className='d-flex gap-2 align-items-center'>
-                            <p className={` ${currentStep >= 2 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 2 ? '✔' : '2' }</p>
+                            <p className={` ${currentStep >= 2 ? 'bg-header-pay' : 'number-header-pay'}`}>{currentStep >= 2 + 1 ? '✔' : '2' }</p>
                             <p className='order-header-pay'>Bayar</p>
                             <div className='line-header'></div>
                         </div>

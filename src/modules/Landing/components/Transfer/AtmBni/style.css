@@ -66,5 +66,6 @@
 
 .wrapper-title-desc-bank-bni:hover {
     font-weight: bold;
+    border-bottom: 1px solid #5CB85F;
 }
 

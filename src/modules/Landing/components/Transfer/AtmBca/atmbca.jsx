@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './style.css'
 
 const AtmBca = () => {
-    const [activeMethod, setActiveMethod] = useState(null);
+    const [activeMethod, setActiveMethod] = useState('ATM');
 
     const handleMethodClick = (method) => {
         setActiveMethod(method);

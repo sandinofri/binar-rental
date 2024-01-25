@@ -54,7 +54,7 @@ const TransferLeft = () => {
                     <h5 className='fw-bold mb-3'>Selesaikan Pembayaran Sebelum</h5>
                     <p>{formattedDate} WIB</p>
                 </div>
-                <div className='d-flex align-items-center'>
+                <div className='d-flex align-items-center me-3'>
                     <Countdown timerKey="countdown24Hours" />
                 </div>
             </div>
