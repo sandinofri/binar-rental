@@ -140,7 +140,82 @@ ChartJS.register(
     }
   return (
     <MainLayout menu={MENU_LISTS[0]}>
-      <h1>Hello mama</h1>
+      <h3>Rented Car Visualization</h3>
+      <select onChange={handleOnChange}>
+        <option value="">Select Month</option>
+        {option.map((item, index) => (
+          <option key={index} value={item.label}>{item.label}</option>
+        )
+
+        )}
+      </select>
+      <button onClick={handleClickDate}>Submit</button>
+
+      <Bar options={{
+            indexAxis: "x",
+            responsive: true,
+            aspectRatio: 3, // Atur aspectRatio sesuai kebutuhan Anda
+            scales: {
+              y: {
+                title: {
+                  display: true,
+                  text: "Amount of Car Rented",
+                  font: {
+                    family: "Arial",
+                    style: "normal",
+                    weight: 400,
+                    size: 12,
+                  },
+                },
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: "Date",
+                  font: {
+                    family: "Arial",
+                    style: "normal",
+                    weight: 400,
+                    size: 12,
+                  },
+                },
+                type: "category",
+                ticks: {
+                  stepSize: 1,
+                  callback: function (value, index, values) {
+                    if (
+                      index <= 10 ||
+                      index === values.length - 1 ||
+                      index % 2 === 0
+                    ) {
+                      return value;
+                    }
+                    return "";
+                  },
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: false, // Menyembunyikan legenda
+              },
+            },
+          }}
+          data={{
+            labels: chartData?.data?.map((data) => data.day),
+            datasets: [
+              {
+                data: chartData?.data?.map((data) => data.orderCount),
+                backgroundColor: "#586B90",
+              },
+            ],
+          }} />
+        <div className="m-5">
+          <h2>Dashboard</h2>
+          <h4>List Order</h4>
+          <TableData/>
+        </div>
+
     </MainLayout>
   )
 

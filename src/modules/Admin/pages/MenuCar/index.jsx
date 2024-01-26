@@ -3,9 +3,9 @@ import "./style.css"
 import { getMenu } from "../../redux/features/menuCar/menuSlicer";
 import { deleteCar } from "../../redux/features/deleteCar/deleteSlice";
 import { useDispatch, useSelector } from "react-redux";
-import Navbar from "../../component/Navbar";
+
 import { Link } from "react-router-dom";
-import LeftNavbar from "../../component/LeftNavbar";
+
 import MainLayout from "../../layouts/MainLayout";
 const MenuCar = () => {
   const dispatch = useDispatch()
