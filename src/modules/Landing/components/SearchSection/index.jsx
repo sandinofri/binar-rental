@@ -244,7 +244,14 @@ const SearchSection = () => {
             listcarnew.map((car, id) => (
               <div key={id}>
                 <div className="listcar-card">
-                  <img className="listcar-img" src={car.image} />
+                  <img
+                    className="listcar-img"
+                    src={car.image || 'https://placeholder.com/280x200 '}
+                    alt={car.name}
+                    onError={(e) => {
+                      e.target.src = 'https://placeholder.com/280x200 ';
+                    }}
+                  />
                   <p className="namecar">{car.name}</p>
                   <p className="listcar-price">{`Rp. ${car.price} / hari`}</p>
                   <p className="listcar-desc">
