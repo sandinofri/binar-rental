@@ -4,10 +4,11 @@ import MainLayout from "../../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import MENU_LISTS from "../../constants/menuLists";
 import { Breadcrumb } from "../../components/Breadcrumb";
-import { getMenu, deleteCar } from "../../redux/features/menuCar/menuSlicer";
+import { getMenu } from "../../redux/features/menuCar/menuSlicer";
 import { useDispatch, useSelector } from "react-redux";
 import { Car } from "../../components/Car";
 import ImageCarDelete from '../../assets/images/img-BeepBeep.png'
+import { deleteCar } from "../../redux/features/deleteCar/deleteSlice";
 
 const Cars = () => {
   const dispatch = useDispatch()
