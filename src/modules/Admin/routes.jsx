@@ -1,4 +1,4 @@
-import AddCar from "./pages/Cars/AddCar";
+import AddCar from "./pages/AddCar";
 import Cars from "./pages/Cars/Cars";
 import Dashboard from "./pages/Dasboard";
 import SignIn from "./pages/SignIn";

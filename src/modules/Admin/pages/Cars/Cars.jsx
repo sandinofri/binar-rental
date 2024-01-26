@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import "./cars.css";
+import "./style.scss";
 import MainLayout from "../../layouts/MainLayout";
 import { Link } from "react-router-dom";
 import MENU_LISTS from "../../constants/menuLists";
@@ -28,12 +28,6 @@ const Cars = () => {
         <Link className="add-car" to={'/admin/cars/add'}><span>+</span>Add New Car</Link>
       </div>
 
-      <div className="information-cars">
-        <p>List Cars</p>
-        <Link to={"/admin/add"}>
-          <button className="add-car">Add New Car</button>
-        </Link>
-      </div>
       <div className="category-car">
         <button>All</button>
         <button>2 - 4 people</button>
