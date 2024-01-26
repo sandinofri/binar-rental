@@ -1,18 +1,11 @@
-import { deleteCar } from "../../redux/features/deleteCar/deleteSlice";
-import { useDispatch } from "react-redux";
 import './style.scss'
-import { formatToIdr, formatUpdatedAt } from "../../../utils/";
+import { formatToIdr, formatUpdatedAt } from "../../../../utils/";
 import UsersSVG from '../../assets/icons/users.svg?react'
 import ClockSVG from '../../assets/icons/clock.svg?react'
 import TrashSVG from '../../assets/icons/trash.svg?react'
 import PencilSVG from '../../assets/icons/pencil.svg?react'
 
-export const Car = ({ car }) => {
-  const dispatch = useDispatch()
-  const handleDelete = (id) => {
-    dispatch(deleteCar(id))
-  }
-
+export const Car = ({ car, onDeleteClick }) => {
   const renderCategoryTag = (category) => {
     switch (category) {
       case "small":
@@ -36,7 +29,7 @@ export const Car = ({ car }) => {
         <p className="normal"><span><ClockSVG /></span>{formatUpdatedAt(car.updatedAt)}</p>
       </div>
       <div className="buttons">
-        <button onClick={() => handleDelete(car.id)} className="delete"><span><TrashSVG /></span>Delete</button>
+        <button onClick={() => onDeleteClick(car.id)} className="delete"><span><TrashSVG /></span>Delete</button>
         <button className="edit"><span><PencilSVG /> </span>Edit</button>
       </div>
     </div>
