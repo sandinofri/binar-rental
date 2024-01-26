@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import MENU_LISTS from "../../constants/menuLists";
 import { Breadcrumb } from "../../components/Breadcrumb";
 import { getMenu } from "../../redux/features/menuCar/menuSlicer";
-import { deleteCar } from "../../redux/features/deleteCar/deleteSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { Car } from "../../components/Car";
 
 const Cars = () => {
   const dispatch = useDispatch()
@@ -15,10 +15,6 @@ const Cars = () => {
   useEffect(() => {
     dispatch(getMenu())
   }, [])
-
-  const handleDelete = (id) => {
-    dispatch(deleteCar(id))
-  }
   return (
     <MainLayout menu={MENU_LISTS[1]} menuTitle="List Car">
       <Breadcrumb currentLink="List Car" previousLink="Cars" />
@@ -36,20 +32,7 @@ const Cars = () => {
       </div>
       <div className="container-post-card">
         {list.map((item, index) => (
-          <div key={index}>
-            <div className="post-card">
-              <div className="text">
-                <img className="image" src={item.image} />
-                <p>{item.name}</p>
-                <p>Rp {item.price} /hari</p>
-                <p>{item.category}</p>
-              </div>
-              <div className="button">
-                <button onClick={() => handleDelete(item.id)} className="delete">Delete</button>
-                <button className="edit">Edit</button>
-              </div>
-            </div>
-          </div>
+          <Car car={item} key={index} />
         ))}
       </div>
     </MainLayout>
