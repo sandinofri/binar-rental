@@ -1,18 +1,24 @@
 .category-car {
   display: flex;
   gap: 10px;
-  font-size: 12px;
+  font-size: 13px;
   margin-top: 1rem;
-}
 
-.category-car>button {
-  border: 1px solid white;
-  border-radius: 5px;
-  padding: 5px 10px;
-  color: blue;
-  background-color: #FFF;
-  border-color: blue;
+  button {
+    border: 1px solid #AEB7E1;
+    border-radius: 3px;
+    padding: 5px 12px;
+    color: #AEB7E1;
+    background-color: #FFF;
 
+    &.active,
+    &:hover {
+      border-color: #0D28A6;
+      background-color: #CFD4ED;
+      color: #0D28A6;
+      font-weight: 700;
+    }
+  }
 }
 
 .add-car {
