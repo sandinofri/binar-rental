@@ -7,11 +7,12 @@ import { toggleSidebarDetail } from "../../redux/features/dashboard/dashboardSli
 import { useRef, useState } from "react"
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function Navbar() {
   const [openOverlay, setOpenOverlay] = useState(false);
   const target = useRef(null)
+  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -41,10 +42,10 @@ export default function Navbar() {
       </div>
 
       <div className="right-side">
-        <div className="form-group">
-          <input type="search" placeholder="Search" />
-          <button className="button" type="button">Search</button>
-        </div>
+        <form className="form-group" action="/admin/cars">
+          <input type="search" placeholder="Search" name="car" defaultValue={searchParams.get('car')} />
+          <button className="button" type="submit">Search</button>
+        </form>
         <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
           <div className="user">
             <div className="user-thumbnail">

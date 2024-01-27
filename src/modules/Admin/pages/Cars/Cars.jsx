@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import "./style.scss";
 import MainLayout from "../../layouts/MainLayout";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import MENU_LISTS from "../../constants/menuLists";
 import { Breadcrumb } from "../../components/Breadcrumb";
 import { getMenu } from "../../redux/features/menuCar/menuSlicer";
@@ -13,6 +13,7 @@ import { NotificationContex } from "../../../../contex/NotificationContex";
 
 const Cars = () => {
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
   const { list } = useSelector((state) => state.menuCar);
   const categories = [
     { name: "All", value: undefined },
@@ -49,7 +50,7 @@ const Cars = () => {
   }
 
   useEffect(() => {
-    dispatch(getMenu());
+    dispatch(getMenu({ carTitle: searchParams.get('car') }));
   }, []);
 
   useEffect(() => {
@@ -62,7 +63,7 @@ const Cars = () => {
         {notification && <p className="notif-sucsess">{notification}</p>}
         {toastDelete && <p className="notif-delete">{toastDelete}</p>}
         <div className="d-flex justify-content-between align-items-center pe-4 mt-4">
-          <p className="list-car2">List Car</p>
+          <p className="list-car2">List Car {searchParams.get('car') ? `(Hasil Pencarian ${searchParams.get('car')})` : ''}</p>
           <Link className="add-car" to={"/admin/cars/add"}>
             <span>+</span>Add New Car
           </Link>
