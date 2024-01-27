@@ -34,7 +34,25 @@ const AddCar = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setImage(file);
+    if (file) {
+      const allowedTypes = ["image/png", "image/jpeg"];
+      const maxFileSize = 2*1024*1024;
+
+      if (
+        allowedTypes.includes(file.type) &&
+        file.size <= maxFileSize
+      ) {
+        setImage(file);
+        
+      } else {
+        if (!allowedTypes.includes(file.type)) {
+          alert("Invalid file type. Please select a PNG or JPEG file.");
+        } else {
+          alert("file too large");
+        }
+      }
+    }
+    
     setEmty("");
     setError("");
   };

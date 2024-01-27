@@ -1,7 +1,6 @@
 import ProtectedRoute from "./components/hoc/Protected.Route";
-import AddCar from "./pages/Cars/AddCar";
-import Cars from "./pages/Cars/Cars";
-import Edit from "./pages/Cars/edit/Edit";
+import AddCar from "./pages/AddCar";
+import Edit from "./pages/EditCar/Edit";
 import Dashboard from "./pages/Dasboard";
 import SignIn from "./pages/SignIn";
 
@@ -23,14 +22,6 @@ export const routes = [
     element: (
       <ProtectedRoute>
         <Dashboard />
-      </ProtectedRoute>
-    ),
-  },
-  {
-    path: "/admin/cars",
-    element: (
-      <ProtectedRoute>
-        <Cars />
       </ProtectedRoute>
     ),
   },
