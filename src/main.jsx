@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { landingReducers } from "./modules/Landing/app/store.js";
+import NotificationProvider from "./contex/NotificationContex.jsx";
 import { adminReducers } from "./modules/Admin/redux/store.js";
 
 const rootReducers = configureStore({
@@ -14,10 +15,12 @@ const rootReducers = configureStore({
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={rootReducers}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <NotificationProvider>
+      <BrowserRouter>
+        <Provider store={rootReducers}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </NotificationProvider>
   </React.StrictMode>
 );

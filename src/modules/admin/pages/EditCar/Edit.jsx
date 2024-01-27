@@ -1,75 +1,78 @@
-import React, { useContext, useState } from "react";
-import MainLayout from "../../layouts/MainLayout";
-import Vector from "../../../admin/assets/icons/Vector.png";
-import "./cars.css";
-import { useNavigate } from "react-router-dom";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import MainLayout from "../../layouts/MainLayout"
+import Vector from "../../../admin/assets/icons/Vector.png"
 import axios from "axios";
 import { NotificationContex } from "../../../../contex/NotificationContex";
 
-const AddCar = () => {
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
-  const [category, setCategory] = useState("");
-  const [status, setStatus] = useState(false);
-  const [empty, setEmty] = useState("");
-  const [loading, setLoading] = useState(false);
+const Edit = () => {
+  const [car, setCar] = useState({
+    name:"",
+    image:null,
+    price:0,
+    category:""
+  });
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-
   const { setNotif } = useContext(NotificationContex);
-
   const navigate = useNavigate();
+  const [empty,setEmty]=useState("")
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
-    setEmty("");
+    setCar((data) => ({ ...data, name: e.target.value }));
     setError("");
+    setEmty("")
   };
 
   const handlePriceChange = (e) => {
-    setPrice(Number(e.target.value));
-    setEmty("");
+    setCar((data) => ({ ...data, price: e.target.value }));
     setError("");
+    setEmty("")
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      const allowedTypes = ["image/png", "image/jpeg"];
-      const maxFileSize = 2*1024*1024;
-
-      if (
-        allowedTypes.includes(file.type) &&
-        file.size <= maxFileSize
-      ) {
-        setImage(file);
-        
-      } else {
-        if (!allowedTypes.includes(file.type)) {
-          alert("Invalid file type. Please select a PNG or JPEG file.");
-        } else {
-          alert("file too large");
-        }
-      }
-    }
-    
-    setEmty("");
+    setCar((data) => ({ ...data, image: file }));
     setError("");
+    setEmty("")
   };
 
   const handleCategoryChange = (e) => {
-    setCategory(e.target.value);
-    setEmty("");
+    setCar((data) => ({ ...data, category: e.target.value }));
     setError("");
+    setEmty("")
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!name || !price || !image || !category) {
+  const param = useParams();
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async (e) => {
+    const token = localStorage.getItem("token");
+    const config = {
+      headers: {
+        access_token: `${token}`,
+      },
+    };
+    try {
+      const response = await axios.get(
+        `https://api-car-rental.binaracademy.org/admin/car/${param.id}`,
+        config
+      );
+
+      setCar(response.data);
+    } catch (error) {
+      console.log("error : ", error);
+    }
+  };
+
+  const handleEdit = async () => {
+    if (!car.name || !car.price || !car.image || !car.category) {
       setEmty("semua field harus terisi");
       return;
     }
-    setLoading(true);
+    setIsLoading(true);
     const token = localStorage.getItem("token");
     const config = {
       headers: {
@@ -77,20 +80,21 @@ const AddCar = () => {
         access_token: `${token}`,
       },
     };
-  
     try {
       const formData = new FormData();
-      formData.append("name", name);
-      formData.append("price", price);
-      formData.append("image", image);
-      formData.append("category", category);
-      formData.append("status", status);
-      const response = await axios.post(
-        "https://api-car-rental.binaracademy.org/admin/car",
+      formData.append("name", car.name);
+      formData.append("price", car.price);
+
+      formData.append("image", car.image);
+
+      formData.append("category", car.category);
+      formData.append("status", car.status);
+      const response = await axios.put(
+        `https://api-car-rental.binaracademy.org/admin/car/${param.id}`,
         formData,
         config
       );
-      setNotif("data berhasil disimpan");
+      setNotif("data berhasil di update");
       setTimeout(() => {
         setNotif("");
       }, 5000);
@@ -100,9 +104,10 @@ const AddCar = () => {
       setTimeout(() => {
         setError("");
       }, 5000);
-      setLoading(false);
+      setIsLoading(false);
     }
   };
+
   return (
     <MainLayout>
       <div className="d-flex gap-2 mt-5">
@@ -114,23 +119,14 @@ const AddCar = () => {
         <div>
           <img src={Vector} alt="vector" />
         </div>
-        <p className="List-car">Add New Car</p>
+        <p className="List-car">Edit Car</p>
       </div>
-      <p className="list-car2 mt-4">Add New Car</p>
+      <p className="list-car2 mt-4">Edit Car</p>
 
       {/* form input */}
       <form action="" className="form">
-        {empty && (
-          <p className="notif-error" style={{ fontStyle: "italic" }}>
-            {empty}
-          </p>
-        )}
-        {error && (
-          <p className="notif-error" style={{ fontStyle: "italic" }}>
-            {error}
-          </p>
-        )}
-
+        {error && <p className=" notif-error">{error}</p>}
+        {empty && <p className="notif-error">{empty}</p>}
         <div className="input-name">
           <p>
             Nama/Type Mobil <span>*</span>
@@ -139,8 +135,8 @@ const AddCar = () => {
             type="text"
             placeholder="Input Nama/Type Mobil"
             name="name"
-            value={name}
             onChange={handleNameChange}
+            value={car.name}
           />
         </div>
         <div className="input-name">
@@ -151,8 +147,8 @@ const AddCar = () => {
             type="text"
             placeholder="Input Harga Sewa mobil"
             name="price"
-            value={price}
             onChange={handlePriceChange}
+            value={car.price}
           />
         </div>
         <div className="input-foto">
@@ -166,6 +162,7 @@ const AddCar = () => {
               name="image"
               onChange={handleImageChange}
             />
+
             <p>File size max. 2MB</p>
           </div>
         </div>
@@ -176,7 +173,7 @@ const AddCar = () => {
           <select
             name="category"
             id=""
-            value={category}
+            value={car.category}
             onChange={handleCategoryChange}
           >
             <option value="" disabled>
@@ -187,10 +184,16 @@ const AddCar = () => {
             <option value="large">6 - 8 orang</option>
           </select>
         </div>
+        <div className="input-name">
+          <p>
+            Created at <span></span>
+          </p>
+          <p className="ms-3">{car.createdAt}</p>
+        </div>
       </form>
 
       <div className="tombol">
-        {loading ? (
+        {isLoading ? (
           <p>loading...</p>
         ) : (
           <div>
@@ -202,7 +205,7 @@ const AddCar = () => {
             >
               Cancel
             </button>
-            <button className="button2" onClick={handleSubmit}>
+            <button className="button2" onClick={handleEdit}>
               Save
             </button>
           </div>
@@ -212,4 +215,4 @@ const AddCar = () => {
   );
 };
 
-export default AddCar;
+export default Edit;
