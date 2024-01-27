@@ -1,20 +1,20 @@
 import "./style.css";
 import { useState, useEffect } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import * as requestAPI from "../../api/api";
 import Calendars from "../Calendars";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import fiuser from "../../assets/icon/fi_users.png";
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
   const { id } = useParams();
-  const { is_disabled } = useSelector((state) => state.detail);
+  // const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const navigate = useNavigate();
-  // console.log(state);
+  console.log(state);
 
   useEffect(() => {
     handleGetList();
@@ -50,8 +50,8 @@ const DetailSection = () => {
     };
 
     try {
-      const res = await requestAPI.createRent(payload, config);
-      const orderId = res.data.id;
+      const res = await requestAPI.createOrder(payload, config);
+      const orderId = res.data.id
       navigate(`/payment/${orderId}`);
       console.log(res.data);
     } catch (error) {
@@ -166,9 +166,9 @@ const DetailSection = () => {
           <p>{`Rp.${car.price}`}</p>
         </div>
         <button
-          className={is_disabled ? "btnToPayment" : "disabled"}
+          className={state.is_disabled ? "btnToPayment" : "disabled"}
           onClick={continuePay}
-          disabled={!is_disabled}>
+          disabled={!state.is_disabled}>
           Lanjutkan Pembayaran
         </button>
       </div>

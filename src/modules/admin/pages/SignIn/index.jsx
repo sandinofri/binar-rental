@@ -4,31 +4,30 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const[error,setError]=useState('')
-  const[empty,setEmpty]=useState('')
+  const [error, setError] = useState("");
+  const [empty, setEmpty] = useState("");
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
-    setError('')
-    setEmpty('')
+    setError("");
+    setEmpty("");
   };
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
-    setError('')
-    setEmpty('')
+    setError("");
+    setEmpty("");
   };
 
   const handleLogin = async () => {
     setLoading(true);
     if (!email || !password) {
-      setEmpty('Password and email must be filled in')
-      setLoading(false)
+      setEmpty("Password and email must be filled in");
+      setLoading(false);
       return;
     }
     try {
@@ -42,7 +41,7 @@ const SignIn = () => {
       );
       console.log(response);
       setLoading(false);
-      navigate("/admin/dashboard");
+      navigate("/admin");
       localStorage.setItem("token", response.data.access_token);
     } catch (error) {
       setError(error.response.data.message);
@@ -57,7 +56,7 @@ const SignIn = () => {
           <div className="col-lg-4 d-flex justify-content-center ">
             <div className="right">
               <div className="logo"></div>
-              <h1>Welcome, Admin BCR</h1>
+              <h1 className="title-signin">Welcome, Admin BCR</h1>
               {error && <p>{error}</p>}
               {empty && <p>{empty}</p>}
               <form action="">

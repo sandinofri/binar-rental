@@ -59,6 +59,9 @@ const Calendars = () => {
     }
   };
 
+  const dateToday = new Date();
+  console.log(dateToday);
+
   // const state = useSelector((state) => state.detail);
   useEffect(() => {
     handleGetDateRent();
@@ -90,6 +93,7 @@ const Calendars = () => {
           selectsRange={true}
           startDate={startDate}
           endDate={endDate}
+          minDate={dateToday}
           shouldCloseOnSelect={false}
           open={pickDate}
           dateFormat={"d MMM yyyy"}

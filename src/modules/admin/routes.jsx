@@ -3,6 +3,7 @@ import AddCar from "./pages/AddCar";
 import Edit from "./pages/EditCar/Edit";
 import Dashboard from "./pages/Dasboard";
 import SignIn from "./pages/SignIn";
+import Cars from "./pages/Cars/Cars";
 
 export const routes = [
   {
@@ -24,6 +25,10 @@ export const routes = [
         <Dashboard />
       </ProtectedRoute>
     ),
+  },
+  {
+    path: "/admin/cars",
+    element: <Cars />,
   },
   {
     path: "/admin/cars/add",
