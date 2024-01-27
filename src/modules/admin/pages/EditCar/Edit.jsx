@@ -17,6 +17,7 @@ const Edit = () => {
   const { setNotif } = useContext(NotificationContex);
   const navigate = useNavigate();
   const [empty,setEmty]=useState("")
+  const [isDisable,setIsDisable]=useState(true)
 
   const handleNameChange = (e) => {
     setCar((data) => ({ ...data, name: e.target.value }));
@@ -35,6 +36,7 @@ const Edit = () => {
     setCar((data) => ({ ...data, image: file }));
     setError("");
     setEmty("")
+    setIsDisable(false)
   };
 
   const handleCategoryChange = (e) => {
@@ -205,7 +207,7 @@ const Edit = () => {
             >
               Cancel
             </button>
-            <button className="button2" onClick={handleEdit}>
+            <button className="button2" onClick={handleEdit} disabled={isDisable} style={{ backgroundColor: isDisable ? '#CCCCCC' : '#0d28a6' }}>
               Save
             </button>
           </div>
