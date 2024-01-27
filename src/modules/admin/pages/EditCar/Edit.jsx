@@ -1,23 +1,24 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import MainLayout from "../../layouts/MainLayout"
-import Vector from "../../../admin/assets/icons/Vector.png"
 import axios from "axios";
 import { NotificationContex } from "../../../../contex/NotificationContex";
+import { Breadcrumb } from "../../components/Breadcrumb";
+import MENU_LISTS from "../../constants/menuLists";
 
 const Edit = () => {
   const [car, setCar] = useState({
-    name:"",
-    image:null,
-    price:0,
-    category:""
+    name: "",
+    image: null,
+    price: 0,
+    category: ""
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const { setNotif } = useContext(NotificationContex);
   const navigate = useNavigate();
-  const [empty,setEmty]=useState("")
-  const [isDisable,setIsDisable]=useState(true)
+  const [empty, setEmty] = useState("")
+  const [isDisable, setIsDisable] = useState(true)
 
   const handleNameChange = (e) => {
     setCar((data) => ({ ...data, name: e.target.value }));
@@ -111,18 +112,8 @@ const Edit = () => {
   };
 
   return (
-    <MainLayout>
-      <div className="d-flex gap-2 mt-5">
-        <p className="car">Cars</p>
-        <div>
-          <img src={Vector} alt="vector" />
-        </div>
-        <p className="car">List Car</p>
-        <div>
-          <img src={Vector} alt="vector" />
-        </div>
-        <p className="List-car">Edit Car</p>
-      </div>
+    <MainLayout menu={MENU_LISTS[1]} menuTitle="List Car">
+      <Breadcrumb currentLink="Edit Car" previousLink={['Cars', 'List Car']} />
       <p className="list-car2 mt-4">Edit Car</p>
 
       {/* form input */}
@@ -198,7 +189,7 @@ const Edit = () => {
         {isLoading ? (
           <p>loading...</p>
         ) : (
-          <div>
+          <>
             <button
               className="button1"
               onClick={() => {
@@ -210,7 +201,7 @@ const Edit = () => {
             <button className="button2" onClick={handleEdit} disabled={isDisable} style={{ backgroundColor: isDisable ? '#CCCCCC' : '#0d28a6' }}>
               Save
             </button>
-          </div>
+          </>
         )}
       </div>
     </MainLayout>
