@@ -68,7 +68,7 @@ const AddCar = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!name || !price || !image || !category) {
-      setEmty("semua field harus terisi");
+      setEmty("Semua Field Harus Terisi");
       return;
     }
     setLoading(true);
@@ -92,13 +92,13 @@ const AddCar = () => {
         formData,
         config
       );
-      setNotif("data berhasil disimpan");
+      setNotif("Data Berhasil Disimpan");
       setTimeout(() => {
         setNotif("");
       }, 5000);
       navigate("/admin/cars");
     } catch (error) {
-      setError("sepertinya ada kesalahan di server kami");
+      setError("Sepertinya Ada Kesalahan Di Server Kami");
       setTimeout(() => {
         setError("");
       }, 5000);

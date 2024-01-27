@@ -30,7 +30,7 @@ export const Car = ({ car, onDeleteClick }) => {
       </div>
       <div className="description ">
         <p>{car.name}</p>
-        <p className="price">{formatToIdr(car.price)} /hari</p>
+        <p className="price normal">{formatToIdr(car.price)} / Hari</p>
         <p className="normal"><span><UsersSVG /></span>{renderCategoryTag(car.category)}</p>
         <p className="normal"><span><ClockSVG /></span>{formatUpdatedAt(car.updatedAt)}</p>
       </div>

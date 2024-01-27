@@ -24,6 +24,7 @@ const Cars = () => {
   const [activeCategory, setActiveCategory] = useState(undefined);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
+  const [toastDelete, setToastDelete] = useState(null)
 
   const { notification } = useContext(NotificationContex);
 
@@ -32,14 +33,34 @@ const Cars = () => {
     setSelectedCar(id);
   };
 
+  const handleDeleteYes = () => {
+    if (!selectedCar) return
+    setShowDeleteModal(false)
+    try {
+      dispatch(deleteCar(selectedCar))
+      setToastDelete('Data Berhasil Dihapus')
+    } catch (error) {
+      setToastDelete('Terjadi Kesalahan Saat Menghapus Data')
+    } finally {
+      setTimeout(() => {
+        setToastDelete("");
+      }, 1000);
+    }
+  }
+
   useEffect(() => {
     dispatch(getMenu());
   }, []);
+
+  useEffect(() => {
+    dispatch(getMenu());
+  }, [toastDelete]);
   return (
     <>
       <MainLayout menu={MENU_LISTS[1]} menuTitle="List Car">
         <Breadcrumb currentLink="List Car" previousLink="Cars" />
         {notification && <p className="notif-sucsess">{notification}</p>}
+        {toastDelete && <p className="notif-delete">{toastDelete}</p>}
         <div className="d-flex justify-content-between align-items-center pe-4 mt-4">
           <p className="list-car2">List Car</p>
           <Link className="add-car" to={"/admin/cars/add"}>
@@ -81,9 +102,7 @@ const Cars = () => {
               </p>
               <div className="buttons">
                 <button
-                  onClick={() =>
-                    selectedCar && dispatch(deleteCar(selectedCar))
-                  }
+                  onClick={handleDeleteYes}
                   className="acc"
                 >
                   Ya

@@ -99,7 +99,7 @@ const Edit = () => {
         formData,
         config
       );
-      setNotif("data berhasil di update");
+      setNotif("Data Berhasil Di Update");
       setTimeout(() => {
         setNotif("");
       }, 5000);
