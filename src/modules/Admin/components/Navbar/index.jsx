@@ -1,5 +1,6 @@
 import LargeLogo from "@/modules/Admin/assets/images/large-brand.svg?react"
 import HamburgerIcon from "@/modules/Admin/assets/icons/fi_menu.svg?react"
+import DownIcon from "@/modules/Admin/assets/icons/down.svg?react"
 import './style.scss'
 import { useDispatch } from "react-redux"
 import { toggleSidebarDetail } from "../../redux/features/dashboard/dashboardSlice"
@@ -41,7 +42,7 @@ export default function Navbar() {
 
       <div className="right-side">
         <div className="form-group">
-          <input type="search" />
+          <input type="search" placeholder="Search" />
           <button className="button" type="button">Search</button>
         </div>
         <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
@@ -49,7 +50,8 @@ export default function Navbar() {
             <div className="user-thumbnail">
               <p>U</p>
             </div>
-            <p>Unis Badri</p>
+            <p style={{ fontSize: '14px' }}>Unis Badri</p>
+            <DownIcon />
           </div>
         </OverlayTrigger>
       </div>
