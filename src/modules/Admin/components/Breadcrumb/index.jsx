@@ -5,7 +5,7 @@ export const Breadcrumb = ({ currentLink, previousLink }) => {
   const renderIfArray = (array) => {
     return array.map((item, i) => (
       <>
-        <p className="car">{item}</p>
+        <p className="prev-link">{item}</p>
         <RightIcon />
       </>
     ))

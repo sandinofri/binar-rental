@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
 import Vector from "../../../admin/assets/icons/Vector.png";
-import "./cars.css";
+import "./style.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { NotificationContex } from "../../../../contex/NotificationContex";
+import { Breadcrumb } from "../../components/Breadcrumb";
+import MENU_LISTS from "../../constants/menuLists";
 
 const AddCar = () => {
   const [name, setName] = useState("");
@@ -36,14 +38,14 @@ const AddCar = () => {
     const file = e.target.files[0];
     if (file) {
       const allowedTypes = ["image/png", "image/jpeg"];
-      const maxFileSize = 2*1024*1024;
+      const maxFileSize = 2 * 1024 * 1024;
 
       if (
         allowedTypes.includes(file.type) &&
         file.size <= maxFileSize
       ) {
         setImage(file);
-        
+
       } else {
         if (!allowedTypes.includes(file.type)) {
           alert("Invalid file type. Please select a PNG or JPEG file.");
@@ -52,7 +54,7 @@ const AddCar = () => {
         }
       }
     }
-    
+
     setEmty("");
     setError("");
   };
@@ -77,7 +79,7 @@ const AddCar = () => {
         access_token: `${token}`,
       },
     };
-  
+
     try {
       const formData = new FormData();
       formData.append("name", name);
@@ -104,18 +106,8 @@ const AddCar = () => {
     }
   };
   return (
-    <MainLayout>
-      <div className="d-flex gap-2 mt-5">
-        <p className="car">Cars</p>
-        <div>
-          <img src={Vector} alt="vector" />
-        </div>
-        <p className="car">List Car</p>
-        <div>
-          <img src={Vector} alt="vector" />
-        </div>
-        <p className="List-car">Add New Car</p>
-      </div>
+    <MainLayout menu={MENU_LISTS[1]} menuTitle="List Car">
+      <Breadcrumb currentLink="Add New Car" previousLink={['Cars', 'List Car']} />
       <p className="list-car2 mt-4">Add New Car</p>
 
       {/* form input */}
@@ -193,7 +185,7 @@ const AddCar = () => {
         {loading ? (
           <p>loading...</p>
         ) : (
-          <div>
+          <>
             <button
               className="button1"
               onClick={() => {
@@ -205,7 +197,7 @@ const AddCar = () => {
             <button className="button2" onClick={handleSubmit}>
               Save
             </button>
-          </div>
+          </>
         )}
       </div>
     </MainLayout>

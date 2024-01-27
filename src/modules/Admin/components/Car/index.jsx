@@ -21,7 +21,12 @@ export const Car = ({ car, onDeleteClick }) => {
   return (
     <div className="car-card">
       <div className="thumbnail">
-        <img src={car.image} />
+        <img
+          src={car.image || 'https://placeholder.com/280x200 '}
+          onError={(e) => {
+            e.target.src = 'https://placeholder.com/280x200 ';
+          }}
+        />
       </div>
       <div className="description ">
         <p>{car.name}</p>
@@ -31,7 +36,7 @@ export const Car = ({ car, onDeleteClick }) => {
       </div>
       <div className="buttons">
         <Link onClick={() => onDeleteClick(car.id)} className="delete"><span><TrashSVG /></span>Delete</Link>
-        <Link to={"/admin/cars/edit/"+car.id} className="edit"><span><PencilSVG /> </span>Edit</Link>
+        <Link to={"/admin/cars/edit/" + car.id} className="edit"><span><PencilSVG /> </span>Edit</Link>
       </div>
     </div>
   )
