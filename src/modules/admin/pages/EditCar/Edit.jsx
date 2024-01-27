@@ -5,6 +5,7 @@ import axios from "axios";
 import { NotificationContex } from "../../../../contex/NotificationContex";
 import { Breadcrumb } from "../../components/Breadcrumb";
 import MENU_LISTS from "../../constants/menuLists";
+import { formatUpdatedAt } from "@/utils"
 
 const Edit = () => {
   const [car, setCar] = useState({
@@ -36,6 +37,7 @@ const Edit = () => {
     const file = e.target.files[0];
     setCar((data) => ({ ...data, image: file }));
     setError("");
+
     setEmty("")
     setIsDisable(false)
   };
@@ -181,7 +183,13 @@ const Edit = () => {
           <p>
             Created at <span></span>
           </p>
-          <p className="ms-3">{car.createdAt}</p>
+          <p className="">{formatUpdatedAt(car.createdAt, false)}</p>
+        </div>
+        <div className="input-name">
+          <p>
+            Updated at <span></span>
+          </p>
+          <p className="">{formatUpdatedAt(car.updatedAt, false)}</p>
         </div>
       </form>
 
