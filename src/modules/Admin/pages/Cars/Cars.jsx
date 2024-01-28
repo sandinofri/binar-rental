@@ -50,6 +50,10 @@ const Cars = () => {
   }
 
   useEffect(() => {
+    dispatch(getMenu({ category: activeCategory }));
+  }, [activeCategory])
+
+  useEffect(() => {
     dispatch(getMenu({ carTitle: searchParams.get('car') }));
   }, []);
 
