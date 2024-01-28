@@ -18,6 +18,7 @@
 
   .input {
     margin: 1.5rem 0;
+    background-color: transparent;
 
     p {
       color: var(--Neutral-01, #000);
@@ -27,7 +28,6 @@
       font-weight: 400;
       line-height: 18px;
       margin-bottom: .5rem;
-      background-color: transparent;
       padding: 0;
     }
 

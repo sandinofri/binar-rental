@@ -28,6 +28,29 @@ $padding: 1rem;
 
     .table-footer {
         display: flex;
-        gap: 2rem;
+        justify-content: space-between;
+        align-items: center;
+
+        .input-groups {
+            display: flex;
+            background-color: transparent;
+        }
+
+        .table-pagination {
+            button {
+                border-radius: 2px;
+                border: 1px solid var(--Neutral-02, #D0D0D0);
+                padding: 10px 15px;
+
+                &:disabled {
+                    background-color: var(--Neutral-02, #D0D0D0);
+                }
+
+                &.number:disabled {
+                    border: 1px solid var(--Primary-DarkBlue-04, #0D28A6);
+                    background: var(--Primary-DarkBlue-01, #CFD4ED);
+                }
+            }
+        }
     }
 }
