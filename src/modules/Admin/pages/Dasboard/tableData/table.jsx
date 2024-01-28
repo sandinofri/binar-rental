@@ -6,6 +6,7 @@ import { Column } from 'primereact/column';
 import moment from 'moment/moment';
 import axios from 'axios';
 import "./style.scss"
+import { formatToIdr } from "@/utils/"
 
 
 const TableData = () => {
@@ -48,11 +49,11 @@ const TableData = () => {
             setData(response.data.orders.map((data, i) => ({
                 no: i + 1,
                 useremail: data.User.email,
-                car: "test",
+                car: "Car",
                 start_rent_at: moment(data.start_rent_at).format("DD-MM-YYYY"),
                 finish_rent_at: moment(data.finish_rent_at).format("DD-MM-YYYY"),
-                total_price: data.total_price,
-                Category: "test"
+                total_price: formatToIdr(data.total_price),
+                Category: "Category"
             })))
             setTotalRecords(response.data.count)
         } catch (error) {
