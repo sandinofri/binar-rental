@@ -43,12 +43,13 @@ $padding: 1rem;
                 padding: 10px 15px;
 
                 &:disabled {
-                    background-color: var(--Neutral-02, #D0D0D0);
+                    cursor: not-allowed;
                 }
 
                 &.number:disabled {
                     border: 1px solid var(--Primary-DarkBlue-04, #0D28A6);
                     background: var(--Primary-DarkBlue-01, #CFD4ED);
+                    cursor: not-allowed;
                 }
             }
         }
