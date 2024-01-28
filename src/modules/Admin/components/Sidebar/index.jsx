@@ -9,7 +9,6 @@ export default function Sidebar({ activeMenu }) {
     { icon: HomeIcon, name: "Dashboard", link: "/admin" },
     { icon: CarIcon, name: "Mobil", link: "/admin/cars" },
   ]
-  console.log(activeMenu)
   return (
     <div className="main-sidebar">
       <aside className="sidebar-wrapper">

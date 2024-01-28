@@ -39,7 +39,6 @@ const TableData = () => {
                 page: options.currentPage,
                 pageSize: options.pageSize
             }
-            console.log(params)
             const response = await axios.get("https://api-car-rental.binaracademy.org/admin/v2/order", {
                 params: params,
                 headers: {
@@ -55,8 +54,6 @@ const TableData = () => {
                 total_price: data.total_price,
                 Category: "test"
             })))
-
-            console.log(data)
             setTotalRecords(response.data.count)
         } catch (error) {
             alert('Terjadi kesalahan pada server')

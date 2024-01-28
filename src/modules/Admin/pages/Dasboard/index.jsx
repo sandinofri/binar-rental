@@ -54,6 +54,7 @@ function Dashboard() {
       return response.data
     } catch (error) {
       console.log(error)
+      alert('Terjadi kesalahan pada server')
     }
   }
 

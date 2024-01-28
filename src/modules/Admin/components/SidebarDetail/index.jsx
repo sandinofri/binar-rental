@@ -4,7 +4,6 @@ import { useSelector } from "react-redux"
 
 export const SidebarDetail = ({ activeMenu, activeMenuTitle }) => {
   const { isSidebarDetailOpen } = useSelector((state) => {
-    console.log(state)
     return state.dashboard
   })
 
