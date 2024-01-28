@@ -3,6 +3,7 @@ import './style.css';
 import { useLocation } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import * as requestAPI from '../../api/api'
+import { useNavigate } from 'react-router-dom';
 
 const HeaderPay = ({showId}) => {
     const location = useLocation();
@@ -11,6 +12,7 @@ const HeaderPay = ({showId}) => {
     const [currentStep, setCurrentStep] = useState();
     const [car, setCar] = useState({});
     const { id } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         handleGetList();
@@ -46,14 +48,21 @@ const HeaderPay = ({showId}) => {
         }
     }
 
+    const handleBack = async () => {
+        navigate(-1)
+    }
+
     return (
         <div className="header-payment">
             <div className='header-payment-wrapper'>
                 <div className='d-flex align-items-center position-relative'>
-                    <p className='bi bi-arrow-left fs-3'></p>
+                    <p className='bi bi-arrow-left fs-3' style={{cursor: 'pointer'}} onClick={handleBack}></p>
                     <p className='ms-3 fs-5 fw-bold'>{paymentText}</p>
-                        {showId && (
+                        {location.pathname.startsWith('/transfer/') && showId && (
                             <p className='id-header-pay'>Order ID: {car.id}</p>
+                        )}
+                        {location.pathname.startsWith('/eticket/') && showId && (
+                            <p className='id-header-pay'>Order ID: xxxx</p>
                         )}
                 </div>
                     <div className='d-flex gap-2'>
