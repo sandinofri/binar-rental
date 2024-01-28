@@ -1,16 +1,18 @@
 import LargeLogo from "@/modules/Admin/assets/images/large-brand.svg?react"
 import HamburgerIcon from "@/modules/Admin/assets/icons/fi_menu.svg?react"
+import DownIcon from "@/modules/Admin/assets/icons/down.svg?react"
 import './style.scss'
 import { useDispatch } from "react-redux"
 import { toggleSidebarDetail } from "../../redux/features/dashboard/dashboardSlice"
 import { useRef, useState } from "react"
 import Popover from 'react-bootstrap/Popover';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function Navbar() {
   const [openOverlay, setOpenOverlay] = useState(false);
   const target = useRef(null)
+  const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -40,16 +42,17 @@ export default function Navbar() {
       </div>
 
       <div className="right-side">
-        <div className="form-group">
-          <input type="search" />
-          <button className="button" type="button">Search</button>
-        </div>
+        <form className="form-group" action="/admin/cars">
+          <input type="search" placeholder="Search" name="car" defaultValue={searchParams.get('car')} />
+          <button className="button" type="submit">Search</button>
+        </form>
         <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
           <div className="user">
             <div className="user-thumbnail">
               <p>U</p>
             </div>
-            <p>Unis Badri</p>
+            <p style={{ fontSize: '14px' }}>Unis Badri</p>
+            <DownIcon />
           </div>
         </OverlayTrigger>
       </div>

@@ -80,13 +80,11 @@ const SignIn = () => {
                     onChange={handlePasswordChange}
                   />
                 </div>
-                {loading ? (
-                  "loading..."
-                ) : (
-                  <a className="text-center" onClick={handleLogin}>
-                    Sign In
-                  </a>
-                )}
+               
+                  <button className="text-center tombol-login-admin" onClick={handleLogin} disabled={loading} >
+                    {loading ? "loading..." : "Sign In"}
+                  </button>
+                
               </form>
             </div>
           </div>

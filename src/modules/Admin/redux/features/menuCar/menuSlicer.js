@@ -1,23 +1,25 @@
 import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-export const getMenu = createAsyncThunk("menu/listmenu", async () => {
+export const getMenu = createAsyncThunk("menu/listmenu", async ({ carTitle } = { carTitle: null }) => {
+    const params = {}
+    if (carTitle) {
+        params.name = carTitle
+    }
     try {
-        const res = await axios.get('https://api-car-rental.binaracademy.org/customer/v2/car?')
-        console.log(res.data.cars)
+        const res = await axios.get('https://api-car-rental.binaracademy.org/customer/v2/car', { params: params })
         return res.data
     } catch (error) {
         console.log(error)
         // return error.response.data
-
     }
 })
 
 const initialState = {
-    list : [],
+    list: [],
     loading: false,
     error: ""
-        
+
 }
 
 export const menuSlice = createSlice({
