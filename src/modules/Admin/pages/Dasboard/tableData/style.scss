@@ -1,0 +1,33 @@
+$padding: 1rem;
+
+.dashboard {
+    table {
+        border-radius: 10px;
+    }
+
+    th {
+        background: var(--Primary-DarkBlue-01, #CFD4ED);
+        padding: $padding;
+
+        &:first-child {
+            border-radius: 10px 0 0 10px;
+        }
+
+        &:last-child {
+            border-radius: 0 10px 10px 0;
+        }
+
+        .p-column-header-content {
+            justify-content: space-between;
+        }
+    }
+
+    td {
+        padding: $padding;
+    }
+
+    .table-footer {
+        display: flex;
+        gap: 2rem;
+    }
+}
