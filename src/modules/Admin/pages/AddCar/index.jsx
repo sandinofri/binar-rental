@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
 import MainLayout from "../../layouts/MainLayout";
-import Vector from "../../../admin/assets/icons/Vector.png";
 import "./style.scss";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -40,12 +39,8 @@ const AddCar = () => {
       const allowedTypes = ["image/png", "image/jpeg"];
       const maxFileSize = 2 * 1024 * 1024;
 
-      if (
-        allowedTypes.includes(file.type) &&
-        file.size <= maxFileSize
-      ) {
+      if (allowedTypes.includes(file.type) && file.size <= maxFileSize) {
         setImage(file);
-
       } else {
         if (!allowedTypes.includes(file.type)) {
           alert("Invalid file type. Please select a PNG or JPEG file.");
@@ -107,7 +102,10 @@ const AddCar = () => {
   };
   return (
     <MainLayout menu={MENU_LISTS[1]} menuTitle="List Car">
-      <Breadcrumb currentLink="Add New Car" previousLink={['Cars', 'List Car']} />
+      <Breadcrumb
+        currentLink="Add New Car"
+        previousLink={["Cars", "List Car"]}
+      />
       <p className="list-car2 mt-4">Add New Car</p>
 
       {/* form input */}
@@ -169,8 +167,7 @@ const AddCar = () => {
             name="category"
             id=""
             value={category}
-            onChange={handleCategoryChange}
-          >
+            onChange={handleCategoryChange}>
             <option value="" disabled>
               Pilih Kategori Mobil
             </option>
@@ -190,8 +187,7 @@ const AddCar = () => {
               className="button1"
               onClick={() => {
                 navigate("/admin/cars");
-              }}
-            >
+              }}>
               Cancel
             </button>
             <button className="button2" onClick={handleSubmit}>
