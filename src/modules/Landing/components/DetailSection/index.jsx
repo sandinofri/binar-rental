@@ -14,7 +14,7 @@ const DetailSection = () => {
   // const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const navigate = useNavigate();
-  console.log(state);
+  // console.log(state);
 
   useEffect(() => {
     handleGetList();
@@ -51,7 +51,7 @@ const DetailSection = () => {
 
     try {
       const res = await requestAPI.createOrder(payload, config);
-      const orderId = res.data.id
+      const orderId = res.data.id;
       navigate(`/payment/${orderId}`);
       console.log(res.data);
     } catch (error) {

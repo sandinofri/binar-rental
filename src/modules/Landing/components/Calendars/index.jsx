@@ -60,7 +60,7 @@ const Calendars = () => {
   };
 
   const dateToday = new Date();
-  console.log(dateToday);
+  // console.log(dateToday);
 
   // const state = useSelector((state) => state.detail);
   useEffect(() => {
