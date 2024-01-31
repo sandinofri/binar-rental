@@ -1,5 +1,5 @@
 .left {
-  background: url("@/modules/admin/assets/images/login-image.png"),
+  background: url("/src/modules/Admin/assets/images/login-image.png"),
     lightgray 50% / cover no-repeat;
 }
 
