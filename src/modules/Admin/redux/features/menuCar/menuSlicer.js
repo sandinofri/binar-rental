@@ -9,13 +9,8 @@ export const getMenu = createAsyncThunk("menu/listmenu", async ({ carTitle, cate
     if (category) {
         params.category = category
     }
-    try {
-        const res = await axios.get('https://api-car-rental.binaracademy.org/customer/v2/car', { params: params })
-        return res.data
-    } catch (error) {
-        console.log(error)
-        // return error.response.data
-    }
+    const res = await axios.get('https://api-car-rental.binaracademy.org/customer/v2/car', { params: params })
+    return res.data
 })
 
 const initialState = {

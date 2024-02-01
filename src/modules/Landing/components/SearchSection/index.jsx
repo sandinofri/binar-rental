@@ -18,16 +18,13 @@ const SearchSection = () => {
     b: 3,
   });
   const listcarnew = list.slice(slicey.a, slicey.b);
-  // console.log(listcarnew);
 
   const [hide, setHide] = useState(false);
   const { id } = useParams();
 
   const HideElement = () => {
     if (id) {
-      // console.log(id);
       setHide(true);
-      // console.log(hideList);
     }
   };
 
@@ -59,11 +56,9 @@ const SearchSection = () => {
         maxPrice,
         status
       );
-
-      // console.log(res)
       setList(res.data.cars);
     } catch (error) {
-      console.log(error);
+      alert("Terjadi Kesalahan di sisi Server!")
     }
   };
 
@@ -78,7 +73,6 @@ const SearchSection = () => {
   const handlePrice = (e) => {
     const selectedValue = e.target.value;
     setSelected(selectedValue);
-    // console.log(selectedValue);
 
     if (selectedValue === "option1") {
       setMinPrice(0);
@@ -134,13 +128,11 @@ const SearchSection = () => {
   };
 
   const showModal = () => {
-    // console.log("terbuka");
     document.getElementById("myModal").style.display = "block";
     document.getElementById("myModal").style.zIndex = 1000;
   };
 
   const closeModal = () => {
-    // console.log("tertutup");
     document.getElementById("myModal").style.display = "none";
   };
 

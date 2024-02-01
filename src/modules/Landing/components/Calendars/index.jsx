@@ -26,7 +26,6 @@ const Calendars = () => {
   const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const [pickDate, setPickDate] = useState(false);
-  // console.log(pickDate);
 
   const handleReset = () => {
     setPickDate(false);
@@ -45,10 +44,8 @@ const Calendars = () => {
         finish_rent_at: endDate.toLocaleDateString("en-CA", options2),
         day_rent: dayDiff,
       };
-      // console.log(payload);
       dispatch(saveDateRent(payload));
       dispatch(enableButton());
-      // console.log(payload);
     }
   };
 
@@ -60,7 +57,6 @@ const Calendars = () => {
   };
 
   const dateToday = new Date();
-  // console.log(dateToday);
 
   // const state = useSelector((state) => state.detail);
   useEffect(() => {
@@ -72,12 +68,10 @@ const Calendars = () => {
       dispatch(resetDateRent());
       dispatch(disableButton());
     } else if (startDate && endDate) {
-      // console.log(state);
       const diff = endDate.getTime() - startDate.getTime();
       setDayDiff(diff / (1000 * 60 * 60 * 24));
     }
 
-    // console.log(state);  //go to line 27
   }, [dayDiff, startDate, endDate, dateRange]);
 
   return (

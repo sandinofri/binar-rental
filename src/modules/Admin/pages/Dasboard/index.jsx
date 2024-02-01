@@ -14,8 +14,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { param } from "jquery";
-import { Save } from "react-bootstrap-icons";
 import TableData from "./tableData/table";
 
 ChartJS.register(
@@ -49,11 +47,9 @@ function Dashboard() {
             access_token: `${token}`
           }
         })
-      // console.log(response.data)
       setChartData(response)
       return response.data
     } catch (error) {
-      console.log(error)
       alert('Terjadi kesalahan pada server')
     }
   }

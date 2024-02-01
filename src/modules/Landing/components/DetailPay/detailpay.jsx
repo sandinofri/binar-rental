@@ -22,10 +22,9 @@ const DetailPay = () => {
 
         try {
             const res = await requestAPI.customerOrder(id, config)
-            // console.log(res.data.Car)
             setCar(res.data.Car)
         } catch (error) {
-            console.log(error)
+            alert('Terjadi Kesalahan di sisi Server!')
         }
     }
     return (

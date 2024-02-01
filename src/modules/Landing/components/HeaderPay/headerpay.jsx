@@ -41,10 +41,9 @@ const HeaderPay = ({showId}) => {
 
         try {
             const res = await requestAPI.customerOrder(id, config)
-            console.log(res.data)
             setCar(res.data)
         } catch (error) {
-            console.log(error)
+            alert("Terjadi Kesalahan di sisi Server!")
         }
     }
 

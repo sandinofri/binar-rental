@@ -5,7 +5,6 @@ import './style.css';
 const BankSelection = ({ handleBank, selectBankTransfer }) => {
     const bank = useSelector(selectBank);
 
-    console.log(bank)
   return (
     <div className="paymain-left">
       <div>

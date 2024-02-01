@@ -68,7 +68,7 @@ const Edit = () => {
 
       setCar(response.data);
     } catch (error) {
-      console.log("error : ", error);
+      alert("Ada Masalah di sisi server")
     }
   };
 

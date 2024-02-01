@@ -39,7 +39,6 @@ const SignIn = () => {
         "https://api-car-rental.binaracademy.org/admin/auth/login",
         payload
       );
-      console.log(response);
       setLoading(false);
       navigate("/admin");
       localStorage.setItem("token", response.data.access_token);

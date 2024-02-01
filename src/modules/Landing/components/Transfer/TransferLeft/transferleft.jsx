@@ -20,7 +20,6 @@ const TransferLeft = () => {
   const now = moment();
   const deadline = now.add(24, "hours").add(1, "day");
   const formattedDate = deadline.format("dddd, DD MMMM YYYY HH:mm");
-  // console.log(formattedDate);
 
   useEffect(() => {
     handleGetList();
@@ -33,10 +32,9 @@ const TransferLeft = () => {
     };
     try {
       const res = await requestAPI.customerOrder(id, config);
-      console.log(res.data);
       setCar(res.data);
     } catch (error) {
-      console.log(error);
+      alert("Terjadi Kesalahan di sisi Server!")
     }
   };
 

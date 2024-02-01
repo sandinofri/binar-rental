@@ -41,7 +41,6 @@ const SignIn = (props) => {
   }, [state.is_disabled, form.email, form.password]);
 
   const handleChange = (e) => {
-    // console.log(e.target);
     dispatch(enableButton());
     const { name, value } = e.target;
     setForm({
@@ -49,8 +48,6 @@ const SignIn = (props) => {
       [name]: value,
     });
   };
-
-  // console.log(form);
 
   const handleSubmit = async () => {
     dispatch(isLoading());
@@ -81,7 +78,6 @@ const SignIn = (props) => {
       } else if (form.password.length) {
         alert(error.response.data.message);
       }
-      // console.log(err.response);
     }
   };
 

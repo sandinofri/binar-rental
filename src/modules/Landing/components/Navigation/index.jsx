@@ -4,8 +4,6 @@ import { HashLink } from "react-router-hash-link";
 
 const Navigation = () => {
   const token = localStorage.getItem("access_token");
-  //   console.log(token);
-
   const handleLogout = () => {
     localStorage.removeItem("access_token");
   };

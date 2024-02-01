@@ -27,7 +27,6 @@ const TransferRight = () => {
       setShowImage(URL.createObjectURL(e.target.files[0]));
       setIsImageSelected(true);
     }
-    console.log(e.target.files[0]);
   };
 
   const handleUpload = async () => {
@@ -47,9 +46,8 @@ const TransferRight = () => {
       const response = await requestAPI.paymentSlip(id, formData, config);
       navigate(`/eticket/${id}`);
 
-      console.log(response.data);
     } catch (error) {
-      console.error(error);
+      alert("Terjadi Kesalahan di sisi Server!")
     }
   };
 

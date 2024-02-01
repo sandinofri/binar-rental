@@ -10,7 +10,6 @@ export const dashboardSlice = createSlice({
   reducers: {
     toggleSidebarDetail: (state) => {
       state.isSidebarDetailOpen = !state.isSidebarDetailOpen;
-      console.log(state.isSidebarDetailOpen)
     }
   },
 });

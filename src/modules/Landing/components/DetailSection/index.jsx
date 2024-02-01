@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 // import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import fiuser from "../../assets/icon/fi_users.png";
+import { formatToIdr } from "../../../../utils"
 
 const DetailSection = () => {
   const [car, setCar] = useState({});
@@ -14,7 +15,6 @@ const DetailSection = () => {
   // const { is_disabled } = useSelector((state) => state.detail);
   const state = useSelector((state) => state.detail);
   const navigate = useNavigate();
-  // console.log(state);
 
   useEffect(() => {
     handleGetList();
@@ -23,10 +23,9 @@ const DetailSection = () => {
   const handleGetList = async () => {
     try {
       const res = await requestAPI.detailCar(id);
-      // console.log(res.data);
       setCar(res.data);
     } catch (error) {
-      // console.log(error);
+      alert("Terjadi Kesalahan di sisi Server!")
     }
   };
 
@@ -39,7 +38,6 @@ const DetailSection = () => {
       car_id: id,
     };
     const token = localStorage.getItem("access_token");
-    // console.log(token);
     if (!token) {
       alert("Login dulu yuk");
       navigate("/register");
@@ -53,12 +51,10 @@ const DetailSection = () => {
       const res = await requestAPI.createOrder(payload, config);
       const orderId = res.data.id;
       navigate(`/payment/${orderId}`);
-      console.log(res.data);
     } catch (error) {
-      console.log(error);
+      alert("Terjadi Kesalahan di sisi Server!")
     }
   };
-  // console.log(is_disabled);
 
   return (
     <div className="container detail-wrapper">
@@ -163,7 +159,7 @@ const DetailSection = () => {
         </div>
         <div className="detail-price">
           <p>Total</p>
-          <p>{`Rp.${car.price}`}</p>
+          <p>{`${formatToIdr(car.price)}`}</p>
         </div>
         <button
           className={state.is_disabled ? "btnToPayment" : "disabled"}
