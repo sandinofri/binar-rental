@@ -118,15 +118,15 @@ const PayMain = () => {
                                             <p className='fw-bold'>Total</p>
                                             <p className='fs-6 fw-bold'>Rp {car.total_price}</p>
                                         </div>
-                                            <Link
-                                                onClick={handleClick}
-                                                className={`btn-paymain-right${selectBankTransfer ? '' : ' disabled'}`}
-                                                to={selectBankTransfer ? `/transfer/${id}?bank=${selectBankTransfer}` : '#'}
-                                                >
-                                                Bayar
-                                            </Link>
                                 </div>
                             }
+                                    <Link
+                                        onClick={handleClick}
+                                        className={`btn-paymain-right${selectBankTransfer ? '' : ' disabled'}`}
+                                        to={selectBankTransfer ? `/transfer/${id}?bank=${selectBankTransfer}` : '#'}
+                                        >
+                                        Bayar
+                                    </Link>
                         </div>
                     <div>
                         <p className='totalprice-payment'>{`Rp ${car.total_price}`}</p> 
