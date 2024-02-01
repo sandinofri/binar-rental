@@ -62,16 +62,28 @@ const TableData = () => {
     }
 
     const paginationNumberButton = () => {
-        return Array.from({ length: 3 }, (_, index) => {
-            if (options.currentPage + index >= Math.ceil(totalRecords / options.pageSize)) return
-            return <button
-                className='number'
-                key={options.currentPage + index}
-                onClick={() => handlePagination(options.currentPage + index)}
-                disabled={options.currentPage === options.currentPage + index}
-            >{options.currentPage + index}</button>
+        const totalPages = Math.ceil(totalRecords / options.pageSize);
+        const visiblePageRange = 3;
+
+        const startPage = Math.max(1, options.currentPage - Math.floor(visiblePageRange / 2));
+        const endPage = Math.min(startPage + visiblePageRange - 1, totalPages);
+
+        return Array.from({ length: endPage - startPage + 1 }, (_, index) => {
+            const pageNumber = startPage + index;
+            if (pageNumber === totalPages) return
+
+            return (
+                <button
+                    className='number'
+                    key={pageNumber}
+                    onClick={() => handlePagination(pageNumber)}
+                    disabled={options.currentPage === pageNumber}
+                >
+                    {pageNumber}
+                </button>
+            );
         });
-    }
+    };
 
     const handlePagination = async (page) => {
         setOptions({
@@ -113,7 +125,7 @@ const TableData = () => {
                         <PrevIcon />
                     </button>
                     {paginationNumberButton()}
-                    <button>...</button>
+                    {options.currentPage >= Math.ceil(totalRecords / options.pageSize) - 2 ? null : <button>...</button>}
                     <button
                         className='number'
                         disabled={options.currentPage === Math.ceil(totalRecords / options.pageSize)}
