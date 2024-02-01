@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 import * as requestAPI from "../../../api/api";
-import Countdown from "../../Countdown/index.jsx";
+import Countdown from "../../countdown/index.jsx";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -61,9 +61,8 @@ const TransferRight = () => {
 
   return (
     <div
-      className={`transfer-right ${
-        showConfirmation ? "transfer-right-confirm" : ""
-      }`}>
+      className={`transfer-right ${showConfirmation ? "transfer-right-confirm" : ""
+        }`}>
       {!showConfirmation ? (
         <div>
           <p className="text-transfer-right">
