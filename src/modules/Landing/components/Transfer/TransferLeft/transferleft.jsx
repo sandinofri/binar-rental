@@ -2,7 +2,7 @@ import "./style.css";
 import AtmBca from "../AtmBca/atmbca";
 import AtmBni from "../AtmBni/atmbni";
 import AtmMandiri from "../AtmMandiri/atmmandiri";
-import Countdown from "../../Countdown/index.jsx";
+import Countdown from "../../countdown/index.jsx";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import * as requestAPI from "../../..//api/api";
