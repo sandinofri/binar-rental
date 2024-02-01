@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import * as requestAPI from '../../api/api'
 import BankSelection from '../bankSelection/bankselection';
 import { useSelector } from 'react-redux';
+import { formatToIdr } from "@/utils"
 
 const PayMain = () => {
     const [showChevdown, setShowChevdown] = useState(false)
@@ -83,10 +84,10 @@ const PayMain = () => {
                                 <div className='d-flex justify-content-between'>
                                     <ul>
                                         <li className='chevdown-text-left'>
-                                            Sewa Mobil Rp.{cars.price} x {rentDuration} hari
+                                            Sewa Mobil {formatToIdr(cars.price)} x {rentDuration} hari
                                         </li>
                                     </ul>
-                                    <p className='chevdown-text-right-1'>Rp {car.total_price}</p>
+                                    <p className='chevdown-text-right-1'>{formatToIdr(car.total_price)}</p>
                                 </div>
 
                                 <div>
@@ -115,20 +116,20 @@ const PayMain = () => {
                                 <hr />
                                 <div className='d-flex justify-content-between mb-5'>
                                     <p className='fw-bold'>Total</p>
-                                    <p className='fs-6 fw-bold'>Rp {car.total_price}</p>
+                                    <p className='fs-6 fw-bold'>{formatToIdr(car.total_price)}</p>
                                 </div>
-                                <Link
-                                    onClick={handleClick}
-                                    className={`btn-paymain-right${selectBankTransfer ? '' : ' disabled'}`}
-                                    to={selectBankTransfer ? `/transfer/${id}?bank=${selectBankTransfer}` : '#'}
-                                >
-                                    Bayar
-                                </Link>
                             </div>
                         }
+                        <Link
+                            onClick={handleClick}
+                            className={`btn-paymain-right${selectBankTransfer ? '' : ' disabled'}`}
+                            to={selectBankTransfer ? `/transfer/${id}?bank=${selectBankTransfer}` : '#'}
+                        >
+                            Bayar
+                        </Link>
                     </div>
                     <div>
-                        <p className='totalprice-payment'>{`Rp ${car.total_price}`}</p>
+                        <p className='totalprice-payment'>{formatToIdr(car.total_price)}</p>
                     </div>
                 </div>
             </div>
