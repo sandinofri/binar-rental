@@ -54,7 +54,7 @@ const Cars = () => {
   }, [dispatch, activeCategory, searchParams])
 
   useEffect(() => {
-    dispatch(getMenu());
+    dispatch(getMenu({ carTitle: searchParams.get('car') }));
   }, [dispatch, toastDelete]);
   return (
     <>
