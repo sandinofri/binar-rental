@@ -45,6 +45,12 @@
   display: grid;
   grid-template-columns: repeat(3, auto);
   margin-top: 10px;
+
+  .empty-data {
+    font-size: 20px;
+    font-weight: 900;
+    margin: 3rem 0;
+  }
 }
 
 .overlay {

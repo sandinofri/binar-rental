@@ -50,16 +50,12 @@ const Cars = () => {
   }
 
   useEffect(() => {
-    dispatch(getMenu({ category: activeCategory }));
-  }, [activeCategory])
-
-  useEffect(() => {
-    dispatch(getMenu({ carTitle: searchParams.get('car') }));
-  }, []);
+    dispatch(getMenu({ category: activeCategory, carTitle: searchParams.get('car') }));
+  }, [dispatch, activeCategory, searchParams])
 
   useEffect(() => {
     dispatch(getMenu());
-  }, [toastDelete]);
+  }, [dispatch, toastDelete]);
   return (
     <>
       <MainLayout menu={MENU_LISTS[1]} menuTitle="List Car">
@@ -85,6 +81,7 @@ const Cars = () => {
           ))}
         </div>
         <div className="container-post-card">
+          {list.length === 0 && <p className="empty-data">Data Empty</p>}
           {list.map((item, index) => (
             <Car
               car={item}
