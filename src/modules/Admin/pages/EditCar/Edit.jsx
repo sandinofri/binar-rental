@@ -35,11 +35,23 @@ const Edit = () => {
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
-    setCar((data) => ({ ...data, image: file }));
-    setError("");
+    if (file) {
+      const allowedTypes = ["image/png", "image/jpeg"];
+      const maxFileSize = 2 * 1024 * 1024;
 
+      if (allowedTypes.includes(file.type) && file.size <= maxFileSize) {
+        setCar((data) => ({ ...data, image: file }));
+        setIsDisable(false)
+      } else {
+        if (!allowedTypes.includes(file.type)) {
+          alert("Invalid file type. Please select a PNG or JPEG file.");
+        } else {
+          alert("file too large");
+        }
+      }
+    }
+    setError("");
     setEmty("")
-    setIsDisable(false)
   };
 
   const handleCategoryChange = (e) => {
@@ -102,13 +114,14 @@ const Edit = () => {
       setNotif("Data Berhasil Di Update");
       setTimeout(() => {
         setNotif("");
-      }, 5000);
+        window.location.reload();
+      }, 3000);
       navigate("/admin/cars");
     } catch (error) {
       setError("sepertinya ada kesalahan di server kami");
       setTimeout(() => {
         setError("");
-      }, 5000);
+      }, 3000);
       setIsLoading(false);
     }
   };

@@ -2,7 +2,9 @@ import axios from "axios";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 export const getMenu = createAsyncThunk("menu/listmenu", async ({ carTitle, category } = { carTitle: null, category: null }) => {
-    const params = {}
+    const params = {
+        pageSize: 100000
+    }
     if (carTitle) {
         params.name = carTitle
     }

@@ -90,13 +90,14 @@ const AddCar = () => {
       setNotif("Data Berhasil Disimpan");
       setTimeout(() => {
         setNotif("");
-      }, 5000);
+        window.location.reload();
+      }, 3000);
       navigate("/admin/cars");
     } catch (error) {
       setError("Sepertinya Ada Kesalahan Di Server Kami");
       setTimeout(() => {
         setError("");
-      }, 5000);
+      }, 3000);
       setLoading(false);
     }
   };
