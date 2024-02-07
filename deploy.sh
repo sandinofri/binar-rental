@@ -1,5 +1,5 @@
 echo " switching branch to master "
-git chekcout master
+git checkout master
 
 echo "Building App . . . "
 npm run build
