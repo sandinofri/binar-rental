@@ -47,7 +47,7 @@ const TransferRight = () => {
       navigate(`/eticket/${id}`);
 
     } catch (error) {
-      alert("Terjadi Kesalahan di sisi Server!")
+      // alert("Terjadi Kesalahan di sisi Server!")
     }
   };
 
