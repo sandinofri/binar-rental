@@ -5,7 +5,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:"/binar-rental/",
+  base:"/23001028_14_GROUP3_Binar-Car-Rental_Platinum/",
   plugins: [react(), svgr()],
   resolve: {
     alias: {
